@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Audio Lab Archive</title>
+    <style>
+      :root {
+        --bg: #f8f7f3; --panel: rgba(255,255,255,.9); --text: #111; --muted: #625d56;
+        --line: rgba(17,17,17,.12); --shadow: 0 16px 40px rgba(17,17,17,.06);
+        --serif: "Iowan Old Style", "Source Han Serif SC", "Songti SC", serif;
+        --sans: "Inter", "Helvetica Neue", "PingFang SC", "Noto Sans SC", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: linear-gradient(180deg, #fbfaf7 0%, #f3efe7 100%); color: var(--text); font-family: var(--sans); }
+      main { width: min(1160px, calc(100vw - 28px)); margin: 0 auto; padding: 28px 0 72px; }
+      .topbar, .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+      .hero, .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); padding: 18px; }
+      .hero { margin-bottom: 18px; }
+      .kicker { font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+      h1 { margin: 10px 0 8px; font-family: var(--serif); font-size: clamp(2.1rem, 5vw, 4.2rem); line-height: .95; letter-spacing: -.04em; }
+      p { color: var(--muted); line-height: 1.65; }
+      .button, input, select {
+        appearance: none; border: 1px solid var(--line); background: #fff; color: var(--text); font: inherit;
+        border-radius: 999px; min-height: 42px; padding: 0 14px; text-decoration: none;
+      }
+      input { width: min(360px, 100%); }
+      .grid { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 12px; margin-top: 16px; }
+      .entry { border: 1px solid rgba(17,17,17,.08); border-radius: 20px; overflow: hidden; background: #fff; box-shadow: 0 12px 28px rgba(17,17,17,.05); }
+      .cover { aspect-ratio: 1 / 1; background: linear-gradient(135deg, #ede4d5, #d4c6b4); }
+      .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .body { padding: 12px; }
+      .title { font-weight: 700; line-height: 1.35; margin-bottom: 6px; }
+      .meta { color: var(--muted); font-size: .9rem; line-height: 1.55; }
+      @media (max-width: 980px) { .grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+      @media (max-width: 760px) { main { width: min(100vw - 18px, 100%); padding-top: 18px; } .grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+      @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="topbar">
+          <div>
+            <div class="kicker">Audio Lab Archive</div>
+            <h1>封面墙</h1>
+            <p>公共版档案页，直接从当前曲库快照中筛选浏览。</p>
+          </div>
+          <a class="button" href="./index.html">返回首页</a>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="toolbar">
+          <input id="search" type="search" placeholder="搜索 artist / album / tag" />
+          <select id="classification">
+            <option value="">全部分类</option>
+            <option value="high-score">High Score</option>
+            <option value="solid">Solid</option>
+            <option value="low-score-good-chance">Low Score, Good Chance</option>
+            <option value="underexposed">Underexposed</option>
+            <option value="mixed">Mixed</option>
+          </select>
+        </div>
+        <div class="grid" id="grid"></div>
+      </section>
+    </main>
+    <script>
+      let entries = [];
+      function render() {
+        const q = document.getElementById("search").value.trim().toLowerCase();
+        const classification = document.getElementById("classification").value;
+        const filtered = entries.filter((entry) => {
+          const hay = [
+            entry.artist || "",
+            entry.album || "",
+            ...(entry.scene_tags || []),
+            ...((((entry.artist_context || {}).listener_context || {}).tags || [])),
+          ].join(" ").toLowerCase();
+          if (q && !hay.includes(q)) return false;
+          if (classification && ((entry.classification || {}).key || "") !== classification) return false;
+          return true;
+        });
+        document.getElementById("grid").innerHTML = filtered.slice(0, 120).map((entry) => `
+          <article class="entry">
+            <div class="cover">${entry.cover_url ? `<img src="${entry.cover_url}" alt="${entry.album || "cover"}" loading="lazy" />` : ""}</div>
+            <div class="body">
+              <div class="title">${entry.artist || "Unknown"} / ${entry.album || "Untitled"}</div>
+              <div class="meta">${entry.classification?.title || "-"} · ${entry.era_tag || entry.year || "undated"} · 站内分 ${Number(entry.site_score?.score_0_to_10 || 0).toFixed(1)}/10</div>
+            </div>
+          </article>
+        `).join("");
+      }
+      async function boot() {
+        const payload = await fetch("./outputs/audio-lab-live/current/catalog_entries.json", { cache: "no-store" }).then((r) => r.json());
+        entries = payload.entries || [];
+        render();
+        document.getElementById("search").addEventListener("input", render);
+        document.getElementById("classification").addEventListener("change", render);
+      }
+      boot();
+    </script>
+  </body>
+</html>

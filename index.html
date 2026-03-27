@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Audio Lab Public Archive</title>
+    <style>
+      :root {
+        --bg: #f7f4ee;
+        --panel: rgba(255,255,255,0.9);
+        --text: #111;
+        --muted: #68625a;
+        --line: rgba(17,17,17,0.1);
+        --shadow: 0 18px 42px rgba(17,17,17,0.06);
+        --serif: "Iowan Old Style", "Source Han Serif SC", "Songti SC", serif;
+        --sans: "Inter", "Helvetica Neue", "PingFang SC", "Noto Sans SC", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #fbfaf7 0%, #f2ede5 100%);
+        color: var(--text);
+        font-family: var(--sans);
+      }
+      main { width: min(1160px, calc(100vw - 28px)); margin: 0 auto; padding: 28px 0 64px; }
+      .topbar, .stats, .grid { display: grid; gap: 14px; }
+      .topbar { grid-template-columns: 1fr auto; align-items: center; margin-bottom: 20px; }
+      .kicker { font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+      h1 { margin: 8px 0 10px; font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5.2rem); line-height: .92; letter-spacing: -.04em; }
+      p { color: var(--muted); line-height: 1.7; margin: 0; }
+      .nav { display: flex; flex-wrap: wrap; gap: 10px; }
+      .button {
+        display: inline-flex; align-items: center; justify-content: center; min-height: 42px;
+        padding: 0 14px; border-radius: 999px; background: rgba(17,17,17,0.05); color: var(--text);
+        text-decoration: none; border: 1px solid var(--line);
+      }
+      .hero, .card {
+        background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow);
+      }
+      .hero { padding: 24px; margin-bottom: 18px; }
+      .stats { grid-template-columns: repeat(4, minmax(0,1fr)); margin: 18px 0 24px; }
+      .stat { padding: 14px 16px; border-radius: 18px; background: rgba(17,17,17,0.04); }
+      .stat strong { display: block; font-size: 1.08rem; margin-bottom: 4px; }
+      .grid { grid-template-columns: repeat(6, minmax(0,1fr)); }
+      .entry {
+        overflow: hidden; border-radius: 20px; background: #fff; border: 1px solid rgba(17,17,17,0.08);
+        box-shadow: 0 12px 28px rgba(17,17,17,0.05);
+      }
+      .cover { aspect-ratio: 1 / 1; background: linear-gradient(135deg, #ece2d3, #d2c4b4); }
+      .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .entry-body { padding: 12px; }
+      .entry-title { font-weight: 700; line-height: 1.35; margin-bottom: 6px; }
+      .entry-meta { color: var(--muted); font-size: .9rem; line-height: 1.55; }
+      .section-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin: 18px 0 12px; }
+      .section-head h2 { margin: 0; font-size: 1.1rem; }
+      @media (max-width: 1080px) { .grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+      @media (max-width: 760px) {
+        main { width: min(100vw - 18px, 100%); padding-top: 18px; }
+        .topbar, .stats { grid-template-columns: 1fr; }
+        .grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        h1 { font-size: clamp(2rem, 10vw, 3.4rem); }
+      }
+      @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <div>
+          <div class="kicker">Audio Lab Public Archive</div>
+          <h1>独立、实验、电子与低关注发现。</h1>
+          <p>这是 Audio Lab 的公共宣传版：首页直接展示当前档案快照、评分和封面墙，不依赖临时隧道。</p>
+        </div>
+        <nav class="nav">
+          <a class="button" href="./archive.html">进入封面墙</a>
+          <a class="button" href="https://github.com/pijiuya/audio-lab-public-site" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="kicker">Current Snapshot</div>
+        <div class="stats" id="stats"></div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <div>
+            <div class="kicker">Featured Shelf</div>
+            <h2>当前档案中的精选作品</h2>
+          </div>
+          <a class="button" href="./archive.html">查看全部</a>
+        </div>
+        <div class="grid" id="grid"></div>
+      </section>
+    </main>
+
+    <script>
+      async function boot() {
+        const [entriesPayload, rollup] = await Promise.all([
+          fetch("./outputs/audio-lab-live/current/catalog_entries.json", { cache: "no-store" }).then((r) => r.json()),
+          fetch("./outputs/audio-lab-live/current/catalog_rollup_status.json", { cache: "no-store" }).then((r) => r.json()).catch(() => ({})),
+        ]);
+        const entries = (entriesPayload.entries || []).slice(0, 18);
+        const stats = [
+          ["Entries", entriesPayload.built_count || (entriesPayload.entries || []).length || 0],
+          ["Candidates", rollup.candidate_count || "-"],
+          ["Seeds", rollup.seed_count || "-"],
+          ["Social", ((entriesPayload.entries || []).filter((entry) => (entry.seed_sources || []).includes("social-experimental-discovery")).length)],
+        ];
+        document.getElementById("stats").innerHTML = stats.map(([label, value]) => `<div class="stat"><strong>${value}</strong><span>${label}</span></div>`).join("");
+        document.getElementById("grid").innerHTML = entries.map((entry) => `
+          <article class="entry">
+            <div class="cover">${entry.cover_url ? `<img src="${entry.cover_url}" alt="${entry.album || "cover"}" loading="lazy" />` : ""}</div>
+            <div class="entry-body">
+              <div class="entry-title">${entry.artist || "Unknown"} / ${entry.album || "Untitled"}</div>
+              <div class="entry-meta">${entry.classification?.title || "-"} · 站内分 ${Number(entry.site_score?.score_0_to_10 || 0).toFixed(1)}/10</div>
+            </div>
+          </article>
+        `).join("");
+      }
+      boot();
+    </script>
+  </body>
+</html>
