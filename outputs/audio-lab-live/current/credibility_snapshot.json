@@ -1,0 +1,784 @@
+{
+  "generated_at": "2026-03-26T05:51:10+00:00",
+  "query": {
+    "artist": "Autechre",
+    "album": "Tri Repetae"
+  },
+  "model_notes": {
+    "weights": {
+      "professional": 0.5,
+      "community": 0.25,
+      "fan": 0.25
+    },
+    "approach": "Professional, community, and fan evidence are weighted separately so one loud audience does not overwhelm the whole verdict."
+  },
+  "domain_profile": {
+    "name": "independent-electronic-obscure-archive",
+    "editorial_focus": [
+      "independent musicians",
+      "electronic music",
+      "obscure and niche releases",
+      "sound artists",
+      "experimental hybrids including electronic rock and related crossover forms"
+    ],
+    "historical_scope": {
+      "start_decade": 1970,
+      "notes": [
+        "Treat the 1970s onward as first-class coverage, especially for post-industrial, synth, ambient, minimal, experimental, and underground dance lineages.",
+        "Do not bias the scoring system toward only recent mainstream reception."
+      ]
+    },
+    "priority_genres": [
+      "ambient",
+      "experimental electronic",
+      "IDM",
+      "industrial",
+      "post-industrial",
+      "synth",
+      "minimal wave",
+      "noise",
+      "drone",
+      "electroacoustic",
+      "sound art",
+      "glitch",
+      "post-rock electronics",
+      "electronic rock",
+      "electronicore",
+      "shoegaze electronics",
+      "leftfield techno",
+      "dub techno",
+      "breakcore",
+      "field recording"
+    ],
+    "priority_publications": {
+      "tier_a": [
+        "The Quietus",
+        "Resident Advisor",
+        "Pitchfork",
+        "Boomkat",
+        "The Wire"
+      ],
+      "tier_b": [
+        "Tiny Mix Tapes",
+        "NTS",
+        "Bandcamp Daily",
+        "Clash",
+        "The Skinny",
+        "Foxy Digitalis"
+      ],
+      "notes": [
+        "Favor specialist outlets with durable underground or experimental coverage.",
+        "Mainstream sources still matter, but should not erase niche-scene expertise."
+      ]
+    }
+  },
+  "source_registry": {
+    "default_weight": 1.0,
+    "families": {
+      "professional": {
+        "credibility_weight": 0.5,
+        "description": "Editorial and critic evidence."
+      },
+      "community": {
+        "credibility_weight": 0.25,
+        "description": "Community metadata and ratings."
+      },
+      "fan": {
+        "credibility_weight": 0.25,
+        "description": "Listener traction and fan-signal evidence."
+      }
+    },
+    "source_count": 11,
+    "sources": [
+      {
+        "id": "the-quietus",
+        "name": "The Quietus",
+        "family": "professional",
+        "tier": "tier_a",
+        "default_weight": 1.25,
+        "formats": [
+          "generic_csv",
+          "generic_json",
+          "bundle_json"
+        ],
+        "scope": [
+          "independent",
+          "experimental",
+          "electronic",
+          "underground"
+        ],
+        "allowed_tags": [
+          "independent",
+          "experimental",
+          "electronic",
+          "post-industrial",
+          "sound-art"
+        ],
+        "notes": "Strong long-form coverage for underground, post-industrial, electronic, and art-adjacent work."
+      },
+      {
+        "id": "resident-advisor",
+        "name": "Resident Advisor",
+        "family": "professional",
+        "tier": "tier_a",
+        "default_weight": 1.25,
+        "formats": [
+          "generic_csv",
+          "generic_json",
+          "bundle_json"
+        ],
+        "scope": [
+          "electronic",
+          "club",
+          "techno",
+          "underground"
+        ],
+        "allowed_tags": [
+          "electronic",
+          "leftfield",
+          "dub-techno",
+          "idm"
+        ],
+        "notes": "High-value specialist source for electronic and club music."
+      },
+      {
+        "id": "boomkat",
+        "name": "Boomkat",
+        "family": "professional",
+        "tier": "tier_a",
+        "default_weight": 1.25,
+        "formats": [
+          "generic_csv",
+          "generic_json",
+          "bundle_json"
+        ],
+        "scope": [
+          "electronic",
+          "experimental",
+          "sound-art",
+          "obscure"
+        ],
+        "allowed_tags": [
+          "electronic",
+          "experimental",
+          "ambient",
+          "drone",
+          "sound-art"
+        ],
+        "notes": "Important niche source for experimental electronic and sound art."
+      },
+      {
+        "id": "the-wire",
+        "name": "The Wire",
+        "family": "professional",
+        "tier": "tier_a",
+        "default_weight": 1.25,
+        "formats": [
+          "generic_csv",
+          "generic_json",
+          "bundle_json"
+        ],
+        "scope": [
+          "experimental",
+          "sound-art",
+          "avant-garde",
+          "improvised"
+        ],
+        "allowed_tags": [
+          "experimental",
+          "sound-art",
+          "electroacoustic",
+          "drone"
+        ],
+        "notes": "Historic specialist coverage for avant-garde and sound-art scenes."
+      },
+      {
+        "id": "pitchfork",
+        "name": "Pitchfork",
+        "family": "professional",
+        "tier": "tier_a",
+        "default_weight": 1.15,
+        "formats": [
+          "generic_csv",
+          "generic_json",
+          "bundle_json"
+        ],
+        "scope": [
+          "independent",
+          "electronic",
+          "alternative"
+        ],
+        "allowed_tags": [
+          "independent",
+          "electronic",
+          "electronic-rock"
+        ],
+        "notes": "Broad but still useful for independent and crossover coverage."
+      },
+      {
+        "id": "bandcamp-daily",
+        "name": "Bandcamp Daily",
+        "family": "professional",
+        "tier": "tier_b",
+        "default_weight": 1.15,
+        "formats": [
+          "generic_csv",
+          "generic_json",
+          "bundle_json"
+        ],
+        "scope": [
+          "independent",
+          "obscure",
+          "electronic",
+          "DIY"
+        ],
+        "allowed_tags": [
+          "independent",
+          "obscure",
+          "electronic",
+          "ambient"
+        ],
+        "notes": "Useful scene-sensitive source for current independent work."
+      },
+      {
+        "id": "tiny-mix-tapes",
+        "name": "Tiny Mix Tapes",
+        "family": "professional",
+        "tier": "tier_b",
+        "default_weight": 1.1,
+        "formats": [
+          "generic_csv",
+          "generic_json",
+          "bundle_json"
+        ],
+        "scope": [
+          "independent",
+          "experimental",
+          "obscure"
+        ],
+        "allowed_tags": [
+          "independent",
+          "experimental",
+          "obscure"
+        ],
+        "notes": "Useful specialist source for adventurous coverage."
+      },
+      {
+        "id": "nts",
+        "name": "NTS",
+        "family": "professional",
+        "tier": "tier_b",
+        "default_weight": 1.1,
+        "formats": [
+          "generic_csv",
+          "generic_json",
+          "bundle_json"
+        ],
+        "scope": [
+          "electronic",
+          "underground",
+          "DJ-culture"
+        ],
+        "allowed_tags": [
+          "electronic",
+          "underground",
+          "leftfield"
+        ],
+        "notes": "Good contextual source around underground electronic culture."
+      },
+      {
+        "id": "foxy-digitalis",
+        "name": "Foxy Digitalis",
+        "family": "professional",
+        "tier": "tier_b",
+        "default_weight": 1.1,
+        "formats": [
+          "generic_csv",
+          "generic_json",
+          "bundle_json"
+        ],
+        "scope": [
+          "ambient",
+          "drone",
+          "experimental",
+          "sound-art"
+        ],
+        "allowed_tags": [
+          "ambient",
+          "drone",
+          "sound-art",
+          "electroacoustic"
+        ],
+        "notes": "Niche source that aligns well with ambient and drone coverage."
+      },
+      {
+        "id": "lastfm-import",
+        "name": "Last.fm Import",
+        "family": "fan",
+        "tier": "tier_a",
+        "default_weight": 1.0,
+        "formats": [
+          "lastfm_export",
+          "fan_bundle_json"
+        ],
+        "scope": [
+          "listeners",
+          "playcount",
+          "tags"
+        ],
+        "allowed_tags": [
+          "fan",
+          "electronic",
+          "independent"
+        ],
+        "notes": "Structured fan signal import from Last.fm style data."
+      },
+      {
+        "id": "bandcamp-import",
+        "name": "Bandcamp Import",
+        "family": "fan",
+        "tier": "tier_b",
+        "default_weight": 1.0,
+        "formats": [
+          "bandcamp_export",
+          "fan_bundle_json"
+        ],
+        "scope": [
+          "supporters",
+          "wishlist",
+          "community-notes"
+        ],
+        "allowed_tags": [
+          "fan",
+          "independent",
+          "obscure",
+          "electronic"
+        ],
+        "notes": "Structured fan and supporter signal import from Bandcamp style data."
+      }
+    ]
+  },
+  "scene_taxonomy": {
+    "name": "music-scene-taxonomy",
+    "scene_tags": [
+      "independent",
+      "underground",
+      "experimental",
+      "electronic",
+      "sound-art",
+      "ambient",
+      "industrial",
+      "post-industrial",
+      "leftfield",
+      "noise",
+      "drone",
+      "electroacoustic",
+      "idm",
+      "minimal-wave",
+      "dub-techno",
+      "breakcore",
+      "post-rock-electronics",
+      "electronic-rock",
+      "electronicore",
+      "shoegaze-electronics"
+    ],
+    "era_tags": [
+      "1970s",
+      "1980s",
+      "1990s",
+      "2000s",
+      "2010s",
+      "2020s"
+    ],
+    "format_tags": [
+      "album",
+      "single",
+      "ep",
+      "compilation",
+      "live-document",
+      "sound-installation",
+      "field-recording",
+      "mixed-media"
+    ],
+    "taxonomy_rules": [
+      "Use the earliest relevant era tag first when a release matters historically.",
+      "Prefer scene tags over generic genre tags when the release is niche or hybrid.",
+      "Allow multiple tags for hybrid work, but avoid over-tagging the same release.",
+      "Keep sound-art and electroacoustic work visible instead of forcing it into pop genre labels."
+    ]
+  },
+  "overall": {
+    "credibility_score_0_to_100": 75.3,
+    "coverage_0_to_1": 1.0,
+    "judgment": "Positive cross-source signal with enough agreement to treat as credible."
+  },
+  "families": [
+    {
+      "family": "professional",
+      "weight": 0.5,
+      "score_0_to_100": 84.8,
+      "confidence_0_to_1": 0.69,
+      "summary": "Aggregated from 1 source(s) in the professional family.",
+      "source_count": 1,
+      "source_ids": [
+        "professional"
+      ]
+    },
+    {
+      "family": "community",
+      "weight": 0.25,
+      "score_0_to_100": 84.3,
+      "confidence_0_to_1": 0.63,
+      "summary": "Aggregated from 1 source(s) in the community family.",
+      "source_count": 1,
+      "source_ids": [
+        "musicbrainz"
+      ]
+    },
+    {
+      "family": "fan",
+      "weight": 0.25,
+      "score_0_to_100": 47.5,
+      "confidence_0_to_1": 0.51,
+      "summary": "Aggregated from 1 source(s) in the fan family.",
+      "source_count": 1,
+      "source_ids": [
+        "fan-bundle"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "source": "professional",
+      "matched": true,
+      "signals": {
+        "generated_at": "2026-03-26T05:51:06+00:00",
+        "artist": "Autechre",
+        "album": "Tri Repetae",
+        "score_0_to_100": 84.8,
+        "confidence_0_to_1": 0.69,
+        "summary": "Weighted professional review bundle across 4 source(s).",
+        "source_count": 4,
+        "sources": [
+          "The Quietus",
+          "Resident Advisor",
+          "The Wire",
+          "Bandcamp Daily"
+        ],
+        "source_kinds": {
+          "quietus_export": 1,
+          "resident_advisor_export": 1,
+          "the_wire_export": 1,
+          "bandcamp_daily_export": 1
+        },
+        "scene_tag_counts": {
+          "independent": 2,
+          "experimental": 2,
+          "electronic": 3,
+          "post-industrial": 1,
+          "sound-art": 2,
+          "leftfield": 1,
+          "dub-techno": 1,
+          "idm": 1,
+          "electroacoustic": 1,
+          "drone": 1,
+          "obscure": 1,
+          "ambient": 1
+        },
+        "domain_profile": {
+          "name": "independent-electronic-obscure-archive",
+          "editorial_focus": [
+            "independent musicians",
+            "electronic music",
+            "obscure and niche releases",
+            "sound artists",
+            "experimental hybrids including electronic rock and related crossover forms"
+          ],
+          "historical_scope": {
+            "start_decade": 1970,
+            "notes": [
+              "Treat the 1970s onward as first-class coverage, especially for post-industrial, synth, ambient, minimal, experimental, and underground dance lineages.",
+              "Do not bias the scoring system toward only recent mainstream reception."
+            ]
+          },
+          "priority_genres": [
+            "ambient",
+            "experimental electronic",
+            "IDM",
+            "industrial",
+            "post-industrial",
+            "synth",
+            "minimal wave",
+            "noise",
+            "drone",
+            "electroacoustic",
+            "sound art",
+            "glitch",
+            "post-rock electronics",
+            "electronic rock",
+            "electronicore",
+            "shoegaze electronics",
+            "leftfield techno",
+            "dub techno",
+            "breakcore",
+            "field recording"
+          ]
+        },
+        "source_registry": {
+          "default_weight": 1.0,
+          "source_count": 11
+        },
+        "scene_taxonomy": {
+          "name": "music-scene-taxonomy",
+          "scene_tags": [
+            "independent",
+            "underground",
+            "experimental",
+            "electronic",
+            "sound-art",
+            "ambient",
+            "industrial",
+            "post-industrial",
+            "leftfield",
+            "noise",
+            "drone",
+            "electroacoustic",
+            "idm",
+            "minimal-wave",
+            "dub-techno",
+            "breakcore",
+            "post-rock-electronics",
+            "electronic-rock",
+            "electronicore",
+            "shoegaze-electronics"
+          ],
+          "era_tags": [
+            "1970s",
+            "1980s",
+            "1990s",
+            "2000s",
+            "2010s",
+            "2020s"
+          ],
+          "format_tags": [
+            "album",
+            "single",
+            "ep",
+            "compilation",
+            "live-document",
+            "sound-installation",
+            "field-recording",
+            "mixed-media"
+          ],
+          "taxonomy_rules": [
+            "Use the earliest relevant era tag first when a release matters historically.",
+            "Prefer scene tags over generic genre tags when the release is niche or hybrid.",
+            "Allow multiple tags for hybrid work, but avoid over-tagging the same release.",
+            "Keep sound-art and electroacoustic work visible instead of forcing it into pop genre labels."
+          ]
+        },
+        "reviews": [
+          {
+            "source": "The Quietus",
+            "score_raw": 85.0,
+            "scale_max": 100.0,
+            "score_0_to_100": 85.0,
+            "weight": 1.25,
+            "url": "https://example.com/quietus-electronic-review",
+            "author": "Example Quietus Critic",
+            "date": "2024-02-11",
+            "excerpt": "Dense textures and underground lineage held in tense balance.",
+            "notes": "Strong long-form coverage for underground, post-industrial, electronic, and art-adjacent work.",
+            "scene_tags": [
+              "independent",
+              "experimental",
+              "electronic",
+              "post-industrial",
+              "sound-art"
+            ],
+            "origin_format": "quietus_export"
+          },
+          {
+            "source": "Resident Advisor",
+            "score_raw": 4.2,
+            "scale_max": 5.0,
+            "score_0_to_100": 84.0,
+            "weight": 1.25,
+            "url": "https://example.com/ra-review",
+            "author": "Example RA Reviewer",
+            "date": "2024-02-14",
+            "excerpt": "A release that ties experimental studio work to dancefloor logic.",
+            "notes": "High-value specialist source for electronic and club music.",
+            "scene_tags": [
+              "electronic",
+              "leftfield",
+              "dub-techno",
+              "idm"
+            ],
+            "origin_format": "resident_advisor_export"
+          },
+          {
+            "source": "The Wire",
+            "score_raw": 88.0,
+            "scale_max": 100.0,
+            "score_0_to_100": 88.0,
+            "weight": 1.25,
+            "url": "https://example.com/the-wire-review",
+            "author": "Example Wire Critic",
+            "date": "2024-02-20",
+            "excerpt": "Sound-art framing and long-horizon listening reward repeat attention.",
+            "notes": "Historic specialist coverage for avant-garde and sound-art scenes.",
+            "scene_tags": [
+              "experimental",
+              "sound-art",
+              "electroacoustic",
+              "drone"
+            ],
+            "origin_format": "the_wire_export"
+          },
+          {
+            "source": "Bandcamp Daily",
+            "score_raw": 82.0,
+            "scale_max": 100.0,
+            "score_0_to_100": 82.0,
+            "weight": 1.15,
+            "url": "https://example.com/bandcamp-daily-review",
+            "author": "Example Bandcamp Daily Writer",
+            "date": "2024-02-18",
+            "excerpt": "A useful read on how the release sits inside current DIY and niche electronic scenes.",
+            "notes": "Useful scene-sensitive source for current independent work.",
+            "scene_tags": [
+              "independent",
+              "obscure",
+              "electronic",
+              "ambient"
+            ],
+            "origin_format": "bandcamp_daily_export"
+          }
+        ]
+      },
+      "family": {
+        "name": "professional",
+        "score_0_to_100": 84.8,
+        "confidence_0_to_1": 0.69,
+        "summary": "Weighted professional review bundle across 4 source(s)."
+      }
+    },
+    {
+      "source": "musicbrainz",
+      "matched": true,
+      "match": {
+        "mbid": "8b3d1836-e3cd-35eb-a8cd-d03d56bcc6f8",
+        "title": "Tri Repetae",
+        "primary_type": "Album",
+        "first_release_date": "1995-11-06"
+      },
+      "signals": {
+        "rating_value_0_to_5": 4.4,
+        "rating_votes": 14,
+        "genres": [
+          "ambient techno",
+          "electronic",
+          "experimental",
+          "idm"
+        ],
+        "tags": [
+          "abstract",
+          "ambient techno",
+          "electronic",
+          "experimental",
+          "idm"
+        ]
+      },
+      "family": {
+        "name": "community",
+        "score_0_to_100": 84.3,
+        "confidence_0_to_1": 0.63,
+        "summary": "Community metadata and ratings from MusicBrainz."
+      }
+    },
+    {
+      "source": "fan-bundle",
+      "matched": true,
+      "signals": {
+        "generated_at": "2026-03-26T05:51:06+00:00",
+        "artist": "Autechre",
+        "album": "Tri Repetae",
+        "score_0_to_100": 47.5,
+        "confidence_0_to_1": 0.51,
+        "summary": "Weighted fan signal bundle across 2 source(s).",
+        "source_count": 2,
+        "source_kinds": {
+          "fan_generic_json": 2
+        },
+        "scene_tag_counts": {
+          "fan": 2,
+          "electronic": 2,
+          "independent": 2,
+          "obscure": 1
+        },
+        "signals": [
+          {
+            "source": "Last.fm Import",
+            "score_0_to_100": 69.3,
+            "listeners": 185000,
+            "playcount": 2350000,
+            "supporters": 0,
+            "wishlist_count": 0,
+            "tags": [
+              "alternative",
+              "electronic",
+              "art rock"
+            ],
+            "scene_tags": [
+              "fan",
+              "electronic",
+              "independent"
+            ],
+            "notes": "Structured fan signal import from Last.fm style data.",
+            "origin_format": "fan_generic_json",
+            "weight": 1.0
+          },
+          {
+            "source": "Bandcamp Import",
+            "score_0_to_100": 25.6,
+            "listeners": 0,
+            "playcount": 0,
+            "supporters": 4200,
+            "wishlist_count": 8700,
+            "tags": [
+              "independent",
+              "electronic",
+              "ambient"
+            ],
+            "scene_tags": [
+              "fan",
+              "independent",
+              "obscure",
+              "electronic"
+            ],
+            "notes": "Structured fan and supporter signal import from Bandcamp style data.",
+            "origin_format": "fan_generic_json",
+            "weight": 1.0
+          }
+        ],
+        "source_registry": {
+          "default_weight": 1.0,
+          "source_count": 11
+        }
+      },
+      "family": {
+        "name": "fan",
+        "score_0_to_100": 47.5,
+        "confidence_0_to_1": 0.51,
+        "summary": "Weighted fan signal bundle across 2 source(s)."
+      }
+    },
+    {
+      "source": "lastfm",
+      "matched": false,
+      "skipped": true,
+      "reason": "LASTFM_API_KEY is not configured."
+    }
+  ]
+}

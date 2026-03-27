@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Audio Lab Entry</title>
+    <style>
+      :root {
+        --bg: #f8f7f3;
+        --panel: rgba(255, 255, 255, 0.9);
+        --text: #111111;
+        --muted: #635d57;
+        --line: rgba(17, 17, 17, 0.12);
+        --shadow: 0 16px 40px rgba(17, 17, 17, 0.06);
+        --radius: 22px;
+        --sans: "Inter", "Helvetica Neue", "PingFang SC", "Noto Sans SC", sans-serif;
+        --serif: "Iowan Old Style", "Source Han Serif SC", "Songti SC", "Georgia", serif;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #fbfaf7 0%, #f3efe7 100%);
+        color: var(--text);
+        font-family: var(--sans);
+      }
+      main { width: min(1120px, calc(100vw - 28px)); margin: 0 auto; padding: 28px 0 72px; }
+      .topbar, .actions, .lang-toggle { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+      .topbar { justify-content: space-between; margin-bottom: 22px; }
+      .nav-link, button {
+        appearance: none; border: none; cursor: pointer; text-decoration: none;
+        background: rgba(17,17,17,0.05); color: var(--text); border-radius: 999px; padding: 10px 14px; font: inherit;
+      }
+      .lang-toggle button.is-active { background: #111; color: #fff; }
+      .card {
+        background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+        box-shadow: var(--shadow); padding: 18px;
+      }
+      .hero { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: 18px; margin-bottom: 16px; }
+      .cover {
+        aspect-ratio: 1 / 1; border-radius: 22px; overflow: hidden; background: linear-gradient(135deg, #ece2d3, #d3c6b4);
+      }
+      .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .fallback { height: 100%; display: grid; align-content: end; padding: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(0,0,0,0.1)); }
+      .kicker, .section-title { font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+      h1 {
+        margin: 10px 0 10px; font-family: var(--serif);
+        font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: 0.94; letter-spacing: -0.04em;
+      }
+      p { color: var(--muted); line-height: 1.7; }
+      .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+      .pill { display: inline-flex; padding: 8px 12px; border-radius: 999px; background: rgba(17,17,17,0.05); color: var(--muted); font-size: 0.82rem; }
+      .score-grid, .detail-grid, .album-grid, .similar-grid, .listen-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .score-card, .detail-card {
+        padding: 14px; border-radius: 18px; background: rgba(17,17,17,0.04); border: 1px solid rgba(17,17,17,0.06);
+      }
+      .score-card strong { display: block; margin-bottom: 4px; font-size: 1.1rem; }
+      .detail-card h3 { margin: 0 0 10px; font-size: 0.96rem; }
+      ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.65; }
+      li + li { margin-top: 6px; }
+      .evidence { display: grid; gap: 10px; }
+      .evidence-item { padding: 12px 14px; border-radius: 16px; background: rgba(17,17,17,0.04); border: 1px solid rgba(17,17,17,0.06); }
+      .evidence-item strong { display: block; margin-bottom: 4px; }
+      .similar-card { padding: 14px; border-radius: 18px; background: rgba(17,17,17,0.04); border: 1px solid rgba(17,17,17,0.06); }
+      .similar-card strong { display: block; margin-bottom: 6px; }
+      .listen-card { padding: 14px; border-radius: 18px; background: rgba(17,17,17,0.04); border: 1px solid rgba(17,17,17,0.06); }
+      .listen-card strong { display: block; margin-bottom: 6px; }
+      .listen-card p { margin: 6px 0 0; font-size: 0.88rem; line-height: 1.55; }
+      .listen-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: #111111;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .listen-meta {
+        color: var(--muted);
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .similar-cover {
+        aspect-ratio: 1 / 1;
+        border-radius: 14px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ece2d3, #d3c6b4);
+        margin-bottom: 10px;
+      }
+      .similar-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .fact-list { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.65; }
+      .fact-list li + li { margin-top: 6px; }
+      .empty { color: var(--muted); padding: 18px 0; }
+      .inline-link {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+      }
+      .integration-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .integration-card {
+        padding: 14px;
+        border-radius: 18px;
+        background: rgba(17,17,17,0.04);
+        border: 1px solid rgba(17,17,17,0.06);
+      }
+      .integration-card h3 { margin: 0 0 10px; font-size: 0.96rem; }
+      .integration-input {
+        width: 100%;
+        border: 1px solid rgba(17,17,17,0.12);
+        border-radius: 14px;
+        padding: 12px 14px;
+        font: inherit;
+        background: rgba(255,255,255,0.85);
+      }
+      .integration-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .integration-status {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+        margin-top: 10px;
+      }
+      @media (max-width: 860px) {
+        main { width: min(100vw - 18px, 100%); padding-top: 18px; }
+        .hero, .score-grid, .detail-grid, .topbar { grid-template-columns: 1fr; flex-direction: column; align-items: stretch; }
+        .actions, .lang-toggle { width: 100%; }
+        .actions .nav-link, .lang-toggle button { flex: 1 1 0; text-align: center; }
+        .hero { padding: 16px; }
+        h1 { font-size: clamp(2rem, 10vw, 3.2rem); }
+        .cover { border-radius: 18px; }
+        .score-grid, .detail-grid, .album-grid, .similar-grid, .listen-grid, .integration-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <div>
+          <div class="kicker">Audio Lab Entry</div>
+          <div id="page-title" style="font-weight:700;">Detail</div>
+        </div>
+        <div class="actions">
+          <a id="home-link" class="nav-link" href="/audio-lab/live">Home</a>
+          <a id="archive-link" class="nav-link" href="/audio-lab/archive">Archive</a>
+          <div class="lang-toggle">
+            <button id="lang-en" class="is-active" type="button">EN</button>
+            <button id="lang-zh" type="button">中文</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero card">
+        <div class="cover" id="cover"></div>
+        <div>
+          <div class="section-title" id="hero-kicker">Entry Detail</div>
+          <h1 id="title">Loading...</h1>
+          <p id="meta">Waiting for entry data.</p>
+          <p id="review-copy">Loading editorial review.</p>
+          <div class="pill-row" id="top-pills"></div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-bottom: 16px;">
+        <div class="section-title" id="score-kicker">Scores</div>
+        <div class="score-grid" id="score-grid"></div>
+      </section>
+
+      <section class="card" style="margin-bottom: 16px;">
+        <div class="section-title" id="album-kicker">Album Snapshot</div>
+        <div class="album-grid">
+          <article class="detail-card">
+            <h3 id="album-facts-title">Quick Facts</h3>
+            <ul class="fact-list" id="album-facts"></ul>
+          </article>
+          <article class="detail-card">
+            <h3 id="album-radar-title">Source Radar</h3>
+            <div class="pill-row" id="source-radar"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title" id="analysis-kicker">Full Analysis</div>
+        <div class="detail-grid">
+          <article class="detail-card">
+            <h3 id="context-title">Artist Context</h3>
+            <ul id="context-list"></ul>
+          </article>
+          <article class="detail-card">
+            <h3 id="chronology-title">Before / After</h3>
+            <ul id="chronology-list"></ul>
+          </article>
+          <article class="detail-card">
+            <h3 id="signals-title">Signals & Tags</h3>
+            <div class="pill-row" id="signals-pills"></div>
+          </article>
+          <article class="detail-card">
+            <h3 id="sources-title">Professional Evidence</h3>
+            <div class="evidence" id="evidence"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top: 16px;">
+        <div class="section-title" id="listen-kicker">Where to Listen</div>
+        <div class="listen-grid" id="listen-grid"></div>
+      </section>
+
+      <section class="card" style="margin-top: 16px;">
+        <div class="section-title" id="playlist-kicker">Playlist Lab</div>
+        <div class="integration-grid">
+          <article class="integration-card">
+            <h3 id="spotify-title">Spotify Export</h3>
+            <p id="spotify-copy">Prepare this entry as a playlist draft.</p>
+            <div class="integration-actions">
+              <button id="spotify-export-button" type="button">Prepare Spotify Draft</button>
+            </div>
+            <div class="integration-status" id="spotify-status">Checking Spotify status…</div>
+          </article>
+          <article class="integration-card">
+            <h3 id="netease-title">NetEase Import</h3>
+            <p id="netease-copy">Paste a public playlist, album, or song link.</p>
+            <input id="netease-url" class="integration-input" type="url" placeholder="https://music.163.com/#/playlist?id=..." />
+            <div class="integration-actions">
+              <button id="netease-import-button" type="button">Import Link Draft</button>
+            </div>
+            <div class="integration-status" id="netease-status">Waiting for a public link.</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top: 16px;">
+        <div class="section-title" id="similar-kicker">Similar Paths</div>
+        <div class="similar-grid" id="similar-grid"></div>
+      </section>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(location.search);
+      const state = { lang: params.get("lang") === "zh" ? "zh" : "en", entryId: params.get("entry_id") || "" };
+      const STRINGS = {
+        en: {
+          title: "Detail",
+          home: "Home",
+          archive: "Archive",
+          hero_kicker: "Entry Detail",
+          score_kicker: "Scores",
+          analysis_kicker: "Full Analysis",
+          context: "Artist Context",
+          chronology: "Before / After",
+          signals: "Signals & Tags",
+          sources: "Professional Evidence",
+          album_kicker: "Album Snapshot",
+          album_facts: "Quick Facts",
+          album_radar: "Source Radar",
+          listen_kicker: "Where to Listen",
+          playlist_kicker: "Playlist Lab",
+          spotify_title: "Spotify Export",
+          spotify_copy: "Prepare this entry as a playlist draft or future playlist export.",
+          spotify_button: "Prepare Spotify Draft",
+          spotify_ready: "Spotify credentials are configured. This export can be upgraded into a real playlist flow.",
+          spotify_connected: "Spotify is connected. Export can now create a playlist.",
+          spotify_draft: "Spotify credentials are not configured yet. Draft export will still be prepared with search links.",
+          spotify_authorize: "Authorize Spotify first",
+          spotify_done: "Spotify draft prepared",
+          netease_title: "NetEase Import",
+          netease_copy: "Paste a public playlist, album, or song link.",
+          netease_button: "Import Link Draft",
+          netease_waiting: "Waiting for a public link.",
+          netease_done: "NetEase draft imported",
+          similar_kicker: "Similar Paths",
+          no_similar: "No similar archive entries yet.",
+          no_listen: "No listening links yet.",
+          editorial: "Editorial",
+          credibility: "Credibility",
+          classification: "Classification",
+          coverage: "Coverage",
+          no_context: "No artist context yet.",
+          no_chronology: "No chronology yet.",
+          no_evidence: "No professional evidence yet.",
+          no_related: "No related archive entries yet.",
+          related: "Related Archive Works",
+          before: "Before",
+          after: "After",
+          similar_artists: "Similar artists",
+          top_tracks: "Top tracks",
+          top_albums: "Top albums",
+          artist_tags: "Artist tags",
+          source_families: "Source families",
+          matched_reviews: "Matched reviews",
+          discovery: "Discovery",
+          creator_signal: "Creator signal",
+          scenes: "Scenes",
+          credibility_pending: "Pending",
+          credibility_pending_note: "Evidence still loading",
+        },
+        zh: {
+          title: "详情页",
+          home: "首页",
+          archive: "档案页",
+          hero_kicker: "作品详情",
+          score_kicker: "分数",
+          analysis_kicker: "完整分析",
+          context: "音乐人背景",
+          chronology: "前后作品脉络",
+          signals: "信号与标签",
+          sources: "专业证据",
+          album_kicker: "专辑快照",
+          album_facts: "快速信息",
+          album_radar: "来源雷达",
+          listen_kicker: "去哪里听",
+          playlist_kicker: "歌单实验室",
+          spotify_title: "Spotify 导出",
+          spotify_copy: "先把这条作品整理成 Spotify 导出草案，后面可升级成真歌单导出。",
+          spotify_button: "生成 Spotify 草案",
+          spotify_ready: "Spotify 凭据已经配置，这条导出后面可以升级成真正歌单流程。",
+          spotify_connected: "Spotify 已连接，现在可以直接创建歌单。",
+          spotify_draft: "Spotify 凭据还没配置，但仍会先生成带搜索链接的导出草案。",
+          spotify_authorize: "先授权 Spotify",
+          spotify_done: "Spotify 草案已生成",
+          netease_title: "网易云导入",
+          netease_copy: "粘贴公开的歌单、专辑或单曲链接。",
+          netease_button: "导入链接草案",
+          netease_waiting: "等待公开链接。",
+          netease_done: "网易云草案已导入",
+          similar_kicker: "相似路径",
+          no_similar: "暂时还没有相似条目。",
+          no_listen: "暂时还没有收听链接。",
+          editorial: "站内分",
+          credibility: "公信力",
+          classification: "分类",
+          coverage: "覆盖率",
+          no_context: "还没有音乐人背景。",
+          no_chronology: "还没有前后作品脉络。",
+          no_evidence: "还没有专业证据。",
+          no_related: "还没有同音乐人的已收录作品。",
+          related: "已收录相关作品",
+          before: "之前",
+          after: "之后",
+          similar_artists: "相似音乐人",
+          top_tracks: "代表曲目",
+          top_albums: "代表专辑",
+          artist_tags: "艺术家标签",
+          source_families: "来源家族",
+          matched_reviews: "匹配评论数",
+          discovery: "发现来源",
+          creator_signal: "创作者信号",
+          scenes: "场景",
+          credibility_pending: "待补全",
+          credibility_pending_note: "证据补集中",
+        }
+      };
+      function t(key) { return (STRINGS[state.lang] || STRINGS.en)[key] || key; }
+      function short(v, f = "-") { v = String(v || "").trim(); return v || f; }
+      function uniq(values) { return [...new Set((values || []).filter(Boolean))]; }
+      function score(v, d = 1) { return v == null ? "-" : Number(v).toFixed(d); }
+      function credibilityValue(entry) {
+        const credibility = entry?.credibility || {};
+        if (credibility.score_0_to_100 != null) return score(credibility.score_0_to_100);
+        return t("credibility_pending");
+      }
+      function coverageValue(entry) {
+        const credibility = entry?.credibility || {};
+        if (credibility.coverage_0_to_1 != null) return `${Math.round(credibility.coverage_0_to_1 * 100)}%`;
+        return t("credibility_pending_note");
+      }
+      function setLang() {
+        document.documentElement.lang = state.lang === "zh" ? "zh-CN" : "en";
+        document.getElementById("lang-en").classList.toggle("is-active", state.lang === "en");
+        document.getElementById("lang-zh").classList.toggle("is-active", state.lang === "zh");
+        document.getElementById("page-title").textContent = t("title");
+        document.getElementById("home-link").textContent = t("home");
+        document.getElementById("archive-link").textContent = t("archive");
+        document.getElementById("home-link").href = state.lang === "zh" ? "/audio-lab/live?lang=zh" : "/audio-lab/live";
+        document.getElementById("archive-link").href = state.lang === "zh" ? "/audio-lab/archive?lang=zh" : "/audio-lab/archive";
+        document.getElementById("hero-kicker").textContent = t("hero_kicker");
+        document.getElementById("score-kicker").textContent = t("score_kicker");
+        document.getElementById("album-kicker").textContent = t("album_kicker");
+        document.getElementById("album-facts-title").textContent = t("album_facts");
+        document.getElementById("album-radar-title").textContent = t("album_radar");
+        document.getElementById("listen-kicker").textContent = t("listen_kicker");
+        document.getElementById("playlist-kicker").textContent = t("playlist_kicker");
+        document.getElementById("spotify-title").textContent = t("spotify_title");
+        document.getElementById("spotify-copy").textContent = t("spotify_copy");
+        document.getElementById("spotify-export-button").textContent = t("spotify_button");
+        document.getElementById("netease-title").textContent = t("netease_title");
+        document.getElementById("netease-copy").textContent = t("netease_copy");
+        document.getElementById("netease-import-button").textContent = t("netease_button");
+        document.getElementById("analysis-kicker").textContent = t("analysis_kicker");
+        document.getElementById("similar-kicker").textContent = t("similar_kicker");
+        document.getElementById("context-title").textContent = t("context");
+        document.getElementById("chronology-title").textContent = t("chronology");
+        document.getElementById("signals-title").textContent = t("signals");
+        document.getElementById("sources-title").textContent = t("sources");
+      }
+      function detailHref(entryId) {
+        return `/audio-lab/entry?entry_id=${encodeURIComponent(entryId)}${state.lang === "zh" ? "&lang=zh" : ""}`;
+      }
+      function artistHref(artist) {
+        return `/audio-lab/artist?artist=${encodeURIComponent(artist)}${state.lang === "zh" ? "&lang=zh" : ""}`;
+      }
+      async function refreshIntegrationStatus() {
+        const response = await fetch("/api/audio-lab/integrations/status", { cache: "no-store" });
+        if (!response.ok) throw new Error(`Failed to load integrations: ${response.status}`);
+        const status = await response.json();
+        const spotify = status.spotify || {};
+        document.getElementById("spotify-status").textContent = spotify.connected ? t("spotify_connected") : (spotify.configured ? t("spotify_ready") : t("spotify_draft"));
+        document.getElementById("netease-status").textContent = status.netease?.latest_import?.input_url
+          ? `${t("netease_done")}: ${status.netease.latest_import.input_url}`
+          : t("netease_waiting");
+      }
+      function archiveSearchHref(artist) {
+        return `/audio-lab/archive?${new URLSearchParams({ search: artist, ...(state.lang === "zh" ? { lang: "zh" } : {}) }).toString()}`;
+      }
+      function renderChronology(entry, entries) {
+        const artistContext = entry.artist_context || {};
+        const chronology = artistContext.chronology || {};
+        const currentArtist = String(entry.artist || "").trim().toLowerCase();
+        const byArtist = entries.filter((item) => String(item.artist || "").trim().toLowerCase() === currentArtist && item.entry_id !== entry.entry_id);
+        const relatedByAlbum = new Map(byArtist.map((item) => [String(item.album || "").trim().toLowerCase(), item]));
+        const blocks = [];
+        const items = [
+          ...(chronology.before || []).slice(0, 3).map((item) => ({ side: t("before"), item })),
+          ...(chronology.after || []).slice(0, 3).map((item) => ({ side: t("after"), item })),
+        ];
+        items.forEach(({ side, item }) => {
+          const title = short(item.title);
+          const linked = relatedByAlbum.get(String(item.title || "").trim().toLowerCase());
+          if (linked) {
+            blocks.push(`<li>${side}: <a class="inline-link" href="${detailHref(linked.entry_id)}">${title}</a>${item.year ? ` (${item.year})` : ""}</li>`);
+          } else {
+            blocks.push(`<li>${side}: <a class="inline-link" href="${archiveSearchHref(entry.artist)}">${title}</a>${item.year ? ` (${item.year})` : ""}</li>`);
+          }
+        });
+        if (!blocks.length) {
+          const related = byArtist
+            .sort((a, b) => String(a.year || "").localeCompare(String(b.year || "")) || String(a.album || "").localeCompare(String(b.album || "")))
+            .slice(0, 4)
+            .map((item) => `<li>${t("related")}: <a class="inline-link" href="${detailHref(item.entry_id)}">${short(item.album)}</a>${item.year ? ` (${item.year})` : ""}</li>`);
+          return related.length ? related.join("") : `<li>${t("no_related")}</li>`;
+        }
+        return blocks.join("");
+      }
+      function renderSimilar(entry, entries) {
+        const currentArtist = String(entry.artist || "").trim().toLowerCase();
+        const sceneSet = new Set(entry.scene_tags || []);
+        const listener = (entry.artist_context || {}).listener_context || {};
+        const similarArtistSet = new Set((listener.similar_artists || []).map((item) => String(item || "").trim().toLowerCase()).filter(Boolean));
+        const related = entries
+          .filter((item) => item.entry_id !== entry.entry_id)
+          .map((item) => {
+            const itemArtist = String(item.artist || "").trim().toLowerCase();
+            let scoreValue = 0;
+            const overlap = (item.scene_tags || []).filter((tag) => sceneSet.has(tag));
+            scoreValue += overlap.length * 3;
+            if (itemArtist === currentArtist) scoreValue += 5;
+            if (similarArtistSet.has(itemArtist)) scoreValue += 4;
+            if ((item.classification || {}).key === (entry.classification || {}).key) scoreValue += 1;
+            return { item, overlap, scoreValue };
+          })
+          .filter((row) => row.scoreValue > 0)
+          .sort((a, b) => b.scoreValue - a.scoreValue || String(a.item.artist || "").localeCompare(String(b.item.artist || "")))
+          .slice(0, 4);
+        if (!related.length) {
+          return `<div class="empty">${t("no_similar")}</div>`;
+        }
+        return related.map(({ item, overlap }) => `
+          <article class="similar-card">
+            <div class="similar-cover">${item.cover_url ? `<img src="${item.cover_url}" alt="${short(item.album, "cover")}" loading="lazy" />` : ""}</div>
+            <strong><a class="inline-link" href="${detailHref(item.entry_id)}">${short(item.artist)} / ${short(item.album)}</a></strong>
+            <div>${[short(item.year || item.era_tag, "undated"), item.classification?.title || "-", `${t("editorial")} ${score(item.site_score?.score_0_to_10)}/10`].join(" · ")}</div>
+            <div class="pill-row" style="margin-top:10px;">${uniq([...(overlap || []), ...(((item.artist_context || {}).listener_context || {}).tags || []).slice(0, 2)]).slice(0, 4).map((token) => `<span class="pill">${token}</span>`).join("")}</div>
+          </article>
+        `).join("");
+      }
+      async function boot() {
+        const [entryPayload, entriesPayload] = await Promise.all([
+          fetch(`/api/audio-lab/latest/catalog-entry?entry_id=${encodeURIComponent(state.entryId || "")}`, { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)),
+          fetch("/api/audio-lab/latest/catalog-entries-lite", { cache: "no-store" }).then((r) => {
+            if (!r.ok) throw new Error(`Failed to load entries: ${r.status}`);
+            return r.json();
+          }),
+        ]);
+        const entries = (entriesPayload || {}).entries || [];
+        const entry = entryPayload || entries.find((item) => item.entry_id === state.entryId) || entries[0];
+        setLang();
+        if (!entry) {
+          document.getElementById("title").textContent = "No entry";
+          return;
+        }
+        state.entryId = entry.entry_id;
+        const detailHref = `/audio-lab/entry?entry_id=${encodeURIComponent(entry.entry_id)}${state.lang === "zh" ? "&lang=zh" : ""}`;
+        history.replaceState({}, "", detailHref);
+        const cover = entry.cover_url || entry.cover_art_url || "";
+        document.getElementById("cover").innerHTML = cover
+          ? `<img src="${cover}" alt="${short(entry.album, "cover")}" loading="lazy" />`
+          : `<div class="fallback"><div>${short(entry.classification?.title, "Entry")}</div><strong>${short(entry.album, "Unknown album")}</strong><span>${short(entry.artist, "Unknown artist")}</span></div>`;
+        document.getElementById("title").innerHTML = `<a class="inline-link" href="${artistHref(entry.artist)}">${short(entry.artist)}</a> / ${short(entry.album)}`;
+        document.getElementById("meta").textContent = [short(entry.year || entry.era_tag, "undated"), entry.classification?.title || "-", `${t("editorial")} ${score(entry.site_score?.score_0_to_10)}/10`, `${t("credibility")} ${credibilityValue(entry)}`].join(" · ");
+        document.getElementById("review-copy").textContent = entry.detail?.review || entry.detail?.dek || "-";
+        document.getElementById("top-pills").innerHTML = uniq([...(entry.detail?.evidence || []), ...(entry.scene_tags || []), ...(((entry.artist_context || {}).listener_context || {}).tags || []).slice(0, 4)]).slice(0, 10).map((item) => `<span class="pill">${item}</span>`).join("");
+
+        const albumFacts = [
+          `${t("classification")}: ${entry.classification?.title || "-"}`,
+          `${t("scenes")}: ${uniq(entry.scene_tags || []).slice(0, 4).join(", ") || "-"}`,
+          `${t("source_families")}: ${((entry.credibility || {}).families || []).map((item) => item.family).filter(Boolean).slice(0, 4).join(", ") || "-"}`,
+          `${t("matched_reviews")}: ${entry.professional_evidence?.match_count ?? 0}`,
+        ];
+        const discovery = entry.discovery_signals || {};
+        if (discovery.platform_kind || discovery.source_format) {
+          albumFacts.push(`${t("discovery")}: ${[discovery.platform_kind, discovery.source_format].filter(Boolean).join(" / ")}`);
+        }
+        if (discovery.indie_creator_likely) {
+          albumFacts.push(`${t("creator_signal")}: ${state.lang === "zh" ? "更像独立音乐人自发布上传" : "Likely creator-led upload"}`);
+        }
+        document.getElementById("album-facts").innerHTML = albumFacts.map((item) => `<li>${item}</li>`).join("");
+        document.getElementById("source-radar").innerHTML = uniq([
+          ...(((entry.credibility || {}).families || []).map((item) => item.family).filter(Boolean)),
+          ...(((entry.professional_evidence || {}).items || []).map((item) => item.source).filter(Boolean)),
+          ...((entry.detail?.matched_sources || []).filter(Boolean)),
+        ]).slice(0, 10).map((item) => `<span class="pill">${item}</span>`).join("");
+
+        const listening = (entry.listening_links || {}).items || [];
+        document.getElementById("listen-grid").innerHTML = listening.length
+          ? listening.map((item) => `
+            <article class="listen-card">
+              <strong><a class="listen-button" href="${item.url}" target="_blank" rel="noreferrer">${short(item.label)}</a></strong>
+              <div class="listen-meta">${short(item.kind, "-")}</div>
+              <p>${short(item.note, "-")}</p>
+            </article>
+          `).join("")
+          : `<div class="empty">${t("no_listen")}</div>`;
+
+        const scoreGrid = document.getElementById("score-grid");
+        const cards = [
+          [t("editorial"), `${score(entry.site_score?.score_0_to_10)}/10`],
+          [t("credibility"), credibilityValue(entry)],
+          [t("classification"), entry.classification?.title || "-"],
+          [t("coverage"), coverageValue(entry)],
+        ];
+        scoreGrid.innerHTML = cards.map(([label, value]) => `<div class="score-card"><strong>${value}</strong><span>${label}</span></div>`).join("");
+
+        const artistContext = entry.artist_context || {};
+        const listener = artistContext.listener_context || {};
+        const contextItems = [
+          artistContext.origin?.name ? `${artistContext.origin.name} · ${short(artistContext.origin.type, "")} ${short(artistContext.origin.country, "")}`.trim() : null,
+          artistContext.origin?.begin ? `${short(artistContext.origin.begin)} →` : null,
+          listener.bio_summary || null,
+          listener.similar_artists?.length ? `${t("similar_artists")}: ${listener.similar_artists.slice(0, 5).join(", ")}` : null,
+          listener.top_tracks?.length ? `${t("top_tracks")}: ${listener.top_tracks.slice(0, 4).join(", ")}` : null,
+          listener.top_albums?.length ? `${t("top_albums")}: ${listener.top_albums.slice(0, 4).join(", ")}` : null,
+          artistContext.musicbrainz_profile?.tags?.length ? `${t("artist_tags")}: ${artistContext.musicbrainz_profile.tags.slice(0, 5).join(", ")}` : null,
+        ].filter(Boolean);
+        document.getElementById("context-list").innerHTML = contextItems.length ? contextItems.map((item) => `<li>${item}</li>`).join("") : `<li>${t("no_context")}</li>`;
+
+        document.getElementById("chronology-list").innerHTML = renderChronology(entry, entries);
+
+        document.getElementById("signals-pills").innerHTML = uniq([...(entry.scene_tags || []), ...(listener.tags || []).slice(0, 6), ...((entry.detail?.matched_sources || []).map((s) => `source:${s}`)), ...((discovery.flags) || [])]).map((item) => `<span class="pill">${item}</span>`).join("");
+        document.getElementById("similar-grid").innerHTML = renderSimilar(entry, entries);
+
+        const evidence = entry.professional_evidence || {};
+        document.getElementById("evidence").innerHTML = (evidence.items || []).length
+          ? evidence.items.slice(0, 4).map((item) => `<article class="evidence-item"><strong>${short(item.title, "Untitled review")}</strong><div>${item.url ? `<a href="${item.url}" target="_blank" rel="noreferrer">${short(item.source, "source")}</a>` : short(item.source, "source")}</div><p>${short(item.summary, "-")}</p></article>`).join("")
+          : `<div class="empty">${t("no_evidence")}</div>`;
+        if (discovery.summary) {
+          const extra = document.createElement("article");
+          extra.className = "evidence-item";
+          extra.innerHTML = `<strong>${state.lang === "zh" ? "发现信号" : "Discovery signals"}</strong><div>${short(discovery.platform_kind || "-", "-")}</div><p>${short(discovery.summary, "-")}</p>`;
+          document.getElementById("evidence").appendChild(extra);
+        }
+        await refreshIntegrationStatus();
+      }
+      document.getElementById("spotify-export-button").addEventListener("click", async () => {
+        if (!state.entryId) return;
+        const response = await fetch("/api/audio-lab/integrations/spotify/export", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ entry_ids: [state.entryId] }),
+        });
+        const payload = await response.json();
+        if (payload.authorize_url) {
+          document.getElementById("spotify-status").innerHTML = `<a class="listen-button" href="${payload.authorize_url}" target="_blank" rel="noreferrer">${t("spotify_authorize")}</a>`;
+          return;
+        }
+        document.getElementById("spotify-status").textContent = payload.note
+          ? `${t("spotify_done")}: ${payload.note}`
+          : `${t("spotify_done")}: ${payload.playlist_url || payload.entry_count || 0}`;
+      });
+      document.getElementById("netease-import-button").addEventListener("click", async () => {
+        const input = document.getElementById("netease-url");
+        const url = String(input.value || "").trim();
+        if (!url) {
+          document.getElementById("netease-status").textContent = t("netease_waiting");
+          return;
+        }
+        const response = await fetch("/api/audio-lab/integrations/netease/import", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url }),
+        });
+        const payload = await response.json();
+        document.getElementById("netease-status").textContent = payload.error
+          ? payload.error
+          : `${t("netease_done")}: ${payload.parsed?.kind || "link"}${payload.parsed?.id ? ` #${payload.parsed.id}` : ""}`;
+      });
+      document.getElementById("lang-en").addEventListener("click", () => { state.lang = "en"; setLang(); boot(); });
+      document.getElementById("lang-zh").addEventListener("click", () => { state.lang = "zh"; setLang(); boot(); });
+      boot().catch((error) => {
+        document.getElementById("title").textContent = error.message;
+      });
+    </script>
+  </body>
+</html>

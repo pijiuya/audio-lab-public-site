@@ -1,0 +1,974 @@
+{
+  "generated_at": "2026-03-27T18:59:05+00:00",
+  "source_candidate_count": 78,
+  "selected_count": 24,
+  "limit": 24,
+  "selection_rules": [
+    "keep only candidates that pass the social-experimental editorial precheck",
+    "prefer low-attention uploads and self-tagged experimental descriptors",
+    "prefer platform-native release evidence on Bandcamp and longer-form full works on Bilibili",
+    "normalize platform candidates into archive-style seed rows before deeper review"
+  ],
+  "seeds": [
+    {
+      "artist": "13_404y",
+      "album": "Leo Iwamura Beat Live Set.chill, groove, boombap, experimental _ by MUSIC LOUNGE",
+      "year": 2025,
+      "sources": [
+        "bilibili_public",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "experimental music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "experimental-electronic"
+      ],
+      "era_tag": "2020s",
+      "selection_score": 8.56,
+      "candidate_url": "https://www.bilibili.com/video/BV1ptndzPEqD/",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "social_video",
+      "candidate_source_format": "video",
+      "candidate_attention_value": 166,
+      "candidate_duration_seconds": 3358,
+      "music_likelihood_score": 0.94,
+      "originality_score": 0.72,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "experimental",
+        "live set"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "creator-led-upload",
+        "indie-original-likely",
+        "low-attention"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "左滑睡大觉",
+      "album": "[Space-Age, Dark Ambient, Experimental] 深町純 - Quark (1980 Full Album)",
+      "year": 2021,
+      "sources": [
+        "bilibili_public",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "ambient",
+        "experimental-electronic"
+      ],
+      "era_tag": "2020s",
+      "selection_score": 8.39,
+      "candidate_url": "https://www.bilibili.com/video/BV11U4y1F7sf/",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "social_video",
+      "candidate_source_format": "video",
+      "candidate_attention_value": 459,
+      "candidate_duration_seconds": 2565,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.5,
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "dark ambient",
+        "experimental",
+        "full album"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "long-form-work",
+        "low-attention"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Larslundehavehansen",
+      "album": "20 Years of Sound Art",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "sound art",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "sound-art"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://larslundehavehansen.bandcamp.com/album/20-years-of-sound-art?from=search&search_item_id=2831588733&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=13&search_sig=1a43a5efcd37f31fcf00cd63772d6f8b",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "sound art"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Xiuxiu69",
+      "album": "A.E.M. Ambient Experimental & Minimalism Complete Series",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "ambient",
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://xiuxiu69.bandcamp.com/album/a-e-m-ambient-experimental-minimalism-complete-series?from=search&search_item_id=2269794795&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=6&search_sig=026884d578e3b2086a290bd7efea3096",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Flamingpines",
+      "album": "Absence",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "experimental music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://flamingpines.bandcamp.com/album/absence?from=search&search_item_id=1346287621&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=13&search_sig=091198e16c0ee309ad5b1f0497a3a066",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Syrphe",
+      "album": "Alternate African Reality – Electronic, electroacoustic and experimental music from Africa and the diaspora",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "experimental music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "electroacoustic",
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://syrphe.bandcamp.com/album/alternate-african-reality-electronic-electroacoustic-and-experimental-music-from-africa-and-the-diaspora?from=search&search_item_id=2062834667&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=17&search_sig=d699bd8780b3cee8811bdcb51eeefa52",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "electroacoustic",
+        "electronic",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Mashpotato Records",
+      "album": "Ambient, Experimental DJmix",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "ambient",
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://mashpotato-records.bandcamp.com/album/ambient-experimental-djmix?from=search&search_item_id=417100227&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=7&search_sig=335cd0f364ce2ec996e25028f22a5054",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Davidfenn",
+      "album": "Ambient/Experimental (Standalone, 2011)",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "ambient",
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://davidfenn.bandcamp.com/album/ambient-experimental-standalone-2011?from=search&search_item_id=2502006107&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=8&search_sig=33d27c46c4cc91c36deeda65356b5e6a",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Keitasasaki",
+      "album": "Ambient/Experimental 01",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "ambient",
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://keitasasaki.bandcamp.com/album/ambient-experimental-01?from=search&search_item_id=171559380&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=5&search_sig=fb6b3f3f3887af1b854ce636c2f9f1ad",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Unexplainedsoundsgroup",
+      "album": "Anthology Of Experimental Music From China",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "experimental music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://unexplainedsoundsgroup.bandcamp.com/album/anthology-of-experimental-music-from-china?from=search&search_item_id=751212705&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=15&search_sig=704a58e2907df46273dcb11805f83351",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Unexplainedsoundsgroup",
+      "album": "Anthology Of Persian Experimental Music",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "experimental music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://unexplainedsoundsgroup.bandcamp.com/album/anthology-of-persian-experimental-music?from=search&search_item_id=3024763542&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=8&search_sig=00e4fa6012b41b6b7157c27a9a65e45d",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Burrw",
+      "album": "Burrow - Ambient/Experimental Sample Pack",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "ambient",
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://burrw.bandcamp.com/album/burrow-ambient-experimental-sample-pack?from=search&search_item_id=332083295&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=4&search_sig=e109ab5b05db90cec3b40076cd30f604",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [
+        "sample pack"
+      ],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Nothingmore",
+      "album": "CARNAL",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "noise music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "noise"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://nothingmore.bandcamp.com/album/carnal?from=search&search_item_id=4057968152&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=11&search_sig=64ca3cb6365eab71f9d0d92cf27dce3f",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Compilationseries1",
+      "album": "COMPILATION SERIES ONE",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "sound art",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "sound-art"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://compilationseries1.bandcamp.com/album/compilation-series-one?from=search&search_item_id=3736232523&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=5&search_sig=5c5f7225dd57cc251136696841b75d04",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Darfan2",
+      "album": "Dark Ambient Experimental",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "ambient",
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://darfan2.bandcamp.com/album/dark-ambient-experimental?from=search&search_item_id=2409947280&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=10&search_sig=5d98fcea320102408d488498a0e5bd13",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "dark ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Chainandthegang",
+      "album": "Experimental Music",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "experimental music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://chainandthegang.bandcamp.com/album/experimental-music?from=search&search_item_id=2165831447&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=11&search_sig=14edb5c5e404b20b0ea5329820d7416e",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Babalith",
+      "album": "Follow the River (ritual ambient / experimental ambient)",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "ambient",
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://babalith.bandcamp.com/album/follow-the-river-ritual-ambient-experimental-ambient?from=search&search_item_id=2118712106&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=1&search_sig=c71f2e548bd36532176119bc94a40649",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental",
+        "ritual ambient"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Quasardrifter",
+      "album": "Hardware Tracks: Ambient/Experimental",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "ambient",
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://quasardrifter.bandcamp.com/album/hardware-tracks-ambient-experimental?from=search&search_item_id=487148965&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=3&search_sig=d45721dd42178ebfc6c82ba98e57b428",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Flamingpines",
+      "album": "Kaleidoscope",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "experimental music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://flamingpines.bandcamp.com/album/kaleidoscope?from=search&search_item_id=3470766469&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=7&search_sig=327d9596f7107fff32317cd2a62f9e4d",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Sabaton",
+      "album": "Legends",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "noise music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "noise"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://sabaton.bandcamp.com/album/legends?from=search&search_item_id=590065266&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=3&search_sig=43b2e1eda7a6bed176a124e7f1e06245",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Experimentalmusiccatalogue",
+      "album": "Levels",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "experimental music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://experimentalmusiccatalogue.bandcamp.com/album/levels?from=search&search_item_id=2207972795&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=10&search_sig=63bf579e726d2ac3376ebb49286b4550",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Flamingpines",
+      "album": "Liberty",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "experimental music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://flamingpines.bandcamp.com/album/liberty?from=search&search_item_id=3359589284&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=12&search_sig=c529161d0640e40ed7a6e5a6d7b9a6f4",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Willarvo",
+      "album": "New Sound Art",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "sound art",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "sound-art"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://willarvo.bandcamp.com/album/new-sound-art?from=search&search_item_id=100068991&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=15&search_sig=1cfd588c2eb4a3d7c4a031bd176239e9",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "sound art"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Saginomiya",
+      "album": "Noise,Ambient,Experimental works 2020",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "ambient",
+        "noise",
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://saginomiya.bandcamp.com/album/noise-ambient-experimental-works-2020?from=search&search_item_id=3024923309&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=9&search_sig=db573eabd08cf34bdb321f1d36f297b3",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental",
+        "noise"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    }
+  ]
+}

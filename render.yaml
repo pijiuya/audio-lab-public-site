@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: audio-lab-public-site
+    runtime: python
+    plan: starter
+    buildCommand: "python3 -m py_compile scripts/run_audio_lab_live.py"
+    startCommand: "python3 scripts/run_audio_lab_live.py --host 0.0.0.0 --port $PORT --output-root outputs/audio-lab-live --no-autostart"
+    autoDeploy: true

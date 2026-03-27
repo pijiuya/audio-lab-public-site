@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Audio Lab Live</title>
+    <style>
+      :root {
+        --bg: #f8f7f3;
+        --panel: rgba(255, 255, 255, 0.88);
+        --panel-strong: #ffffff;
+        --text: #111111;
+        --muted: #66615a;
+        --line: rgba(17, 17, 17, 0.12);
+        --line-strong: rgba(17, 17, 17, 0.22);
+        --accent: #111111;
+        --accent-soft: rgba(17, 17, 17, 0.06);
+        --shadow: 0 16px 40px rgba(17, 17, 17, 0.06);
+        --radius: 22px;
+        --sans: "Inter", "Helvetica Neue", "PingFang SC", "Noto Sans SC", sans-serif;
+        --serif: "Iowan Old Style", "Source Han Serif SC", "Songti SC", "Georgia", serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at top left, rgba(17, 17, 17, 0.03), transparent 30%),
+          linear-gradient(180deg, #fbfaf7 0%, #f4f1ea 100%);
+        color: var(--text);
+        font-family: var(--sans);
+      }
+
+      body.is-ready .fade-up {
+        animation: fade-up 620ms ease both;
+      }
+
+      body.is-ready .delay-1 {
+        animation-delay: 80ms;
+      }
+
+      body.is-ready .delay-2 {
+        animation-delay: 140ms;
+      }
+
+      body.is-ready .delay-3 {
+        animation-delay: 200ms;
+      }
+
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      main {
+        width: min(1180px, calc(100vw - 28px));
+        margin: 0 auto;
+        padding: 28px 0 72px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .brand-lockup {
+        display: grid;
+        gap: 6px;
+      }
+
+      .brand-kicker {
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .brand-title {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .lang-toggle {
+        display: inline-flex;
+        gap: 8px;
+        padding: 6px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid var(--line);
+        backdrop-filter: blur(10px);
+      }
+
+      .lang-toggle button,
+      .ghost-button,
+      .primary-button,
+      .filter-button,
+      .page-button,
+      .nav-link {
+        appearance: none;
+        border: none;
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .lang-toggle button {
+        min-width: 56px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+      }
+
+      .lang-toggle button.is-active {
+        background: #111111;
+        color: #ffffff;
+      }
+
+      .top-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 14px;
+        border-radius: 999px;
+        background: rgba(17, 17, 17, 0.05);
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .hero {
+        display: grid;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .hero-kicker {
+        font-size: 0.76rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .hero h1 {
+        margin: 0;
+        max-width: 980px;
+        font-family: var(--serif);
+        font-size: clamp(2.55rem, 6vw, 5.2rem);
+        line-height: 0.92;
+        letter-spacing: -0.04em;
+      }
+
+      .hero p {
+        margin: 0;
+        max-width: 760px;
+        color: var(--muted);
+        line-height: 1.65;
+        font-size: 1rem;
+      }
+
+      .hero-marquee {
+        position: relative;
+        overflow: hidden;
+        margin: 14px 0 24px;
+        padding: 12px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero-marquee-track {
+        display: inline-flex;
+        gap: 28px;
+        min-width: max-content;
+        white-space: nowrap;
+        color: var(--muted);
+        font-size: 0.9rem;
+        animation: marquee 28s linear infinite;
+      }
+
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .editorial-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .hero-feature {
+        position: relative;
+        min-height: 520px;
+        overflow: hidden;
+        color: #fff;
+        background: #111;
+      }
+
+      .hero-feature img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-feature::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(17,17,17,0.08), rgba(17,17,17,0.72) 58%, rgba(17,17,17,0.92));
+      }
+
+      .hero-feature-body {
+        position: relative;
+        z-index: 1;
+        min-height: 520px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 12px;
+        padding: 22px;
+      }
+
+      .hero-feature-kicker {
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.78);
+      }
+
+      .hero-feature-title {
+        font-family: var(--serif);
+        font-size: clamp(2rem, 4.2vw, 4rem);
+        line-height: 0.94;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-feature-copy {
+        max-width: 640px;
+        color: rgba(255,255,255,0.84);
+        line-height: 1.7;
+      }
+
+      .hero-feature-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .hero-feature-actions .ghost-button {
+        background: rgba(255,255,255,0.14);
+        color: #ffffff;
+        border-color: rgba(255,255,255,0.24);
+      }
+
+      .hero-feature-meta {
+        color: rgba(255,255,255,0.76);
+        font-size: 0.92rem;
+      }
+
+      .hero-stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      .hero-mini {
+        display: grid;
+        grid-template-columns: 92px minmax(0, 1fr);
+        gap: 12px;
+        padding: 12px;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.92);
+        border: 1px solid var(--line);
+        cursor: pointer;
+        transition: transform 180ms ease, border-color 180ms ease;
+      }
+
+      .hero-mini:hover {
+        transform: translateY(-2px);
+        border-color: var(--line-strong);
+      }
+
+      .hero-mini-cover {
+        aspect-ratio: 1 / 1;
+        border-radius: 14px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ebe2d1, #cfc3af);
+      }
+
+      .hero-mini-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-mini-title {
+        font-weight: 700;
+        line-height: 1.25;
+        margin-bottom: 4px;
+      }
+
+      .hero-mini-meta {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.55;
+      }
+
+      .hero-mini-score {
+        display: inline-flex;
+        margin-top: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(17, 17, 17, 0.06);
+        color: #111111;
+        font-size: 0.78rem;
+        line-height: 1;
+      }
+
+      .strip-card,
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
+      }
+
+      .strip-card {
+        padding: 16px 18px;
+      }
+
+      .strip-card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.92rem;
+      }
+
+      .strip-card span {
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 0.92rem;
+      }
+
+      .card {
+        padding: 18px;
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 22px 44px rgba(17, 17, 17, 0.08);
+        border-color: var(--line-strong);
+      }
+
+      .section-title {
+        font-size: 0.74rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+
+      .home-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.28fr) minmax(300px, 0.72fr);
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .search-shell {
+        display: grid;
+        gap: 14px;
+      }
+
+      .search-bar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+      }
+
+      input[type="search"] {
+        width: 100%;
+        padding: 15px 16px;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--text);
+        font: inherit;
+        outline: none;
+      }
+
+      input[type="search"]:focus {
+        border-color: rgba(17, 17, 17, 0.32);
+        box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.06);
+      }
+
+      .primary-button,
+      .ghost-button,
+      .page-button {
+        padding: 12px 14px;
+        border-radius: 14px;
+      }
+
+      .primary-button {
+        background: #111111;
+        color: #ffffff;
+      }
+
+      .ghost-button,
+      .page-button {
+        background: rgba(17, 17, 17, 0.04);
+        color: var(--text);
+      }
+
+      .filter-row,
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .filter-button {
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(17, 17, 17, 0.05);
+        color: var(--muted);
+      }
+
+      .filter-button.is-active {
+        background: #111111;
+        color: #ffffff;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .mini {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .big {
+        font-size: clamp(1.45rem, 2.2vw, 1.9rem);
+        font-weight: 700;
+        line-height: 1.1;
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .stat-box {
+        padding: 12px 14px;
+        border-radius: 16px;
+        background: rgba(17, 17, 17, 0.03);
+        border: 1px solid rgba(17, 17, 17, 0.05);
+      }
+
+      .stat-box strong {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+      }
+
+      .stat-box span {
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .carousel-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .carousel-controls {
+        display: flex;
+        gap: 8px;
+      }
+
+      .carousel-track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(170px, 220px);
+        gap: 14px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scroll-snap-type: x proximity;
+      }
+
+      .carousel-track::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .carousel-track::-webkit-scrollbar-thumb {
+        background: rgba(17, 17, 17, 0.18);
+        border-radius: 999px;
+      }
+
+      .cover-card {
+        display: grid;
+        gap: 10px;
+        cursor: pointer;
+        scroll-snap-align: start;
+        transition: transform 180ms ease;
+      }
+
+      .cover-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .cover-art {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: linear-gradient(135deg, #ebe2d1, #cfc3af);
+      }
+
+      .cover-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 220ms ease;
+      }
+
+      .cover-card:hover img {
+        transform: scale(1.03);
+      }
+
+      .cover-fallback {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        align-content: end;
+        gap: 6px;
+        padding: 16px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.1)),
+          linear-gradient(135deg, #ede7db, #d6cab7);
+      }
+
+      .cover-kicker {
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.66);
+      }
+
+      .cover-title {
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.14;
+      }
+
+      .cover-meta {
+        color: rgba(17, 17, 17, 0.72);
+        font-size: 0.82rem;
+      }
+
+      .cover-card.is-selected .cover-art {
+        box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.14);
+        border-color: rgba(17, 17, 17, 0.24);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(17, 17, 17, 0.05);
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1;
+      }
+
+      .archive-header,
+      .paging-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .archive-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      .entry-card {
+        padding: 12px;
+        border-radius: 18px;
+        border: 1px solid rgba(17, 17, 17, 0.08);
+        background: var(--panel-strong);
+        cursor: pointer;
+        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      }
+
+      .entry-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(17, 17, 17, 0.18);
+        box-shadow: 0 18px 34px rgba(17, 17, 17, 0.06);
+      }
+
+      .entry-card.is-selected {
+        border-color: rgba(17, 17, 17, 0.25);
+        box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.08);
+      }
+
+      .entry-head {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .entry-title {
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .entry-score {
+        color: var(--muted);
+        font-size: 0.88rem;
+        white-space: nowrap;
+      }
+
+      .entry-meta {
+        color: var(--muted);
+        font-size: 0.84rem;
+        line-height: 1.55;
+        margin-bottom: 0;
+      }
+
+      .entry-cover {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 16px;
+        border: 1px solid rgba(17, 17, 17, 0.08);
+        background: linear-gradient(135deg, #ebe2d1, #cfc3af);
+      }
+
+      .entry-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 220ms ease;
+      }
+
+      .entry-card:hover .entry-cover img {
+        transform: scale(1.03);
+      }
+
+      .entry-cover-fallback {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        align-content: end;
+        gap: 6px;
+        padding: 14px;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.08), rgba(17,17,17,0.16)),
+          linear-gradient(135deg, #ede7db, #d6cab7);
+      }
+
+      .entry-cover-fallback strong {
+        font-size: 0.98rem;
+        line-height: 1.16;
+      }
+
+      .entry-cover-fallback span {
+        color: rgba(17, 17, 17, 0.68);
+        font-size: 0.8rem;
+      }
+
+      .entry-topline {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 10px;
+      }
+
+      .entry-class {
+        color: var(--muted);
+        font-size: 0.76rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .empty-note {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      @media (max-width: 1000px) {
+        .home-layout,
+        .editorial-hero {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        main {
+          width: min(100vw - 18px, 100%);
+          padding-top: 18px;
+        }
+
+        .hero-marquee {
+          display: none;
+        }
+
+        .hero {
+          padding: 18px;
+        }
+
+        .brand-title {
+          font-size: 0.92rem;
+          line-height: 1.35;
+        }
+
+        .hero h1 {
+          font-size: clamp(2rem, 10vw, 3.1rem);
+        }
+
+        .hero-feature,
+        .hero-feature-body {
+          min-height: 400px;
+        }
+
+        .hero-feature-body {
+          padding: 18px;
+        }
+
+        .hero-feature-copy {
+          font-size: 0.94rem;
+          line-height: 1.6;
+        }
+
+        .hero-mini {
+          grid-template-columns: 76px minmax(0, 1fr);
+          padding: 10px;
+          border-radius: 16px;
+        }
+
+        .hero-stack {
+          grid-auto-flow: column;
+          grid-auto-columns: minmax(230px, 78vw);
+          overflow-x: auto;
+          padding-bottom: 2px;
+          scroll-snap-type: x proximity;
+        }
+
+        .hero-mini {
+          scroll-snap-align: start;
+        }
+
+        .topbar,
+        .archive-header,
+        .paging-row,
+        .carousel-head {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .top-actions,
+        .lang-toggle,
+        .hero-feature-actions {
+          width: 100%;
+        }
+
+        .top-actions .nav-link,
+        .lang-toggle button,
+        .hero-feature-actions a {
+          flex: 1 1 0;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .strip {
+          grid-template-columns: 1fr;
+        }
+
+        .archive-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .home-layout {
+          gap: 12px;
+        }
+
+        .card {
+          padding: 16px;
+        }
+
+        .stat-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .search-bar {
+          grid-template-columns: 1fr;
+        }
+
+        .carousel-track {
+          grid-auto-columns: minmax(148px, 180px);
+        }
+
+        #stats-copy,
+        #scene-pills {
+          display: none;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .strip-card {
+          padding: 14px 15px;
+        }
+
+        .archive-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="topbar fade-up">
+        <div class="brand-lockup">
+          <div class="brand-kicker">Audio Lab Live</div>
+          <div class="brand-title" data-i18n="brand_title">Independent / Electronic / Obscure Music Review Shelf</div>
+        </div>
+        <div class="top-actions">
+          <a id="archive-link" class="nav-link" href="/audio-lab/entry" data-i18n="nav_archive">Current Entry</a>
+          <a id="detail-link" class="nav-link" href="/audio-lab/archive" data-i18n="nav_detail">Cover Wall</a>
+          <div class="lang-toggle" aria-label="Language switch">
+            <button id="lang-en" class="is-active" type="button">EN</button>
+            <button id="lang-zh" type="button">中文</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero fade-up delay-1">
+        <div class="hero-kicker" data-i18n="hero_kicker">Independent Music Review Archive</div>
+        <h1 data-i18n="hero_title">
+          We collect obscure and electronic records, rank the public signal, and turn them into a readable shelf.
+        </h1>
+        <p data-i18n="hero_body">
+          A living review homepage for independent musicians, underground electronics, sound art, fringe scenes,
+          and catalog discoveries from the 1970s onward.
+        </p>
+        <p id="domain-focus" class="muted" data-i18n="hero_focus">
+          Editorial focus: independent musicians, electronic music, obscure catalog, sound art, and long historical lineages.
+        </p>
+      </section>
+
+      <section class="hero-marquee fade-up delay-1" aria-hidden="true">
+        <div class="hero-marquee-track" id="hero-marquee-track">
+          <span>ambient</span>
+          <span>idm</span>
+          <span>industrial</span>
+          <span>sound-art</span>
+          <span>minimal-wave</span>
+          <span>breakcore</span>
+          <span>electronicore</span>
+          <span>field-recording</span>
+          <span>ambient</span>
+          <span>idm</span>
+          <span>industrial</span>
+          <span>sound-art</span>
+          <span>minimal-wave</span>
+          <span>breakcore</span>
+          <span>electronicore</span>
+          <span>field-recording</span>
+        </div>
+      </section>
+
+      <section class="strip fade-up delay-2">
+        <article class="strip-card">
+          <strong data-i18n="strip_what_title">What it does</strong>
+          <span data-i18n="strip_what_body">Collects releases, surfaces promising records, and grows a living review catalog.</span>
+        </article>
+        <article class="strip-card">
+          <strong data-i18n="strip_how_title">How it judges</strong>
+          <span data-i18n="strip_how_body">Combines professional, community, fan, and editorial signals so niche work still gets a fair read.</span>
+        </article>
+        <article class="strip-card">
+          <strong data-i18n="strip_for_title">Who it is for</strong>
+          <span data-i18n="strip_for_body">Listeners exploring ambient, industrial, IDM, noise, sound art, minimal wave, and other fringe scenes.</span>
+        </article>
+      </section>
+
+      <section class="editorial-hero fade-up delay-2">
+        <article class="card hero-feature" id="editorial-hero-feature"></article>
+        <aside class="hero-stack" id="editorial-hero-stack"></aside>
+      </section>
+
+      <section class="home-layout fade-up delay-2">
+        <article class="card">
+          <div class="section-title" data-i18n="shelf_title">Cover Shelf</div>
+          <div class="search-shell">
+            <div class="search-bar">
+              <input id="search-input" type="search" data-i18n-placeholder="search_placeholder" placeholder="Search artist, album, tag, era, or scene" />
+              <button id="search-clear" class="ghost-button" type="button" data-i18n="search_clear">Clear</button>
+            </div>
+            <div class="filter-row" id="score-filter-bar"></div>
+          </div>
+          <div class="carousel-head" style="margin-top: 18px;">
+            <div>
+              <div class="big" id="home-headline">Building the shelf...</div>
+              <div class="mini muted" id="home-subhead" style="margin-top: 6px;">
+                The archive is collecting releases and turning them into browsable review entries.
+              </div>
+            </div>
+            <div class="carousel-controls">
+              <button id="carousel-prev" class="page-button" type="button" data-i18n="carousel_prev">Prev</button>
+              <button id="carousel-next" class="page-button" type="button" data-i18n="carousel_next">Next</button>
+            </div>
+          </div>
+          <div id="cover-carousel" class="carousel-track"></div>
+        </article>
+
+        <article class="card">
+          <div class="section-title" data-i18n="stats_title">Listening Shelf</div>
+          <div class="big" id="stats-headline">Shelf in progress</div>
+          <p class="mini muted" id="stats-copy" data-i18n="stats_copy">
+            The catalog rollup keeps collecting releases, selecting seeds, and building entries.
+          </p>
+          <div class="stat-grid" id="stats-grid"></div>
+          <div class="pill-row" id="scene-pills" style="margin-top: 12px;"></div>
+        </article>
+      </section>
+
+      <section class="card fade-up delay-3" style="margin-top: 16px;">
+        <div class="archive-header">
+          <div>
+            <div class="section-title" data-i18n="social_title">Self-Tagged Experimental Finds</div>
+            <div class="big" id="social-title">Low-attention creator uploads and fringe self-releases</div>
+            <p class="mini muted" id="social-copy">A narrower lane for independent uploads, social finds, and self-published experimental work.</p>
+          </div>
+        </div>
+        <div id="social-grid" class="archive-grid"></div>
+      </section>
+
+      <section class="card fade-up delay-3" style="margin-top: 16px;">
+        <div class="archive-header">
+          <div>
+            <div class="section-title" data-i18n="archive_title">Archive</div>
+            <div class="big" id="archive-title">Catalog entries</div>
+            <p class="mini muted" id="archive-copy">
+              Browse the collected shelf, one page at a time.
+            </p>
+          </div>
+          <div class="paging-row">
+            <div class="mini muted" id="page-copy">Page 1</div>
+            <div class="carousel-controls">
+              <button id="page-prev" class="page-button" type="button" data-i18n="page_prev">Previous</button>
+              <button id="page-next" class="page-button" type="button" data-i18n="page_next">Next</button>
+            </div>
+          </div>
+        </div>
+        <div id="archive-grid" class="archive-grid"></div>
+      </section>
+
+    </main>
+
+    <script>
+      const API = {
+        entries: "/api/audio-lab/latest/catalog-entries-page",
+        discoveries: "/api/audio-lab/latest/catalog-entries-page?offset=0&limit=6&discovery=indie-social",
+        candidates: "/api/audio-lab/latest/catalog-candidates",
+        seeds: "/api/audio-lab/latest/catalog-seeds",
+        library: "/api/audio-lab/latest/catalog-library",
+      };
+      const PAGE_SIZE = 6;
+
+      const STRINGS = {
+        en: {
+          brand_title: "Independent / Electronic / Obscure Music Review Shelf",
+          hero_kicker: "Independent Music Review Archive",
+          hero_title: "We collect obscure and electronic records, rank the public signal, and turn them into a readable shelf.",
+          hero_body: "A living review homepage for independent musicians, underground electronics, sound art, fringe scenes, and catalog discoveries from the 1970s onward.",
+          hero_focus: "Editorial focus: independent musicians, electronic music, obscure catalog, sound art, and long historical lineages.",
+          strip_what_title: "What it does",
+          strip_what_body: "Collects releases, surfaces promising records, and grows a living review catalog.",
+          strip_how_title: "How it judges",
+          strip_how_body: "Combines professional, community, fan, and editorial signals so niche work still gets a fair read.",
+          strip_for_title: "Who it is for",
+          strip_for_body: "Listeners exploring ambient, industrial, IDM, noise, sound art, minimal wave, and other fringe scenes.",
+          hero_feature_kicker: "Editorial Pick",
+          hero_feature_empty: "The shelf is still collecting its first strong front-page cover.",
+          hero_feature_entry: "Open entry",
+          hero_feature_archive: "Browse archive",
+          shelf_title: "Cover Shelf",
+          search_placeholder: "Search artist, album, tag, era, or scene",
+          search_clear: "Clear",
+          carousel_prev: "Prev",
+          carousel_next: "Next",
+          stats_title: "Listening Shelf",
+          stats_copy: "The catalog rollup keeps collecting releases, selecting seeds, and building entries.",
+          featured_title: "Featured Entry",
+          analysis_title: "Entry Analysis",
+          detail_context: "Artist Context",
+          detail_chronology: "Before / After",
+          detail_signals: "Signals & Tags",
+          detail_sources: "Professional Evidence",
+          archive_title: "Archive",
+          social_title: "Self-Tagged Experimental Finds",
+          social_copy: "A narrower lane for independent uploads, social finds, and self-published experimental work.",
+          social_headline: "Low-attention creator uploads and fringe self-releases",
+          page_prev: "Previous",
+          page_next: "Next",
+          nav_archive: "Current Entry",
+          nav_detail: "Cover Wall",
+          filter_all: "All",
+          filter_high: "High Score",
+          filter_solid: "Solid",
+          filter_wildcard: "Low Score, Good Chance",
+          filter_underexposed: "Underexposed",
+          filter_mixed: "Mixed",
+          headline_ready: "A growing shelf for independent and fringe music",
+          headline_empty: "The shelf is waiting for more entries",
+          subhead_ready: "Search, filter by score, or open a cover to read one release at a time.",
+          subhead_empty: "The hourly rollup will keep collecting records and expanding the archive.",
+          stats_headline: "Shelf in progress",
+          archive_copy: "Browse the collected shelf, one page at a time.",
+          featured_empty_title: "Choose a release from the shelf",
+          featured_empty_meta: "The strongest current entry will be featured here by default.",
+          featured_empty_copy: "As the archive grows, this panel will keep surfacing one release at a time with a tighter editorial read.",
+          page_copy: "Page {page} of {total}",
+          archive_count: "{count} entries in the current archive",
+          quality_live: "Live",
+          quality_paused: "Paused",
+          runtime_waiting: "Waiting for runtime status.",
+          no_review: "No review yet.",
+          no_cred: "No credibility snapshot yet.",
+          credibility_pending: "Pending",
+          no_sources: "No professional digest yet.",
+          no_context: "No artist context yet.",
+          no_chronology: "No chronology yet.",
+          no_evidence: "No matched professional evidence yet.",
+          no_entries: "No entries matched this search.",
+          candidates: "Candidates",
+          seeds: "Seeds",
+          entries: "Entries",
+          growth: "Growth",
+          selected: "Selected",
+          coverage: "Coverage",
+          editorial: "Editorial",
+          credibility: "Credibility",
+          class_label: "Classification",
+          scene_strength: "Scene strength",
+          evidence_depth: "Evidence depth",
+          top_signals: "Top signals",
+          professional_match: "Professional match",
+          source_count: "Source count",
+          review_strengths: "Strengths",
+          review_weaknesses: "Weaknesses",
+          runtime_mode: "Runtime mode",
+          next_tag: "Next tag index",
+          cycles: "Collection cycles",
+          source_family: "Source family",
+          before: "Before",
+          after: "After",
+          similar_artists: "Similar artists",
+          listener_tags: "Listener tags",
+          quality_notes: "Quality notes",
+          for_fans_of: "For fans of",
+          source_match_summary: "Matched {count} specialist signal(s).",
+          runtime_running: "The service is live and can keep building the shelf.",
+          runtime_paused_copy: "The service is paused, but the archive remains readable.",
+        },
+        zh: {
+          brand_title: "独立 / 电子 / 小众音乐评论档案架",
+          hero_kicker: "独立音乐评论档案",
+          hero_title: "我们收集小众与电子音乐作品，聚合公共评价信号，再把它们整理成可读的评论架。",
+          hero_body: "这是一个会持续生长的乐评首页，面向独立音乐人、地下电子、声音艺术、边缘场景，以及 1970 年代以来的目录发现。",
+          hero_focus: "策展重点：独立音乐人、电子音乐、小众目录、声音艺术，以及长期历史谱系。",
+          strip_what_title: "它在做什么",
+          strip_what_body: "持续收集作品、筛出值得关注的唱片，并扩张成一个可浏览的评论目录。",
+          strip_how_title: "它如何判断",
+          strip_how_body: "综合专业评论、社区信号、粉丝反馈和站内编辑判断，让小众作品也能得到公平解读。",
+          strip_for_title: "它适合谁",
+          strip_for_body: "适合想探索 ambient、industrial、IDM、noise、声音艺术、minimal wave 等边缘场景的听众。",
+          hero_feature_kicker: "编辑精选",
+          hero_feature_empty: "首页还在等待第一张足够强的封面进入主位。",
+          hero_feature_entry: "查看条目",
+          hero_feature_archive: "进入封面墙",
+          shelf_title: "封面架",
+          search_placeholder: "搜索音乐人、专辑、标签、年代或场景",
+          search_clear: "清空",
+          carousel_prev: "上一组",
+          carousel_next: "下一组",
+          stats_title: "收听架",
+          stats_copy: "目录任务会持续收集作品、筛选种子，并生成可阅读的评论条目。",
+          featured_title: "精选条目",
+          analysis_title: "条目分析",
+          detail_context: "音乐人背景",
+          detail_chronology: "前后作品脉络",
+          detail_signals: "信号与标签",
+          detail_sources: "专业证据",
+          archive_title: "档案库",
+          social_title: "自标实验 / 低关注发现",
+          social_copy: "这里会优先展示独立音乐人上传、社交平台发现和自发布实验作品。",
+          social_headline: "低关注创作者上传与自发布作品",
+          page_prev: "上一页",
+          page_next: "下一页",
+          nav_archive: "当前条目",
+          nav_detail: "封面墙",
+          filter_all: "全部",
+          filter_high: "高分",
+          filter_solid: "稳妥",
+          filter_wildcard: "低分但可能好听",
+          filter_underexposed: "曝光不足",
+          filter_mixed: "混合信号",
+          headline_ready: "一个正在扩张的独立与边缘音乐评论架",
+          headline_empty: "评论架还在等待更多条目",
+          subhead_ready: "你可以搜索、按分数筛选，或点开封面一次读一张作品。",
+          subhead_empty: "每小时的自动任务会继续收集作品并扩张这个档案。",
+          stats_headline: "目录生成中",
+          archive_copy: "按页浏览这批已经收集进来的评论条目。",
+          featured_empty_title: "从封面架里选择一张作品",
+          featured_empty_meta: "默认会先展示当前最强的一条。",
+          featured_empty_copy: "随着档案变大，这个区块会持续挑出一张作品做更紧凑的编辑解读。",
+          page_copy: "第 {page} / {total} 页",
+          archive_count: "当前档案共 {count} 条作品",
+          quality_live: "运行中",
+          quality_paused: "已暂停",
+          runtime_waiting: "正在等待运行状态。",
+          no_review: "还没有乐评。",
+          no_cred: "还没有公信力快照。",
+          credibility_pending: "待补全",
+          no_sources: "还没有专业来源摘要。",
+          no_context: "还没有音乐人背景信息。",
+          no_chronology: "还没有前后作品时间线。",
+          no_evidence: "还没有匹配到专业评论证据。",
+          no_entries: "这次搜索没有命中条目。",
+          candidates: "候选",
+          seeds: "种子",
+          entries: "条目",
+          growth: "增长模式",
+          selected: "当前筛选",
+          coverage: "覆盖率",
+          editorial: "站内分",
+          credibility: "公信力",
+          class_label: "分类",
+          scene_strength: "场景强度",
+          evidence_depth: "证据深度",
+          top_signals: "主要信号",
+          professional_match: "专业匹配",
+          source_count: "来源数",
+          review_strengths: "优点",
+          review_weaknesses: "短板",
+          runtime_mode: "运行模式",
+          next_tag: "下一个标签索引",
+          cycles: "采集轮次",
+          source_family: "来源家族",
+          before: "之前",
+          after: "之后",
+          similar_artists: "相似音乐人",
+          listener_tags: "听众标签",
+          quality_notes: "质量备注",
+          for_fans_of: "适合谁听",
+          source_match_summary: "匹配到 {count} 条专业评论信号。",
+          runtime_running: "服务正在运行，可以继续为这个架子自动加内容。",
+          runtime_paused_copy: "服务目前暂停，但档案依然可以正常浏览。",
+        },
+      };
+
+      const FILTERS = [
+        { key: "all", labelKey: "filter_all" },
+        { key: "high-score", labelKey: "filter_high" },
+        { key: "solid", labelKey: "filter_solid" },
+        { key: "wildcard", labelKey: "filter_wildcard" },
+        { key: "underexposed", labelKey: "filter_underexposed" },
+        { key: "mixed", labelKey: "filter_mixed" },
+      ];
+
+      const state = {
+        lang: new URLSearchParams(location.search).get("lang") === "zh" ? "zh" : "en",
+        latest: {},
+        search: "",
+        filter: "all",
+        page: 1,
+        selectedEntryId: null,
+      };
+
+      function t(key, vars = {}) {
+        const table = STRINGS[state.lang] || STRINGS.en;
+        let text = table[key] || STRINGS.en[key] || key;
+        for (const [name, value] of Object.entries(vars)) {
+          text = text.replaceAll(`{${name}}`, String(value));
+        }
+        return text;
+      }
+
+      function setLanguage(lang) {
+        state.lang = lang;
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+        history.replaceState({}, "", lang === "zh" ? "/audio-lab/live?lang=zh" : "/audio-lab/live");
+        document.getElementById("lang-en").classList.toggle("is-active", lang === "en");
+        document.getElementById("lang-zh").classList.toggle("is-active", lang === "zh");
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          node.textContent = t(node.dataset.i18n);
+        });
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+          node.setAttribute("placeholder", t(node.dataset.i18nPlaceholder));
+        });
+        document.getElementById("social-title").textContent = t("social_headline");
+        document.getElementById("social-copy").textContent = t("social_copy");
+        renderFilterButtons();
+        render();
+      }
+
+      function formatScore(value, digits = 1) {
+        if (value == null || Number.isNaN(Number(value))) {
+          return "-";
+        }
+        return Number(value).toFixed(digits);
+      }
+
+      function shortText(value, fallback = "-") {
+        const text = String(value || "").trim();
+        return text || fallback;
+      }
+
+      function credibilityText(entry) {
+        const credibility = entry?.credibility || {};
+        if (credibility.score_0_to_100 != null) {
+          return `${t("credibility")} ${formatScore(credibility.score_0_to_100)}`;
+        }
+        return `${t("credibility")} ${t("credibility_pending")}`;
+      }
+
+      function classificationTitle(entry) {
+        return entry?.classification?.title || entry?.classification?.label || entry?.classification?.bucket || "Mixed";
+      }
+
+      const SUPPRESSED_ENTRY_IDS = new Set(["xiu-xiu--a-promise--unknown-year"]);
+
+      function isExplicitRevealQuery(query) {
+        return ["xiu", "xiu xiu", "a promise"].some((token) => query.includes(token));
+      }
+
+      function visibleEntries() {
+        const query = state.search.trim().toLowerCase();
+        const explicitReveal = isExplicitRevealQuery(query);
+        return allEntries().filter((entry) => explicitReveal || !SUPPRESSED_ENTRY_IDS.has(entry.entry_id));
+      }
+
+      function ensureArray(value) {
+        return Array.isArray(value) ? value : [];
+      }
+
+      function uniq(values) {
+        return [...new Set((values || []).filter(Boolean))];
+      }
+
+      function allEntries() {
+        return ensureArray(state.latest.catalog_entries?.entries);
+      }
+
+      function filteredEntries() {
+        return visibleEntries();
+      }
+
+      function pagedEntries() {
+        const items = filteredEntries();
+        const totalItems = Number(state.latest.catalog_entries?.total_count || items.length || 0);
+        const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+        return {
+          items,
+          totalPages,
+          totalItems,
+        };
+      }
+
+      function currentEntry() {
+        const entries = filteredEntries();
+        if (!entries.length) {
+          return null;
+        }
+        const matched = entries.find((entry) => entry.entry_id === state.selectedEntryId);
+        return matched || entries[0];
+      }
+
+      function renderFilterButtons() {
+        const root = document.getElementById("score-filter-bar");
+        root.innerHTML = "";
+        FILTERS.forEach((filter) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = `filter-button${state.filter === filter.key ? " is-active" : ""}`;
+          button.textContent = t(filter.labelKey);
+          button.addEventListener("click", () => {
+            state.filter = filter.key;
+            state.page = 1;
+            renderFilterButtons();
+            refreshEntriesPage().catch(console.error);
+          });
+          root.appendChild(button);
+        });
+      }
+
+      function makePill(text) {
+        const span = document.createElement("span");
+        span.className = "pill";
+        span.textContent = text;
+        return span;
+      }
+
+      function renderPills(root, items) {
+        root.innerHTML = "";
+        uniq(items).slice(0, 14).forEach((item) => {
+          root.appendChild(makePill(item));
+        });
+      }
+
+      function renderStats() {
+        const candidates = state.latest.catalog_candidates || {};
+        const seeds = state.latest.catalog_seeds || {};
+        const entries = state.latest.catalog_entries || {};
+        const library = state.latest.catalog_library || {};
+        const stats = [
+          { label: t("candidates"), value: candidates.candidate_count ?? "-" },
+          { label: t("seeds"), value: seeds.selected_count ?? "-" },
+          { label: t("entries"), value: entries.built_count ?? "-" },
+          { label: t("growth"), value: library.growth_mode || "-" },
+        ];
+        const grid = document.getElementById("stats-grid");
+        grid.innerHTML = "";
+        stats.forEach((item) => {
+          const box = document.createElement("div");
+          box.className = "stat-box";
+          box.innerHTML = `<strong>${item.value}</strong><span>${item.label}</span>`;
+          grid.appendChild(box);
+        });
+
+        const visible = allEntries();
+        document.getElementById("home-headline").textContent = visible.length ? t("headline_ready") : t("headline_empty");
+        document.getElementById("home-subhead").textContent = visible.length ? t("subhead_ready") : t("subhead_empty");
+        document.getElementById("stats-headline").textContent = t("stats_headline");
+        document.getElementById("stats-copy").textContent = t("stats_copy");
+
+        const sceneTags = uniq(
+          ensureArray(candidates.tags).slice(0, 10).concat(
+            ensureArray(candidates.selected_tags_this_run).slice(0, 6),
+          ),
+        );
+        renderPills(document.getElementById("scene-pills"), sceneTags);
+      }
+
+      function renderEditorialHero() {
+        const featureRoot = document.getElementById("editorial-hero-feature");
+        const stackRoot = document.getElementById("editorial-hero-stack");
+        const entry = currentEntry();
+        const candidates = filteredEntries().slice(0, 5);
+
+        if (!entry) {
+          featureRoot.innerHTML = `
+            <div class="hero-feature-body">
+              <div class="hero-feature-kicker">${t("hero_feature_kicker")}</div>
+              <div class="hero-feature-title">${t("featured_empty_title")}</div>
+              <p class="hero-feature-copy">${t("hero_feature_empty")}</p>
+            </div>
+          `;
+          stackRoot.innerHTML = "";
+          return;
+        }
+
+        const coverUrl = entry.cover_url || entry.cover_art_url || "";
+        featureRoot.innerHTML = `
+          ${coverUrl ? `<img src="${coverUrl}" alt="${shortText(entry.album, "cover")}" loading="eager" />` : ""}
+          <div class="hero-feature-body">
+            <div class="hero-feature-kicker">${t("hero_feature_kicker")}</div>
+            <div class="hero-feature-title">${shortText(entry.artist)} / ${shortText(entry.album)}</div>
+            <div class="hero-feature-meta">${[shortText(entry.year || entry.era_tag, "undated"), classificationTitle(entry), `${t("editorial")} ${formatScore(entry.site_score?.score_0_to_10)}/10`].join(" · ")}</div>
+            <p class="hero-feature-copy">${shortText(entry.detail?.dek || entry.detail?.review || t("featured_empty_copy"))}</p>
+            <div class="pill-row">${uniq([...(entry.scene_tags || []), ...(((entry.artist_context || {}).listener_context || {}).tags || []).slice(0, 3), ...(((entry.discovery_signals || {}).flags) || []).slice(0, 2)]).slice(0, 5).map((item) => `<span class="pill">${item}</span>`).join("")}</div>
+            <div class="hero-feature-actions">
+              <a class="primary-button" href="/audio-lab/entry?entry_id=${encodeURIComponent(entry.entry_id)}${state.lang === "zh" ? "&lang=zh" : ""}">${t("hero_feature_entry")}</a>
+              <a class="ghost-button" href="${state.lang === "zh" ? "/audio-lab/archive?lang=zh" : "/audio-lab/archive"}">${t("hero_feature_archive")}</a>
+            </div>
+          </div>
+        `;
+
+        stackRoot.innerHTML = "";
+        candidates.filter((item) => item.entry_id !== entry.entry_id).slice(0, 4).forEach((item) => {
+          const card = document.createElement("article");
+          card.className = "hero-mini";
+          card.innerHTML = `
+            <div class="hero-mini-cover">${item.cover_url ? `<img src="${item.cover_url}" alt="${shortText(item.album, "cover")}" loading="lazy" />` : ""}</div>
+            <div>
+              <div class="hero-mini-title">${shortText(item.artist)} / ${shortText(item.album)}</div>
+              <div class="hero-mini-meta">${[shortText(item.year || item.era_tag, "undated"), classificationTitle(item), `${formatScore(item.site_score?.score_0_to_10)}/10`].join(" · ")}</div>
+              <div class="hero-mini-score">${t("editorial")} ${formatScore(item.site_score?.score_0_to_10)}/10</div>
+            </div>
+          `;
+          card.addEventListener("click", () => {
+            state.selectedEntryId = item.entry_id;
+            render();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+          stackRoot.appendChild(card);
+        });
+      }
+
+      function coverMarkup(entry) {
+        const coverUrl = entry.cover_url || entry.cover_art_url || "";
+        const image = coverUrl
+          ? `<img src="${coverUrl}" alt="${shortText(entry.album, "cover")}" loading="lazy" />`
+          : `<div class="cover-fallback"><div class="cover-kicker">${shortText(entry.classification?.title, "Entry")}</div><div class="cover-title">${shortText(entry.album, "Unknown album")}</div><div class="cover-meta">${shortText(entry.artist, "Unknown artist")}</div></div>`;
+        return `
+          <div class="cover-art">${image}</div>
+          <div>
+            <div class="cover-title">${shortText(entry.album, "Unknown album")}</div>
+            <div class="cover-meta">${shortText(entry.artist, "Unknown artist")} · ${shortText(entry.year || entry.era_tag, "undated")}</div>
+          </div>
+        `;
+      }
+
+      function renderCarousel() {
+        const root = document.getElementById("cover-carousel");
+        root.innerHTML = "";
+        filteredEntries().slice(0, 12).forEach((entry) => {
+          const card = document.createElement("article");
+          card.className = `cover-card${entry.entry_id === state.selectedEntryId ? " is-selected" : ""}`;
+          card.innerHTML = coverMarkup(entry);
+          card.addEventListener("click", () => {
+            state.selectedEntryId = entry.entry_id;
+            render();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+          root.appendChild(card);
+        });
+      }
+
+      function renderSocialDiscoveries() {
+        const root = document.getElementById("social-grid");
+        const items = ensureArray(state.latest.social_entries?.entries);
+        root.innerHTML = "";
+        if (!items.length) {
+          root.innerHTML = `<div class="empty-note">${state.lang === "zh" ? "这批发现还在收集中。" : "This discovery lane is still collecting."}</div>`;
+          return;
+        }
+        items.forEach((entry) => {
+          const coverUrl = entry.cover_url || entry.cover_art_url || "";
+          const siteScore = entry.site_score || {};
+          const card = document.createElement("article");
+          card.className = "entry-card";
+          card.innerHTML = `
+            <div class="entry-cover">
+              ${coverUrl ? `<img src="${coverUrl}" alt="${shortText(entry.album, "cover")}" loading="lazy" />` : `<div class="entry-cover-fallback"><span>${shortText(entry.discovery_signals?.platform_kind, "discovery")}</span><strong>${shortText(entry.album, "Unknown album")}</strong><div style="margin-top:8px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">${entry.discovery_signals?.indie_creator_likely ? (state.lang === "zh" ? "创作者上传" : "creator-led") : shortText(entry.discovery_signals?.source_format, "social")}</div></div>`}
+            </div>
+            <div class="entry-head">
+              <div class="entry-topline">
+                <div class="entry-class">${shortText(entry.discovery_signals?.platform_kind, "social")}</div>
+                <div class="entry-score">${t("editorial")} ${formatScore(siteScore.score_0_to_10)}/10</div>
+              </div>
+              <div class="entry-title">${shortText(entry.artist)} / ${shortText(entry.album)}</div>
+              <div class="entry-meta">${[shortText(entry.year || entry.era_tag, "undated"), credibilityText(entry), entry.discovery_signals?.indie_creator_likely ? (state.lang === "zh" ? "更像原创上传" : "creator-led") : shortText(entry.discovery_signals?.source_format, "")].filter(Boolean).join(" · ")}</div>
+            </div>
+          `;
+          const pillRow = document.createElement("div");
+          pillRow.className = "pill-row";
+          uniq([...(entry.scene_tags || []), ...(((entry.discovery_signals || {}).flags) || []).slice(0, 3)]).slice(0, 5).forEach((item) => pillRow.appendChild(makePill(item)));
+          card.appendChild(pillRow);
+          card.addEventListener("click", () => {
+            location.href = `/audio-lab/entry?entry_id=${encodeURIComponent(entry.entry_id)}${state.lang === "zh" ? "&lang=zh" : ""}`;
+          });
+          root.appendChild(card);
+        });
+      }
+
+      function renderArchive() {
+        const { items, totalPages, totalItems } = pagedEntries();
+        document.getElementById("archive-title").textContent = t("archive_count", { count: totalItems });
+        document.getElementById("archive-copy").textContent = t("archive_copy");
+        document.getElementById("page-copy").textContent = t("page_copy", { page: state.page, total: totalPages });
+
+        const grid = document.getElementById("archive-grid");
+        grid.innerHTML = "";
+        if (!items.length) {
+          grid.innerHTML = `<div class="empty-note">${t("no_entries")}</div>`;
+          return;
+        }
+        items.forEach((entry) => {
+          const siteScore = entry.site_score || {};
+          const coverUrl = entry.cover_url || entry.cover_art_url || "";
+          const card = document.createElement("article");
+          card.className = `entry-card${entry.entry_id === state.selectedEntryId ? " is-selected" : ""}`;
+          card.innerHTML = `
+            <div class="entry-cover">
+              ${coverUrl ? `<img src="${coverUrl}" alt="${shortText(entry.album, "cover")}" loading="lazy" />` : `<div class="entry-cover-fallback"><span>${classificationTitle(entry)}</span><strong>${shortText(entry.album, "Unknown album")}</strong></div>`}
+            </div>
+            <div class="entry-head">
+              <div class="entry-topline">
+                <div class="entry-class">${classificationTitle(entry)}</div>
+                <div class="entry-score">${t("editorial")} ${formatScore(siteScore.score_0_to_10)}/10</div>
+              </div>
+              <div class="entry-title">${shortText(entry.artist)} / ${shortText(entry.album)}</div>
+              <div class="entry-meta">
+                ${[shortText(entry.year || entry.era_tag, "undated"), credibilityText(entry)].filter(Boolean).join(" · ")}
+              </div>
+            </div>
+          `;
+          const pillRow = document.createElement("div");
+          pillRow.className = "pill-row";
+          uniq([...(entry.scene_tags || []), ...(entry.artist_context?.listener_context?.tags || []).slice(0, 2), ...(((entry.discovery_signals || {}).flags) || []).slice(0, 2)]).slice(0, 5).forEach((item) => {
+            pillRow.appendChild(makePill(item));
+          });
+          card.appendChild(pillRow);
+          card.addEventListener("click", () => {
+            state.selectedEntryId = entry.entry_id;
+            render();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+          grid.appendChild(card);
+        });
+      }
+
+      function render() {
+        renderStats();
+        renderEditorialHero();
+        renderCarousel();
+        renderSocialDiscoveries();
+        renderArchive();
+      }
+
+      function updateNavLinks(entry) {
+        const archiveHref = state.lang === "zh" ? "/audio-lab/archive?lang=zh" : "/audio-lab/archive";
+        const detailHref = entry?.entry_id
+          ? `/audio-lab/entry?entry_id=${encodeURIComponent(entry.entry_id)}${state.lang === "zh" ? "&lang=zh" : ""}`
+          : (state.lang === "zh" ? "/audio-lab/entry?lang=zh" : "/audio-lab/entry");
+        document.getElementById("archive-link").href = detailHref;
+        document.getElementById("detail-link").href = archiveHref;
+      }
+
+      async function fetchLatest() {
+        const [entries, discoveries, candidates, seeds, library] = await Promise.all([
+          fetch(`${API.entries}?offset=${(state.page - 1) * PAGE_SIZE}&limit=${PAGE_SIZE}&q=${encodeURIComponent(state.search.trim())}&classification=${encodeURIComponent(state.filter)}`, { cache: "no-store" }).then((r) => {
+            if (!r.ok) throw new Error(`Failed to load entries: ${r.status}`);
+            return r.json();
+          }),
+          fetch(API.discoveries, { cache: "no-store" }).then((r) => (r.ok ? r.json() : {})),
+          fetch(API.candidates, { cache: "no-store" }).then((r) => (r.ok ? r.json() : {})),
+          fetch(API.seeds, { cache: "no-store" }).then((r) => (r.ok ? r.json() : {})),
+          fetch(API.library, { cache: "no-store" }).then((r) => (r.ok ? r.json() : {})),
+        ]);
+        state.latest = {
+          catalog_entries: entries || {},
+          social_entries: discoveries || {},
+          catalog_candidates: candidates || {},
+          catalog_seeds: seeds || {},
+          catalog_library: library || {},
+        };
+        const defaultEntry = allEntries()[0];
+        if (!state.selectedEntryId || !allEntries().some((entry) => entry.entry_id === state.selectedEntryId)) {
+          state.selectedEntryId = defaultEntry?.entry_id || null;
+        }
+        render();
+        document.body.classList.add("is-ready");
+      }
+
+      async function refreshEntriesPage() {
+        const response = await fetch(`${API.entries}?offset=${(state.page - 1) * PAGE_SIZE}&limit=${PAGE_SIZE}&q=${encodeURIComponent(state.search.trim())}&classification=${encodeURIComponent(state.filter)}`, { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`Failed to load entries: ${response.status}`);
+        }
+        state.latest.catalog_entries = await response.json();
+        const defaultEntry = allEntries()[0];
+        if (!state.selectedEntryId || !allEntries().some((entry) => entry.entry_id === state.selectedEntryId)) {
+          state.selectedEntryId = defaultEntry?.entry_id || null;
+        }
+        render();
+      }
+
+      document.getElementById("lang-en").addEventListener("click", () => setLanguage("en"));
+      document.getElementById("lang-zh").addEventListener("click", () => setLanguage("zh"));
+
+      document.getElementById("search-input").addEventListener("input", (event) => {
+        state.search = event.target.value || "";
+        state.page = 1;
+        refreshEntriesPage().catch(console.error);
+      });
+
+      document.getElementById("search-clear").addEventListener("click", () => {
+        state.search = "";
+        state.page = 1;
+        document.getElementById("search-input").value = "";
+        refreshEntriesPage().catch(console.error);
+      });
+
+      document.getElementById("carousel-prev").addEventListener("click", () => {
+        document.getElementById("cover-carousel").scrollBy({ left: -260, behavior: "smooth" });
+      });
+
+      document.getElementById("carousel-next").addEventListener("click", () => {
+        document.getElementById("cover-carousel").scrollBy({ left: 260, behavior: "smooth" });
+      });
+
+      document.getElementById("page-prev").addEventListener("click", () => {
+        state.page = Math.max(1, state.page - 1);
+        refreshEntriesPage().catch(console.error);
+      });
+
+      document.getElementById("page-next").addEventListener("click", () => {
+        const totalPages = Math.max(1, Math.ceil(Number(state.latest.catalog_entries?.total_count || 0) / PAGE_SIZE));
+        state.page = Math.min(totalPages, state.page + 1);
+        refreshEntriesPage().catch(console.error);
+      });
+
+      renderFilterButtons();
+      setLanguage(state.lang);
+      fetchLatest().catch((error) => {
+        console.error(error);
+        document.getElementById("home-headline").textContent = "Offline";
+        document.getElementById("home-subhead").textContent = error.message;
+      });
+    </script>
+  </body>
+</html>

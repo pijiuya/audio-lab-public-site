@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Audio Lab Artist</title>
+    <style>
+      :root {
+        --text: #111111;
+        --muted: #635d57;
+        --line: rgba(17, 17, 17, 0.12);
+        --panel: rgba(255,255,255,0.9);
+        --shadow: 0 16px 40px rgba(17, 17, 17, 0.06);
+        --radius: 22px;
+        --sans: "Inter", "Helvetica Neue", "PingFang SC", "Noto Sans SC", sans-serif;
+        --serif: "Iowan Old Style", "Source Han Serif SC", "Songti SC", "Georgia", serif;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: linear-gradient(180deg, #fbfaf7 0%, #f3efe7 100%); color: var(--text); font-family: var(--sans); }
+      main { width: min(1120px, calc(100vw - 28px)); margin: 0 auto; padding: 28px 0 72px; }
+      .topbar, .actions, .lang-toggle { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+      .topbar { justify-content: space-between; margin-bottom: 22px; }
+      .nav-link, button { appearance:none; border:none; cursor:pointer; text-decoration:none; background: rgba(17,17,17,0.05); color: var(--text); border-radius:999px; padding:10px 14px; font:inherit; }
+      .lang-toggle button.is-active { background:#111; color:#fff; }
+      .card { background: var(--panel); border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding:18px; }
+      .artist-hero { display:grid; grid-template-columns: minmax(180px, 240px) minmax(0, 1fr); gap:18px; align-items:start; }
+      .kicker, .section-title { font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+      h1 { margin: 10px 0; font-family: var(--serif); font-size: clamp(2.3rem, 5vw, 4.4rem); line-height: 0.94; letter-spacing: -0.04em; }
+      p { color: var(--muted); line-height: 1.7; }
+      .artist-photo {
+        aspect-ratio: 1 / 1;
+        border-radius: 22px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ece2d3, #d3c6b4);
+        border: 1px solid rgba(17,17,17,0.08);
+      }
+      .artist-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+      .artist-photo-fallback { height:100%; display:grid; align-content:end; padding:16px; background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(17,17,17,0.14)); }
+      .stats, .grid, .listen-grid { display:grid; gap:14px; }
+      .stats { grid-template-columns: repeat(4, minmax(0,1fr)); margin-top:14px; }
+      .stat, .work-card { padding:14px; border-radius:18px; background: rgba(17,17,17,0.04); border:1px solid rgba(17,17,17,0.06); }
+      .stat strong { display:block; margin-bottom:4px; }
+      .grid { grid-template-columns: repeat(2, minmax(0,1fr)); margin-top:16px; }
+      .work-title { font-weight:700; margin-bottom:6px; }
+      .work-meta { color: var(--muted); font-size: 0.9rem; line-height:1.6; margin-bottom:10px; }
+      .pill-row { display:flex; flex-wrap:wrap; gap:8px; }
+      .pill { display:inline-flex; padding:8px 12px; border-radius:999px; background: rgba(17,17,17,0.05); color: var(--muted); font-size:0.82rem; }
+      .inline-link { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(17,17,17,0.18); }
+      .empty { color: var(--muted); padding: 24px 0; }
+      .timeline {
+        display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;
+      }
+      .timeline-chip {
+        display:grid; gap:4px; min-width:140px; padding:12px 14px;
+        border-radius:18px; background: rgba(17,17,17,0.04); border:1px solid rgba(17,17,17,0.06);
+      }
+      a.timeline-chip { color: inherit; text-decoration: none; }
+      .timeline-chip strong { font-size:0.95rem; }
+      .context-links, .listen-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+      .listen-links .nav-link { background:#111; color:#fff; }
+      .featured-work {
+        margin-top: 14px;
+        padding: 14px;
+        border-radius: 18px;
+        background: rgba(17,17,17,0.04);
+        border: 1px solid rgba(17,17,17,0.06);
+      }
+      .featured-work strong { display:block; margin-bottom:6px; }
+      .listen-grid { grid-template-columns: repeat(2, minmax(0,1fr)); margin-top:16px; }
+      .listen-card { padding:14px; border-radius:18px; background: rgba(17,17,17,0.04); border:1px solid rgba(17,17,17,0.06); }
+      .listen-card strong { display:block; margin-bottom:6px; }
+      .cover-mini {
+        aspect-ratio: 1 / 1;
+        border-radius: 14px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ece2d3, #d3c6b4);
+        margin-bottom: 10px;
+      }
+      .cover-mini img { width:100%; height:100%; object-fit:cover; display:block; }
+      @media (max-width: 860px) {
+        main { width:min(100vw - 18px,100%); padding-top:18px; }
+        .topbar { flex-direction:column; align-items:stretch; }
+        .actions, .lang-toggle { width: 100%; }
+        .actions .nav-link, .lang-toggle button { flex: 1 1 0; text-align: center; }
+        h1 { font-size: clamp(2rem, 10vw, 3.2rem); }
+        .artist-hero { grid-template-columns: 1fr; }
+        .stats, .grid, .listen-grid { grid-template-columns:1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <div>
+          <div class="kicker">Audio Lab Artist</div>
+          <div id="page-title" style="font-weight:700;">Artist</div>
+        </div>
+        <div class="actions">
+          <a id="home-link" class="nav-link" href="/audio-lab/live">Home</a>
+          <a id="archive-link" class="nav-link" href="/audio-lab/archive">Archive</a>
+          <div class="lang-toggle">
+            <button id="lang-en" class="is-active" type="button">EN</button>
+            <button id="lang-zh" type="button">中文</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="card artist-hero">
+        <div class="artist-photo" id="artist-photo"></div>
+        <div>
+          <div class="section-title" id="hero-kicker">Artist</div>
+          <h1 id="artist-name">Loading…</h1>
+          <p id="artist-copy">Collecting works, context, and scene signals for this artist.</p>
+          <div class="stats" id="stats"></div>
+          <div class="timeline" id="timeline"></div>
+          <div class="context-links" id="context-links"></div>
+          <div class="featured-work" id="featured-work"></div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top:16px;">
+        <div class="section-title" id="network-kicker">Network</div>
+        <div class="grid" id="network-grid"></div>
+      </section>
+
+      <section class="card" style="margin-top:16px;">
+        <div class="section-title" id="listen-links-kicker">Where to Listen</div>
+        <div class="listen-links" id="listen-links"></div>
+      </section>
+
+      <section class="card" style="margin-top:16px;">
+        <div class="section-title" id="listen-kicker">Keep Listening</div>
+        <div class="listen-grid" id="listen-grid"></div>
+      </section>
+
+      <section class="card" style="margin-top:16px;">
+        <div class="section-title" id="works-kicker">Collected Works</div>
+        <div class="grid" id="works-grid"></div>
+      </section>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(location.search);
+      const state = { lang: params.get("lang") === "zh" ? "zh" : "en", artist: params.get("artist") || "" };
+      const STRINGS = {
+        en: { title: "Artist", home: "Home", archive: "Archive", hero_kicker: "Artist", hero_copy: "Collected works, context, and scene signals for this artist.", works: "Collected Works", works_count: "Works", avg_score: "Avg editorial", scenes: "Scenes", links: "Related links", no_artist: "No artist selected.", no_works: "No collected works for this artist yet.", network: "Network", evolution: "Era Evolution", earliest: "Earliest", latest: "Latest", similar_artists: "Nearby artists", shared_scenes: "Shared scenes", listener_context: "Listener context", featured_work: "Featured work", keep_listening: "Keep Listening", from_similar: "From similar artists", listen_links: "Where to Listen", bandcamp_note: "Best when the artist sells directly.", spotify: "Spotify", apple: "Apple Music", bandcamp: "Bandcamp", youtube: "YouTube", soundcloud: "SoundCloud" },
+        zh: { title: "艺术家页", home: "首页", archive: "档案页", hero_kicker: "艺术家", hero_copy: "这里汇总这位音乐人的已收录作品、背景和场景信号。", works: "已收录作品", works_count: "作品数", avg_score: "平均站内分", scenes: "场景数", links: "相关链接", no_artist: "还没有指定艺术家。", no_works: "这个音乐人暂时还没有已收录作品。", network: "关联网络", evolution: "年代演化", earliest: "最早", latest: "最新", similar_artists: "相近艺术家", shared_scenes: "共享场景", listener_context: "听众语境", featured_work: "代表作品", keep_listening: "继续听", from_similar: "来自相近音乐人", listen_links: "去哪里听", bandcamp_note: "如果艺术家有直售，这里通常最值得先看。", spotify: "Spotify", apple: "Apple Music", bandcamp: "Bandcamp", youtube: "YouTube", soundcloud: "SoundCloud" }
+      };
+      function t(k){ return (STRINGS[state.lang]||STRINGS.en)[k] || k; }
+      function short(v,f='-'){ v=String(v||'').trim(); return v||f; }
+      function score(v){ return v==null?'-':Number(v).toFixed(1); }
+      function uniq(values){ return [...new Set((values||[]).filter(Boolean))]; }
+      function entryHref(entryId){ return `/audio-lab/entry?entry_id=${encodeURIComponent(entryId)}${state.lang==='zh'?'&lang=zh':''}`; }
+      function archiveHref(search = "", era = "") {
+        const q = new URLSearchParams();
+        if (search) q.set("search", search);
+        if (era) q.set("era", era);
+        if (state.lang === "zh") q.set("lang", "zh");
+        return `/audio-lab/archive?${q.toString()}`;
+      }
+      function setLang(){
+        document.documentElement.lang = state.lang === 'zh' ? 'zh-CN' : 'en';
+        document.getElementById('lang-en').classList.toggle('is-active', state.lang==='en');
+        document.getElementById('lang-zh').classList.toggle('is-active', state.lang==='zh');
+        document.getElementById('page-title').textContent = t('title');
+        document.getElementById('home-link').textContent = t('home');
+        document.getElementById('archive-link').textContent = t('archive');
+        document.getElementById('hero-kicker').textContent = t('hero_kicker');
+        document.getElementById('artist-copy').textContent = t('hero_copy');
+        document.getElementById('works-kicker').textContent = t('works');
+        document.getElementById('network-kicker').textContent = t('network');
+        document.getElementById('listen-links-kicker').textContent = t('listen_links');
+        document.getElementById('listen-kicker').textContent = t('keep_listening');
+        document.getElementById('home-link').href = state.lang==='zh' ? '/audio-lab/live?lang=zh' : '/audio-lab/live';
+        document.getElementById('archive-link').href = state.lang==='zh' ? '/audio-lab/archive?lang=zh' : '/audio-lab/archive';
+      }
+      async function boot(){
+        const entriesPayload = await fetch('/api/audio-lab/latest/catalog-entries-lite', { cache:'no-store' }).then((r)=>{
+          if (!r.ok) throw new Error(`Failed to load entries: ${r.status}`);
+          return r.json();
+        });
+        const entries = (entriesPayload || {}).entries || [];
+        const artist = state.artist || entries[0]?.artist || '';
+        setLang();
+        document.getElementById('artist-name').textContent = artist || t('no_artist');
+        if (!artist) return;
+        history.replaceState({}, '', `/audio-lab/artist?artist=${encodeURIComponent(artist)}${state.lang==='zh'?'&lang=zh':''}`);
+        const works = entries.filter((entry) => String(entry.artist || '').trim().toLowerCase() === String(artist).trim().toLowerCase());
+        const scenes = uniq(works.flatMap((item) => item.scene_tags || []));
+        const avg = works.length ? works.reduce((s, item) => s + Number(item.site_score?.score_0_to_10 || 0), 0) / works.length : null;
+        const years = works.map((item) => item.year).filter((year) => Number.isInteger(year)).sort((a,b) => a-b);
+        const leadWork = [...works].sort((a,b) => Number(b.site_score?.score_0_to_10 || 0) - Number(a.site_score?.score_0_to_10 || 0))[0] || works[0] || null;
+        const contextWork = works.find((item) => {
+          const listener = ((item.artist_context || {}).listener_context || {});
+          return listener.image_url || listener.bio_summary || listener.url;
+        }) || leadWork;
+        const artistContext = contextWork?.artist_context || leadWork?.artist_context || {};
+        const listenerContext = (artistContext || {}).listener_context || {};
+        document.getElementById('artist-photo').innerHTML = listenerContext.image_url
+          ? `<img src="${listenerContext.image_url}" alt="${short(artist, 'artist')}" loading="lazy" />`
+          : `<div class="artist-photo-fallback"><strong>${short(artist)}</strong></div>`;
+        document.getElementById('artist-copy').textContent = listenerContext.bio_summary || t('hero_copy');
+        document.getElementById('stats').innerHTML = [
+          [t('works_count'), works.length],
+          [t('avg_score'), score(avg)],
+          [t('scenes'), scenes.length],
+          [t('links'), works.filter((item) => item.artist_context?.listener_context?.url).length],
+        ].map(([label, value]) => `<div class="stat"><strong>${value}</strong><span>${label}</span></div>`).join('');
+        const earliestWork = years.length ? works.find((item) => item.year === years[0]) : null;
+        const latestWork = years.length ? [...works].reverse().find((item) => item.year === years[years.length - 1]) : null;
+        const timelineItems = [
+          { label: t('evolution'), value: scenes.slice(0, 5).join(', ') || '-', href: archiveHref(artist) },
+          { label: t('earliest'), value: years.length ? years[0] : '-', href: earliestWork?.entry_id ? entryHref(earliestWork.entry_id) : archiveHref(artist, earliestWork?.era_tag || '') },
+          { label: t('latest'), value: years.length ? years[years.length - 1] : '-', href: latestWork?.entry_id ? entryHref(latestWork.entry_id) : archiveHref(artist, latestWork?.era_tag || '') },
+        ];
+        document.getElementById('timeline').innerHTML = timelineItems.map((item) => item.href
+          ? `<a class="timeline-chip" href="${item.href}"><span>${item.label}</span><strong>${item.value}</strong></a>`
+          : `<div class="timeline-chip"><span>${item.label}</span><strong>${item.value}</strong></div>`).join('');
+        const contextPills = uniq([
+          ...(listenerContext.tags || []).slice(0, 4),
+          ...((artistContext.musicbrainz_profile || {}).tags || []).slice(0, 4),
+          ...(listenerContext.top_tracks || []).slice(0, 2),
+        ]).slice(0, 8).map((item) => `<span class="pill">${item}</span>`).join('');
+        const linkMarkup = [
+          listenerContext.url ? `<a class="nav-link" href="${listenerContext.url}" target="_blank" rel="noreferrer">${t('listener_context')}</a>` : "",
+          `<a class="nav-link" href="${archiveHref(artist)}">${t('archive')}</a>`,
+        ].filter(Boolean).join('');
+        document.getElementById('context-links').innerHTML = linkMarkup;
+        const artistQuery = encodeURIComponent(artist);
+        document.getElementById('listen-links').innerHTML = [
+          `<a class="nav-link" href="https://open.spotify.com/search/${artistQuery}" target="_blank" rel="noreferrer">${t('spotify')}</a>`,
+          `<a class="nav-link" href="https://music.apple.com/us/search?term=${artistQuery}" target="_blank" rel="noreferrer">${t('apple')}</a>`,
+          `<a class="nav-link" href="https://bandcamp.com/search?q=${artistQuery}" target="_blank" rel="noreferrer">${t('bandcamp')}</a>`,
+          `<a class="nav-link" href="https://www.youtube.com/results?search_query=${artistQuery}" target="_blank" rel="noreferrer">${t('youtube')}</a>`,
+          `<a class="nav-link" href="https://soundcloud.com/search?q=${artistQuery}" target="_blank" rel="noreferrer">${t('soundcloud')}</a>`,
+        ].join('');
+        document.getElementById('featured-work').innerHTML = leadWork
+          ? `<strong>${t('featured_work')}</strong><div class="work-title"><a class="inline-link" href="${entryHref(leadWork.entry_id)}">${short(leadWork.album)}</a></div><div class="work-meta">${[short(leadWork.year || leadWork.era_tag, 'undated'), leadWork.classification?.title || '-', `${score(leadWork.site_score?.score_0_to_10)}/10`].join(' · ')}</div><div class="pill-row">${uniq([...(leadWork.scene_tags || []), ...((listenerContext.tags || []).slice(0, 3))]).slice(0, 5).map((item) => `<span class="pill">${item}</span>`).join('')}</div>${contextPills ? `<div class="pill-row" style="margin-top:10px;">${contextPills}</div>` : ''}`
+          : "";
+
+        const relatedArtists = new Map();
+        works.forEach((entry) => {
+          const sceneSet = new Set(entry.scene_tags || []);
+          entries.forEach((other) => {
+            if (other.entry_id === entry.entry_id || other.artist === artist) return;
+            const overlap = (other.scene_tags || []).filter((tag) => sceneSet.has(tag));
+            if (!overlap.length) return;
+            const current = relatedArtists.get(other.artist) || { artist: other.artist, count: 0, tags: new Set(), entry_id: other.entry_id };
+            current.count += overlap.length;
+            overlap.forEach((tag) => current.tags.add(tag));
+            relatedArtists.set(other.artist, current);
+          });
+        });
+        const networkRoot = document.getElementById('network-grid');
+        const networkItems = [...relatedArtists.values()].sort((a,b) => b.count - a.count || String(a.artist).localeCompare(String(b.artist))).slice(0, 6);
+        networkRoot.innerHTML = networkItems.length
+          ? networkItems.map((item) => `<article class="work-card"><div class="work-title"><a class="inline-link" href="/audio-lab/artist?artist=${encodeURIComponent(item.artist)}${state.lang==='zh'?'&lang=zh':''}">${short(item.artist)}</a></div><div class="work-meta">${t('shared_scenes')}: ${[...item.tags].slice(0,4).join(', ')}</div><div class="pill-row"><span class="pill">${t('similar_artists')}</span><span class="pill">${item.count}</span></div></article>`).join('')
+          : `<div class="empty">${t('no_works')}</div>`;
+        const similarNames = new Set((listenerContext.similar_artists || []).map((name) => String(name || '').trim().toLowerCase()).filter(Boolean));
+        const listenItems = entries
+          .filter((item) => String(item.artist || '').trim().toLowerCase() !== String(artist).trim().toLowerCase())
+          .map((item) => {
+            const itemArtist = String(item.artist || '').trim().toLowerCase();
+            let scoreValue = 0;
+            const overlap = (item.scene_tags || []).filter((tag) => scenes.includes(tag));
+            scoreValue += overlap.length * 3;
+            if (similarNames.has(itemArtist)) scoreValue += 5;
+            return { item, overlap, scoreValue };
+          })
+          .filter((row) => row.scoreValue > 0)
+          .sort((a, b) => b.scoreValue - a.scoreValue || Number(b.item.site_score?.score_0_to_10 || 0) - Number(a.item.site_score?.score_0_to_10 || 0))
+          .slice(0, 4);
+        document.getElementById('listen-grid').innerHTML = listenItems.length
+          ? listenItems.map(({ item, overlap }) => `<article class="listen-card"><div class="cover-mini">${item.cover_url ? `<img src="${item.cover_url}" alt="${short(item.album, 'cover')}" loading="lazy" />` : ''}</div><strong><a class="inline-link" href="${entryHref(item.entry_id)}">${short(item.artist)} / ${short(item.album)}</a></strong><div class="work-meta">${[short(item.year || item.era_tag, 'undated'), item.classification?.title || '-', `${score(item.site_score?.score_0_to_10)}/10`].join(' · ')}</div><div class="pill-row">${uniq([t('from_similar'), ...(overlap || [])]).slice(0, 4).map((tag) => `<span class="pill">${tag}</span>`).join('')}</div></article>`).join('')
+          : `<div class="empty">${t('no_works')}</div>`;
+        const root = document.getElementById('works-grid');
+        if (!works.length) { root.innerHTML = `<div class="empty">${t('no_works')}</div>`; return; }
+        root.innerHTML = works
+          .sort((a,b) => String(a.year||'').localeCompare(String(b.year||'')) || String(a.album||'').localeCompare(String(b.album||'')))
+          .map((entry) => `
+            <article class="work-card">
+              <div class="work-title"><a class="inline-link" href="${entryHref(entry.entry_id)}">${short(entry.album)}</a></div>
+              <div class="work-meta">${[short(entry.year || entry.era_tag, 'undated'), entry.classification?.title || '-', `${score(entry.site_score?.score_0_to_10)}/10`].join(' · ')}</div>
+              <div class="pill-row">${uniq([...(entry.scene_tags || []), ...(((entry.artist_context || {}).listener_context || {}).tags || []).slice(0, 3)]).slice(0, 6).map((item) => `<span class="pill">${item}</span>`).join('')}</div>
+            </article>
+          `).join('');
+      }
+      document.getElementById('lang-en').addEventListener('click', () => { state.lang='en'; boot(); });
+      document.getElementById('lang-zh').addEventListener('click', () => { state.lang='zh'; boot(); });
+      boot().catch((error) => { document.getElementById('artist-name').textContent = error.message; });
+    </script>
+  </body>
+</html>

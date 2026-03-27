@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Audio Lab Archive</title>
+    <style>
+      :root {
+        --bg: #f8f7f3;
+        --panel: rgba(255, 255, 255, 0.9);
+        --text: #111111;
+        --muted: #625d56;
+        --line: rgba(17, 17, 17, 0.12);
+        --shadow: 0 16px 40px rgba(17, 17, 17, 0.06);
+        --radius: 22px;
+        --sans: "Inter", "Helvetica Neue", "PingFang SC", "Noto Sans SC", sans-serif;
+        --serif: "Iowan Old Style", "Source Han Serif SC", "Songti SC", "Georgia", serif;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #fbfaf7 0%, #f3efe7 100%);
+        color: var(--text);
+        font-family: var(--sans);
+      }
+      main {
+        width: min(1160px, calc(100vw - 28px));
+        margin: 0 auto;
+        padding: 28px 0 72px;
+      }
+      .topbar, .search-row, .paging {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .topbar { margin-bottom: 22px; }
+      .actions, .lang-toggle { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+      .brand-kicker, .section-title {
+        font-size: 0.74rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      h1 {
+        margin: 10px 0 8px;
+        font-family: var(--serif);
+        font-size: clamp(2.2rem, 5vw, 4.2rem);
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+      }
+      p { color: var(--muted); line-height: 1.65; }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 18px;
+      }
+      .hero { margin-bottom: 18px; }
+      .search-wrap { display: grid; gap: 12px; margin-bottom: 16px; }
+      input[type="search"] {
+        width: 100%;
+        padding: 15px 16px;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: #fff;
+        font: inherit;
+      }
+      button, .nav-link {
+        appearance: none;
+        border: none;
+        background: rgba(17, 17, 17, 0.05);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 10px 14px;
+        font: inherit;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .lang-toggle button.is-active { background: #111; color: #fff; }
+      .filter-row, .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+      .filter-button.is-active { background: #111; color: #fff; }
+      .filter-stack { display: grid; gap: 10px; }
+      .filter-label { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .entry-card {
+        border: 1px solid rgba(17, 17, 17, 0.08);
+        border-radius: 20px;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: 0 12px 28px rgba(17, 17, 17, 0.05);
+      }
+      .entry-card a { color: inherit; text-decoration: none; display: block; }
+      .inline-link { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(17, 17, 17, 0.18); }
+      .cover {
+        aspect-ratio: 1 / 1;
+        position: relative;
+        background: linear-gradient(135deg, #ede4d5, #d4c6b4);
+      }
+      .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .fallback {
+        height: 100%;
+        display: grid;
+        align-content: end;
+        padding: 16px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(0,0,0,0.1));
+      }
+      .cover-overlay {
+        position: absolute;
+        inset: auto 0 0 0;
+        padding: 12px 12px 14px;
+        background: linear-gradient(180deg, rgba(17,17,17,0.02), rgba(17,17,17,0.72));
+        color: #fff;
+      }
+      .entry-body { padding: 12px 12px 14px; }
+      .entry-title { font-weight: 700; line-height: 1.35; margin-bottom: 6px; }
+      .entry-meta { color: var(--muted); font-size: 0.9rem; line-height: 1.55; margin-bottom: 10px; }
+      .cover-overlay .entry-title { margin-bottom: 4px; }
+      .cover-overlay .entry-meta { color: rgba(255,255,255,0.82); margin-bottom: 0; font-size: 0.82rem; }
+      .pill {
+        display: inline-flex;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(17, 17, 17, 0.05);
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .stat {
+        padding: 12px 14px;
+        border-radius: 16px;
+        background: rgba(17, 17, 17, 0.04);
+      }
+      .stat strong { display: block; margin-bottom: 4px; }
+      .empty { padding: 24px 0; color: var(--muted); }
+      .era-rail {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .era-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(17, 17, 17, 0.04);
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .era-chip.is-active {
+        background: #111;
+        color: #fff;
+      }
+      .era-chip small {
+        opacity: 0.7;
+        font-size: 0.78rem;
+      }
+      @media (max-width: 1200px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+      @media (max-width: 980px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+      @media (max-width: 760px) {
+        main { width: min(100vw - 18px, 100%); padding-top: 18px; }
+        .topbar, .search-row, .paging { flex-direction: column; align-items: stretch; }
+        .actions, .lang-toggle { width: 100%; }
+        .actions .nav-link, .lang-toggle button { flex: 1 1 0; text-align: center; }
+        .hero { padding: 16px; }
+        h1 { font-size: clamp(1.9rem, 10vw, 3rem); }
+        .filter-row { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
+        .filter-row::-webkit-scrollbar { height: 6px; }
+        .grid, .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+      @media (max-width: 560px) {
+        .grid, .stats { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <div>
+          <div class="brand-kicker">Audio Lab Archive</div>
+          <div id="page-title" style="font-weight:700;">Archive</div>
+        </div>
+        <div class="actions">
+          <a id="home-link" class="nav-link" href="/audio-lab/live">Home</a>
+          <div class="lang-toggle">
+            <button id="lang-en" class="is-active" type="button">EN</button>
+            <button id="lang-zh" type="button">中文</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero card">
+        <div class="section-title" id="hero-kicker">Archive</div>
+        <h1 id="hero-title">Browse the long shelf.</h1>
+        <p id="hero-copy">This page is for reading the catalog in bulk instead of squeezing everything onto the homepage.</p>
+        <div class="stats" id="stats"></div>
+        <div class="era-rail" id="era-rail"></div>
+      </section>
+
+      <section class="card">
+        <div class="search-wrap">
+          <div class="search-row">
+            <input id="search-input" type="search" placeholder="Search artist, album, tag, era, or scene" />
+            <button id="search-clear" type="button">Clear</button>
+          </div>
+          <div class="filter-row" id="filters"></div>
+        </div>
+        <div class="paging">
+          <div id="paging-copy">Page 1</div>
+          <div class="actions">
+            <button id="page-prev" type="button">Previous</button>
+            <button id="page-next" type="button">Next</button>
+          </div>
+        </div>
+        <div class="grid" id="grid"></div>
+      </section>
+    </main>
+
+    <script>
+      const STRINGS = {
+        en: {
+          title: "Archive",
+          hero_kicker: "Archive",
+          hero_title: "Browse the long shelf.",
+          hero_copy: "This page is for reading the catalog in bulk instead of squeezing everything onto the homepage.",
+          search_placeholder: "Search artist, album, tag, era, or scene",
+          clear: "Clear",
+          prev: "Previous",
+          next: "Next",
+          home: "Home",
+          all: "All",
+          high: "High Score",
+          solid: "Solid",
+          wildcard: "Low Score, Good Chance",
+          underexposed: "Underexposed",
+          mixed: "Mixed",
+          stats_entries: "Entries",
+          stats_candidates: "Candidates",
+          stats_seeds: "Seeds",
+          stats_growth: "Growth",
+          filter_score: "Score",
+          filter_era: "Era",
+          filter_scene: "Scene",
+          filter_discovery: "Discovery",
+          era_all: "All eras",
+          scene_all: "All scenes",
+          discovery_all: "All entries",
+          discovery_social: "Social finds",
+          discovery_indie: "Creator-led",
+          page: "Page {page} of {total}",
+          open_detail: "Open detail",
+          no_entries: "No entries matched this search.",
+          era_nav_all: "All",
+          credibility: "Credibility",
+          credibility_pending: "Pending",
+        },
+        zh: {
+          title: "档案页",
+          hero_kicker: "档案页",
+          hero_title: "按目录浏览整张评论架。",
+          hero_copy: "这个页面专门用来批量看目录，不再把所有内容都挤在首页里。",
+          search_placeholder: "搜索音乐人、专辑、标签、年代或场景",
+          clear: "清空",
+          prev: "上一页",
+          next: "下一页",
+          home: "首页",
+          all: "全部",
+          high: "高分",
+          solid: "稳妥",
+          wildcard: "低分但可能好听",
+          underexposed: "曝光不足",
+          mixed: "混合信号",
+          stats_entries: "条目",
+          stats_candidates: "候选",
+          stats_seeds: "种子",
+          stats_growth: "增长模式",
+          filter_score: "分数",
+          filter_era: "年代",
+          filter_scene: "场景",
+          filter_discovery: "发现流",
+          era_all: "全部年代",
+          scene_all: "全部场景",
+          discovery_all: "全部条目",
+          discovery_social: "社交发现",
+          discovery_indie: "创作者上传",
+          page: "第 {page} / {total} 页",
+          open_detail: "打开详情",
+          no_entries: "这次搜索没有命中条目。",
+          era_nav_all: "全部",
+          credibility: "公信力",
+          credibility_pending: "待补全",
+        }
+      };
+      const SCORE_FILTERS = [
+        ["all", "all"], ["high-score", "high"], ["solid", "solid"], ["wildcard", "wildcard"], ["underexposed", "underexposed"], ["mixed", "mixed"]
+      ];
+      const params = new URLSearchParams(location.search);
+      const state = {
+        lang: params.get("lang") === "zh" ? "zh" : "en",
+        entries: [],
+        latest: {},
+        page: Number(params.get("page") || 1) || 1,
+        filter: params.get("filter") || "all",
+        era: params.get("era") || "all",
+        scene: params.get("scene") || "all",
+        discovery: params.get("discovery") || "all",
+        search: params.get("search") || ""
+      };
+      const PAGE_SIZE = 12;
+
+      function t(key, vars = {}) {
+        let text = (STRINGS[state.lang] || STRINGS.en)[key] || key;
+        for (const [k, v] of Object.entries(vars)) text = text.replaceAll(`{${k}}`, String(v));
+        return text;
+      }
+      function artistHref(artist) {
+        const q = new URLSearchParams({ artist });
+        if (state.lang === "zh") q.set("lang", "zh");
+        return `/audio-lab/artist?${q.toString()}`;
+      }
+      function short(v, f = "-") { v = String(v || "").trim(); return v || f; }
+      function uniq(values) { return [...new Set((values || []).filter(Boolean))]; }
+      function formatScore(v) { return v == null ? "-" : Number(v).toFixed(1); }
+      function credibilityText(entry) {
+        const credibility = entry?.credibility || {};
+        if (credibility.score_0_to_100 != null) return `${t("credibility")} ${formatScore(credibility.score_0_to_100)}`;
+        return `${t("credibility")} ${t("credibility_pending")}`;
+      }
+      const SUPPRESSED_ENTRY_IDS = new Set(["xiu-xiu--a-promise--unknown-year"]);
+      function isExplicitRevealQuery(query) {
+        return ["xiu", "xiu xiu", "a promise"].some((token) => query.includes(token));
+      }
+
+      function applyLang() {
+        document.documentElement.lang = state.lang === "zh" ? "zh-CN" : "en";
+        document.getElementById("lang-en").classList.toggle("is-active", state.lang === "en");
+        document.getElementById("lang-zh").classList.toggle("is-active", state.lang === "zh");
+        document.getElementById("page-title").textContent = t("title");
+        document.getElementById("hero-kicker").textContent = t("hero_kicker");
+        document.getElementById("hero-title").textContent = t("hero_title");
+        document.getElementById("hero-copy").textContent = t("hero_copy");
+        document.getElementById("search-input").placeholder = t("search_placeholder");
+        document.getElementById("search-clear").textContent = t("clear");
+        document.getElementById("page-prev").textContent = t("prev");
+        document.getElementById("page-next").textContent = t("next");
+        document.getElementById("home-link").textContent = t("home");
+        document.getElementById("home-link").href = state.lang === "zh" ? "/audio-lab/live?lang=zh" : "/audio-lab/live";
+        document.getElementById("search-input").value = state.search;
+        renderFilters();
+        render();
+      }
+
+      function syncUrl() {
+        const q = new URLSearchParams();
+        if (state.lang === "zh") q.set("lang", "zh");
+        if (state.search) q.set("search", state.search);
+        if (state.filter !== "all") q.set("filter", state.filter);
+        if (state.era !== "all") q.set("era", state.era);
+        if (state.scene !== "all") q.set("scene", state.scene);
+        if (state.discovery !== "all") q.set("discovery", state.discovery);
+        if (state.page > 1) q.set("page", String(state.page));
+        const suffix = q.toString();
+        history.replaceState({}, "", `/audio-lab/archive${suffix ? `?${suffix}` : ""}`);
+      }
+
+      function renderFilters() {
+        const root = document.getElementById("filters");
+        root.innerHTML = "";
+        const scoreWrap = document.createElement("div");
+        scoreWrap.className = "filter-stack";
+        scoreWrap.innerHTML = `<div class="filter-label">${t("filter_score")}</div>`;
+        const scoreRow = document.createElement("div");
+        scoreRow.className = "filter-row";
+        SCORE_FILTERS.forEach(([key, labelKey]) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = `filter-button${state.filter === key ? " is-active" : ""}`;
+          btn.textContent = t(labelKey);
+          btn.addEventListener("click", () => { state.filter = key; state.page = 1; renderFilters(); refreshEntriesPage().catch(console.error); });
+          scoreRow.appendChild(btn);
+        });
+        scoreWrap.appendChild(scoreRow);
+        root.appendChild(scoreWrap);
+
+        const eras = ["all", ...uniq(state.entries.map((entry) => entry.era_tag).filter(Boolean))];
+        const eraWrap = document.createElement("div");
+        eraWrap.className = "filter-stack";
+        eraWrap.innerHTML = `<div class="filter-label">${t("filter_era")}</div>`;
+        const eraRow = document.createElement("div");
+        eraRow.className = "filter-row";
+        eras.forEach((key) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = `filter-button${state.era === key ? " is-active" : ""}`;
+          btn.textContent = key === "all" ? t("era_all") : key;
+          btn.addEventListener("click", () => { state.era = key; state.page = 1; renderFilters(); refreshEntriesPage().catch(console.error); });
+          eraRow.appendChild(btn);
+        });
+        eraWrap.appendChild(eraRow);
+        root.appendChild(eraWrap);
+
+        const scenes = ["all", ...uniq(state.entries.flatMap((entry) => entry.scene_tags || [])).slice(0, 18)];
+        const sceneWrap = document.createElement("div");
+        sceneWrap.className = "filter-stack";
+        sceneWrap.innerHTML = `<div class="filter-label">${t("filter_scene")}</div>`;
+        const sceneRow = document.createElement("div");
+        sceneRow.className = "filter-row";
+        scenes.forEach((key) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = `filter-button${state.scene === key ? " is-active" : ""}`;
+          btn.textContent = key === "all" ? t("scene_all") : key;
+          btn.addEventListener("click", () => { state.scene = key; state.page = 1; renderFilters(); refreshEntriesPage().catch(console.error); });
+          sceneRow.appendChild(btn);
+        });
+        sceneWrap.appendChild(sceneRow);
+        root.appendChild(sceneWrap);
+
+        const discoveryWrap = document.createElement("div");
+        discoveryWrap.className = "filter-stack";
+        discoveryWrap.innerHTML = `<div class="filter-label">${t("filter_discovery")}</div>`;
+        const discoveryRow = document.createElement("div");
+        discoveryRow.className = "filter-row";
+        [
+          ["all", "discovery_all"],
+          ["social", "discovery_social"],
+          ["indie-social", "discovery_indie"],
+        ].forEach(([key, labelKey]) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = `filter-button${state.discovery === key ? " is-active" : ""}`;
+          btn.textContent = t(labelKey);
+          btn.addEventListener("click", () => { state.discovery = key; state.page = 1; renderFilters(); refreshEntriesPage().catch(console.error); });
+          discoveryRow.appendChild(btn);
+        });
+        discoveryWrap.appendChild(discoveryRow);
+        root.appendChild(discoveryWrap);
+      }
+
+      function filtered() {
+        return state.entries.filter((entry) => {
+          const q = state.search.trim().toLowerCase();
+          const explicitReveal = isExplicitRevealQuery(q);
+          if (!explicitReveal && SUPPRESSED_ENTRY_IDS.has(entry.entry_id)) return false;
+          return true;
+        });
+      }
+
+      function render() {
+        const latest = state.latest;
+        const stats = [
+          [t("stats_entries"), latest.catalog_entries?.built_count ?? "-"],
+          [t("stats_candidates"), latest.catalog_candidates?.candidate_count ?? "-"],
+          [t("stats_seeds"), latest.catalog_seeds?.selected_count ?? "-"],
+          [t("stats_growth"), latest.catalog_library?.growth_mode || "-"],
+        ];
+        const statsRoot = document.getElementById("stats");
+        statsRoot.innerHTML = "";
+        stats.forEach(([label, value]) => {
+          const div = document.createElement("div");
+          div.className = "stat";
+          div.innerHTML = `<strong>${value}</strong><span>${label}</span>`;
+          statsRoot.appendChild(div);
+        });
+
+        const eraCounts = state.entries.reduce((acc, entry) => {
+          const key = entry.era_tag || "unknown";
+          acc[key] = (acc[key] || 0) + 1;
+          return acc;
+        }, {});
+        const rail = document.getElementById("era-rail");
+        rail.innerHTML = "";
+        const allChip = document.createElement("button");
+        allChip.type = "button";
+        allChip.className = `era-chip${state.era === "all" ? " is-active" : ""}`;
+        allChip.innerHTML = `${t("era_nav_all")} <small>${state.entries.length}</small>`;
+        allChip.addEventListener("click", () => { state.era = "all"; state.page = 1; renderFilters(); refreshEntriesPage().catch(console.error); });
+        rail.appendChild(allChip);
+        Object.entries(eraCounts)
+          .filter(([key]) => key !== "unknown")
+          .sort((a, b) => a[0].localeCompare(b[0]))
+          .forEach(([key, count]) => {
+            const chip = document.createElement("button");
+            chip.type = "button";
+            chip.className = `era-chip${state.era === key ? " is-active" : ""}`;
+            chip.innerHTML = `${key} <small>${count}</small>`;
+            chip.addEventListener("click", () => { state.era = key; state.page = 1; renderFilters(); refreshEntriesPage().catch(console.error); });
+            rail.appendChild(chip);
+          });
+
+        const items = filtered();
+        const totalItems = Number(state.latest.catalog_entries?.total_count || items.length || 0);
+        const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+        if (state.page > totalPages) state.page = totalPages;
+        syncUrl();
+        document.getElementById("paging-copy").textContent = t("page", { page: state.page, total: totalPages });
+        const pageItems = items;
+        const root = document.getElementById("grid");
+        root.innerHTML = "";
+        if (!pageItems.length) {
+          root.innerHTML = `<div class="empty">${t("no_entries")}</div>`;
+          return;
+        }
+        pageItems.forEach((entry) => {
+          const cover = entry.cover_url || entry.cover_art_url || "";
+          const href = `/audio-lab/entry?entry_id=${encodeURIComponent(entry.entry_id)}${state.lang === "zh" ? "&lang=zh" : ""}`;
+          const article = document.createElement("article");
+          article.className = "entry-card";
+          article.innerHTML = `
+            <a href="${href}">
+              <div class="cover">${cover ? `<img src="${cover}" alt="${short(entry.album, "cover")}" loading="lazy" />` : `<div class="fallback"><div>${short(entry.classification?.title, "Entry")}</div><strong>${short(entry.album, "Unknown album")}</strong><span>${short(entry.artist, "Unknown artist")}</span></div>`}<div class="cover-overlay"><div class="entry-title">${short(entry.album)}</div><div class="entry-meta">${short(entry.artist)} · ${short(entry.year || entry.era_tag, "undated")}</div></div></div>
+              <div class="entry-body">
+                <div class="entry-title"><a class="inline-link" href="${artistHref(entry.artist)}">${short(entry.artist)}</a></div>
+                <div class="entry-meta">${[entry.classification?.title || "-", `${formatScore(entry.site_score?.score_0_to_10)}/10`, credibilityText(entry)].join(" · ")}</div>
+                <div class="pill-row">${uniq([...(entry.scene_tags || []), ...(((entry.artist_context || {}).listener_context || {}).tags || []).slice(0, 1), ...(((entry.discovery_signals || {}).flags) || []).slice(0, 2)]).slice(0, 4).map((item) => `<span class="pill">${item}</span>`).join("")}</div>
+              </div>
+            </a>
+          `;
+          root.appendChild(article);
+        });
+      }
+
+      async function boot() {
+        const [entries, candidates, seeds, library] = await Promise.all([
+          fetch(`/api/audio-lab/latest/catalog-entries-page?offset=${(state.page - 1) * PAGE_SIZE}&limit=${PAGE_SIZE}&q=${encodeURIComponent(state.search.trim())}&classification=${encodeURIComponent(state.filter)}&era=${encodeURIComponent(state.era)}&scene=${encodeURIComponent(state.scene)}&discovery=${encodeURIComponent(state.discovery)}`, { cache: "no-store" }).then((r) => {
+            if (!r.ok) throw new Error(`Failed to load entries: ${r.status}`);
+            return r.json();
+          }),
+          fetch("/api/audio-lab/latest/catalog-candidates", { cache: "no-store" }).then((r) => (r.ok ? r.json() : {})),
+          fetch("/api/audio-lab/latest/catalog-seeds", { cache: "no-store" }).then((r) => (r.ok ? r.json() : {})),
+          fetch("/api/audio-lab/latest/catalog-library", { cache: "no-store" }).then((r) => (r.ok ? r.json() : {})),
+        ]);
+        state.latest = {
+          catalog_entries: entries || {},
+          catalog_candidates: candidates || {},
+          catalog_seeds: seeds || {},
+          catalog_library: library || {},
+        };
+        state.entries = (entries || {}).entries || [];
+        applyLang();
+      }
+
+      async function refreshEntriesPage() {
+        const response = await fetch(`/api/audio-lab/latest/catalog-entries-page?offset=${(state.page - 1) * PAGE_SIZE}&limit=${PAGE_SIZE}&q=${encodeURIComponent(state.search.trim())}&classification=${encodeURIComponent(state.filter)}&era=${encodeURIComponent(state.era)}&scene=${encodeURIComponent(state.scene)}&discovery=${encodeURIComponent(state.discovery)}`, { cache: "no-store" });
+        if (!response.ok) throw new Error(`Failed to load entries: ${response.status}`);
+        const entries = await response.json();
+        state.latest.catalog_entries = entries || {};
+        state.entries = (entries || {}).entries || [];
+        renderFilters();
+        render();
+      }
+
+      document.getElementById("lang-en").addEventListener("click", () => { state.lang = "en"; history.replaceState({}, "", "/audio-lab/archive"); applyLang(); });
+      document.getElementById("lang-zh").addEventListener("click", () => { state.lang = "zh"; history.replaceState({}, "", "/audio-lab/archive?lang=zh"); applyLang(); });
+      document.getElementById("search-input").addEventListener("input", (e) => { state.search = e.target.value || ""; state.page = 1; refreshEntriesPage().catch(console.error); });
+      document.getElementById("search-clear").addEventListener("click", () => { state.search = ""; state.page = 1; document.getElementById("search-input").value = ""; refreshEntriesPage().catch(console.error); });
+      document.getElementById("page-prev").addEventListener("click", () => { state.page = Math.max(1, state.page - 1); refreshEntriesPage().catch(console.error); });
+      document.getElementById("page-next").addEventListener("click", () => { const total = Math.max(1, Math.ceil(Number(state.latest.catalog_entries?.total_count || 0) / PAGE_SIZE)); state.page = Math.min(total, state.page + 1); refreshEntriesPage().catch(console.error); });
+      boot().catch((error) => {
+        document.getElementById("grid").innerHTML = `<div class="empty">${error.message}</div>`;
+      });
+    </script>
+  </body>
+</html>

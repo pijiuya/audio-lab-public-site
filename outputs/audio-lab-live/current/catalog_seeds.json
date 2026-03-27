@@ -1,0 +1,521 @@
+{
+  "generated_at": "2026-03-27T19:35:38+00:00",
+  "source_candidate_count": 8234,
+  "social_source_seed_count": 24,
+  "selected_count": 32,
+  "limit": 40,
+  "selection_rules": [
+    "prefer releases seen across multiple sources",
+    "reserve room for multiple priority genres instead of letting one tag dominate the first page",
+    "prefer releases matching priority scene tags and priority genres",
+    "slightly boost historically relevant decades from the 1970s onward",
+    "favor ambient, IDM, industrial, sound-art, and electroacoustic-adjacent seeds",
+    "reserve part of the seed set for the social-experimental discovery stream"
+  ],
+  "seeds": [
+    {
+      "artist": "William Basinski",
+      "album": "The Disintegration Loops",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "ambient",
+        "drone",
+        "tape music"
+      ],
+      "scene_tags": [
+        "ambient",
+        "drone"
+      ],
+      "selection_score": 10.25
+    },
+    {
+      "artist": "Lingua Ignota",
+      "album": "CALIGULA",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "industrial",
+        "noise"
+      ],
+      "scene_tags": [
+        "industrial",
+        "noise"
+      ],
+      "selection_score": 10.25
+    },
+    {
+      "artist": "We Are Not Brothers",
+      "album": "No som germans",
+      "year": 2013,
+      "sources": [
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "post-industrial"
+      ],
+      "scene_tags": [
+        "post-industrial"
+      ],
+      "era_tag": "2010s",
+      "selection_score": 5.75
+    },
+    {
+      "artist": "Highersense",
+      "album": "Half Way Between",
+      "year": 2017,
+      "sources": [
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "synth"
+      ],
+      "scene_tags": [],
+      "era_tag": "2010s",
+      "selection_score": 3.25
+    },
+    {
+      "artist": "Hate & Merda / Loia",
+      "album": "Live And Destroy!",
+      "year": 2015,
+      "sources": [
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "noise"
+      ],
+      "scene_tags": [
+        "noise"
+      ],
+      "era_tag": "2010s",
+      "selection_score": 5.75
+    },
+    {
+      "artist": "Boris",
+      "album": "Boris at Last -Feedbacker-",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "drone",
+        "drone metal",
+        "noise"
+      ],
+      "scene_tags": [
+        "drone",
+        "noise"
+      ],
+      "selection_score": 8.25
+    },
+    {
+      "artist": "Tim Coster",
+      "album": "Landscape I : \"The Forest\"",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "electroacoustic",
+        "sound art"
+      ],
+      "scene_tags": [
+        "electroacoustic",
+        "sound-art"
+      ],
+      "selection_score": 8.25
+    },
+    {
+      "artist": "Frank Bretschneider",
+      "album": "Rand",
+      "year": 1999,
+      "sources": [
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "glitch"
+      ],
+      "scene_tags": [],
+      "era_tag": "1990s",
+      "selection_score": 4.75
+    },
+    {
+      "artist": "Enter Shikari",
+      "album": "A Kiss for the Whole World",
+      "year": 2023,
+      "sources": [
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "electronicore"
+      ],
+      "scene_tags": [
+        "electronicore"
+      ],
+      "era_tag": "2020s",
+      "selection_score": 4.75
+    },
+    {
+      "artist": "Christoph De Babalon",
+      "album": "If You're Into It, I'm Out Of It",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "breakcore",
+        "illbient"
+      ],
+      "scene_tags": [
+        "breakcore"
+      ],
+      "selection_score": 6.75
+    },
+    {
+      "artist": "Robert Crouch",
+      "album": "A Gradual Accumulation of Ideas Becomes Truth",
+      "year": 2016,
+      "sources": [
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "microsound"
+      ],
+      "scene_tags": [],
+      "era_tag": "2010s",
+      "selection_score": 3.25
+    },
+    {
+      "artist": "Flesh Field",
+      "album": "Voice of Reason",
+      "year": 2024,
+      "sources": [
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "electro-industrial",
+        "industrial"
+      ],
+      "scene_tags": [
+        "industrial"
+      ],
+      "era_tag": "2020s",
+      "selection_score": 8.75
+    },
+    {
+      "artist": "Buzz Kull",
+      "album": "Fascination",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "coldwave",
+        "electro-industrial"
+      ],
+      "scene_tags": [],
+      "selection_score": 5.25
+    },
+    {
+      "artist": "Hype Williams",
+      "album": "10 / 10",
+      "year": 2016,
+      "sources": [
+        "lastfm",
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "illbient"
+      ],
+      "scene_tags": [],
+      "era_tag": "2010s",
+      "selection_score": 6.0
+    },
+    {
+      "artist": "Yasuyuki Uesugi",
+      "album": "I Don't Notice That I'm Losing My Place",
+      "year": 2020,
+      "sources": [
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "lowercase",
+        "microsound"
+      ],
+      "scene_tags": [],
+      "era_tag": "2020s",
+      "selection_score": 5.25
+    },
+    {
+      "artist": "Tactical Sekt",
+      "album": "Burn Process",
+      "year": 2003,
+      "sources": [
+        "lastfm",
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "EBM",
+        "electro-industrial"
+      ],
+      "scene_tags": [],
+      "era_tag": "2000s",
+      "selection_score": 7.0
+    },
+    {
+      "artist": "The Future Sound of London",
+      "album": "Dead Cities",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "IDM",
+        "ambient"
+      ],
+      "scene_tags": [
+        "ambient",
+        "idm"
+      ],
+      "selection_score": 8.25
+    },
+    {
+      "artist": "Attack Attack!",
+      "album": "Attack Attack! (Deluxe Reissue)",
+      "year": null,
+      "sources": [
+        "lastfm_artist_expansion"
+      ],
+      "tag_seeds": [
+        "artist-network"
+      ],
+      "scene_tags": [],
+      "selection_score": 1.25
+    },
+    {
+      "artist": "Deathprod",
+      "album": "Morals and Dogma",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "dark ambient",
+        "drone"
+      ],
+      "scene_tags": [
+        "drone"
+      ],
+      "selection_score": 4.75
+    },
+    {
+      "artist": "Sophie",
+      "album": "L.O.V.E.",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "deconstructed club",
+        "noise"
+      ],
+      "scene_tags": [
+        "noise"
+      ],
+      "selection_score": 4.75
+    },
+    {
+      "artist": "Nadja",
+      "album": "Thaumogenesis",
+      "year": 2007,
+      "sources": [
+        "lastfm",
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "drone metal"
+      ],
+      "scene_tags": [],
+      "era_tag": "2000s",
+      "selection_score": 5.0
+    },
+    {
+      "artist": "Luke Hess",
+      "album": "Light in the Dark",
+      "year": 2009,
+      "sources": [
+        "lastfm",
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "dub techno"
+      ],
+      "scene_tags": [
+        "dub-techno"
+      ],
+      "era_tag": "2000s",
+      "selection_score": 6.5
+    },
+    {
+      "artist": "Puscifer",
+      "album": "Conditions of My Parole",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "electronic rock",
+        "industrial",
+        "post-industrial"
+      ],
+      "scene_tags": [
+        "electronic-rock",
+        "industrial",
+        "post-industrial"
+      ],
+      "selection_score": 11.75
+    },
+    {
+      "artist": "Byetone",
+      "album": "Death of a Typographer",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "experimental electronic",
+        "glitch"
+      ],
+      "scene_tags": [],
+      "selection_score": 3.25
+    },
+    {
+      "artist": "Hiroko Komiya / Chris H. Lynn",
+      "album": "A Quiet Garden",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "field recording",
+        "sound art"
+      ],
+      "scene_tags": [
+        "sound-art"
+      ],
+      "selection_score": 4.75
+    },
+    {
+      "artist": "str4kys",
+      "album": "transición",
+      "year": null,
+      "sources": [
+        "lastfm"
+      ],
+      "tag_seeds": [
+        "minimal wave",
+        "post-industrial"
+      ],
+      "scene_tags": [
+        "minimal-wave",
+        "post-industrial"
+      ],
+      "selection_score": 6.25
+    },
+    {
+      "artist": "Strawberry Glass",
+      "album": "For The Dreamers...",
+      "year": 2011,
+      "sources": [
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "outsider house"
+      ],
+      "scene_tags": [],
+      "era_tag": "2010s",
+      "selection_score": 2.25
+    },
+    {
+      "artist": "The Moon Lay Hidden Beneath a Cloud",
+      "album": "Amara Tanta Tyri",
+      "year": 1994,
+      "sources": [
+        "lastfm",
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "ritual ambient"
+      ],
+      "scene_tags": [],
+      "era_tag": "1990s",
+      "selection_score": 5.5
+    },
+    {
+      "artist": "Eartheater",
+      "album": "Trinity",
+      "year": null,
+      "sources": [
+        "lastfm_similar_artist_expansion"
+      ],
+      "tag_seeds": [
+        "similar-artist-network"
+      ],
+      "scene_tags": [],
+      "selection_score": 1.25
+    },
+    {
+      "artist": "Conure",
+      "album": "49 Minutes (Until Release)",
+      "year": 2005,
+      "sources": [
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "sound art"
+      ],
+      "scene_tags": [
+        "sound-art"
+      ],
+      "era_tag": "2000s",
+      "selection_score": 5.75
+    },
+    {
+      "artist": "Joshua Chuquimia Crampton",
+      "album": "4",
+      "year": 2021,
+      "sources": [
+        "lastfm",
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "tape music"
+      ],
+      "scene_tags": [],
+      "era_tag": "2020s",
+      "selection_score": 4.0
+    },
+    {
+      "artist": "Paleowolf",
+      "album": "Prehistoric Meditations",
+      "year": 2017,
+      "sources": [
+        "lastfm",
+        "musicbrainz"
+      ],
+      "tag_seeds": [
+        "ambient",
+        "ritual ambient"
+      ],
+      "scene_tags": [
+        "ambient"
+      ],
+      "era_tag": "2010s",
+      "selection_score": 9.5
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "generated_at": "2026-03-26T05:51:06+00:00",
+  "artist": "Autechre",
+  "album": "Tri Repetae",
+  "score_0_to_100": 84.8,
+  "confidence_0_to_1": 0.69,
+  "summary": "Weighted professional review bundle across 4 source(s).",
+  "source_count": 4,
+  "sources": [
+    "The Quietus",
+    "Resident Advisor",
+    "The Wire",
+    "Bandcamp Daily"
+  ],
+  "source_kinds": {
+    "quietus_export": 1,
+    "resident_advisor_export": 1,
+    "the_wire_export": 1,
+    "bandcamp_daily_export": 1
+  },
+  "scene_tag_counts": {
+    "independent": 2,
+    "experimental": 2,
+    "electronic": 3,
+    "post-industrial": 1,
+    "sound-art": 2,
+    "leftfield": 1,
+    "dub-techno": 1,
+    "idm": 1,
+    "electroacoustic": 1,
+    "drone": 1,
+    "obscure": 1,
+    "ambient": 1
+  },
+  "domain_profile": {
+    "name": "independent-electronic-obscure-archive",
+    "editorial_focus": [
+      "independent musicians",
+      "electronic music",
+      "obscure and niche releases",
+      "sound artists",
+      "experimental hybrids including electronic rock and related crossover forms"
+    ],
+    "historical_scope": {
+      "start_decade": 1970,
+      "notes": [
+        "Treat the 1970s onward as first-class coverage, especially for post-industrial, synth, ambient, minimal, experimental, and underground dance lineages.",
+        "Do not bias the scoring system toward only recent mainstream reception."
+      ]
+    },
+    "priority_genres": [
+      "ambient",
+      "experimental electronic",
+      "IDM",
+      "industrial",
+      "post-industrial",
+      "synth",
+      "minimal wave",
+      "noise",
+      "drone",
+      "electroacoustic",
+      "sound art",
+      "glitch",
+      "post-rock electronics",
+      "electronic rock",
+      "electronicore",
+      "shoegaze electronics",
+      "leftfield techno",
+      "dub techno",
+      "breakcore",
+      "field recording"
+    ]
+  },
+  "source_registry": {
+    "default_weight": 1.0,
+    "source_count": 11
+  },
+  "scene_taxonomy": {
+    "name": "music-scene-taxonomy",
+    "scene_tags": [
+      "independent",
+      "underground",
+      "experimental",
+      "electronic",
+      "sound-art",
+      "ambient",
+      "industrial",
+      "post-industrial",
+      "leftfield",
+      "noise",
+      "drone",
+      "electroacoustic",
+      "idm",
+      "minimal-wave",
+      "dub-techno",
+      "breakcore",
+      "post-rock-electronics",
+      "electronic-rock",
+      "electronicore",
+      "shoegaze-electronics"
+    ],
+    "era_tags": [
+      "1970s",
+      "1980s",
+      "1990s",
+      "2000s",
+      "2010s",
+      "2020s"
+    ],
+    "format_tags": [
+      "album",
+      "single",
+      "ep",
+      "compilation",
+      "live-document",
+      "sound-installation",
+      "field-recording",
+      "mixed-media"
+    ],
+    "taxonomy_rules": [
+      "Use the earliest relevant era tag first when a release matters historically.",
+      "Prefer scene tags over generic genre tags when the release is niche or hybrid.",
+      "Allow multiple tags for hybrid work, but avoid over-tagging the same release.",
+      "Keep sound-art and electroacoustic work visible instead of forcing it into pop genre labels."
+    ]
+  },
+  "reviews": [
+    {
+      "source": "The Quietus",
+      "score_raw": 85.0,
+      "scale_max": 100.0,
+      "score_0_to_100": 85.0,
+      "weight": 1.25,
+      "url": "https://example.com/quietus-electronic-review",
+      "author": "Example Quietus Critic",
+      "date": "2024-02-11",
+      "excerpt": "Dense textures and underground lineage held in tense balance.",
+      "notes": "Strong long-form coverage for underground, post-industrial, electronic, and art-adjacent work.",
+      "scene_tags": [
+        "independent",
+        "experimental",
+        "electronic",
+        "post-industrial",
+        "sound-art"
+      ],
+      "origin_format": "quietus_export"
+    },
+    {
+      "source": "Resident Advisor",
+      "score_raw": 4.2,
+      "scale_max": 5.0,
+      "score_0_to_100": 84.0,
+      "weight": 1.25,
+      "url": "https://example.com/ra-review",
+      "author": "Example RA Reviewer",
+      "date": "2024-02-14",
+      "excerpt": "A release that ties experimental studio work to dancefloor logic.",
+      "notes": "High-value specialist source for electronic and club music.",
+      "scene_tags": [
+        "electronic",
+        "leftfield",
+        "dub-techno",
+        "idm"
+      ],
+      "origin_format": "resident_advisor_export"
+    },
+    {
+      "source": "The Wire",
+      "score_raw": 88.0,
+      "scale_max": 100.0,
+      "score_0_to_100": 88.0,
+      "weight": 1.25,
+      "url": "https://example.com/the-wire-review",
+      "author": "Example Wire Critic",
+      "date": "2024-02-20",
+      "excerpt": "Sound-art framing and long-horizon listening reward repeat attention.",
+      "notes": "Historic specialist coverage for avant-garde and sound-art scenes.",
+      "scene_tags": [
+        "experimental",
+        "sound-art",
+        "electroacoustic",
+        "drone"
+      ],
+      "origin_format": "the_wire_export"
+    },
+    {
+      "source": "Bandcamp Daily",
+      "score_raw": 82.0,
+      "scale_max": 100.0,
+      "score_0_to_100": 82.0,
+      "weight": 1.15,
+      "url": "https://example.com/bandcamp-daily-review",
+      "author": "Example Bandcamp Daily Writer",
+      "date": "2024-02-18",
+      "excerpt": "A useful read on how the release sits inside current DIY and niche electronic scenes.",
+      "notes": "Useful scene-sensitive source for current independent work.",
+      "scene_tags": [
+        "independent",
+        "obscure",
+        "electronic",
+        "ambient"
+      ],
+      "origin_format": "bandcamp_daily_export"
+    }
+  ]
+}

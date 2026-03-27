@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-03-27T19:11:10+00:00",
+  "ok": true,
+  "summary": {
+    "candidate_count": 8234,
+    "seed_count": 32,
+    "entry_count": 837,
+    "library_count": 837,
+    "failed_entry_count": 0,
+    "failed_collection_count": 0,
+    "professional_digest_sources": 5
+  },
+  "artifacts": {
+    "candidates": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/catalog_candidates.json",
+    "seeds": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/catalog_seeds.json",
+    "entries": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/catalog_entries.json",
+    "library": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/catalog_library.json",
+    "professional_digest": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/professional_source_digest.json"
+  },
+  "steps": [
+    {
+      "step": "collect_cycle_1",
+      "ok": true,
+      "detail": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/catalog_candidates.json"
+    },
+    {
+      "step": "collect_cycle_2",
+      "ok": true,
+      "detail": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/catalog_candidates.json"
+    },
+    {
+      "step": "collect_social_experimental_candidates",
+      "ok": true,
+      "detail": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/social_experimental_candidates.json"
+    },
+    {
+      "step": "build_social_experimental_seeds",
+      "ok": true,
+      "detail": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/social_experimental_seeds.json"
+    },
+    {
+      "step": "select_seeds",
+      "ok": true,
+      "detail": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/catalog_seeds.json"
+    },
+    {
+      "step": "build_entries",
+      "ok": true,
+      "detail": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/catalog_entries.json"
+    },
+    {
+      "step": "credibility_backfill",
+      "ok": true,
+      "detail": "{\"retried\": 48, \"touched\": 39, \"restored_scores\": 39, \"remaining_missing\": 493, \"failures\": [{\"entry_id\": \"saginomiya--noise-ambient-experimental-works-2020--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"darfan2--dark-ambient-experimental--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"davidfenn--ambient-experimental-standalone-2011--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"keitasasaki--ambient-experimental-01--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"mashpotato-records--ambient-experimental-djmix--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"quasardrifter--hardware-tracks-ambient-experimental--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"13-404y--leo-iwamura-beat-live-set-chill-groove-boombap-experimental-by-music-lounge--2025\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"hi-ziyi--mahakali-ziyi-ambient-experimental-live-set--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"capricon2014--experimental-music-of-japan-1957-1967-full-album-japan-1968--2021\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}]}"
+    },
+    {
+      "step": "metadata_backfill",
+      "ok": true,
+      "detail": "{\"processed\": 48, \"touched\": 5, \"cover_filled\": 5, \"bio_filled\": 5, \"image_filled\": 5}"
+    },
+    {
+      "step": "professional_digest",
+      "ok": true,
+      "detail": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/professional_source_digest.json"
+    }
+  ]
+}

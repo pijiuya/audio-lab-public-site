@@ -1,0 +1,345 @@
+{
+  "session_dir": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437",
+  "segment_count": 3,
+  "latest_mix": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/latest_mix.wav",
+  "latest_stems": {
+    "drums": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/stems/latest_drums.wav",
+    "synth": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/stems/latest_synth.wav",
+    "samples": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/stems/latest_samples.wav",
+    "voices": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/stems/latest_voices.wav"
+  },
+  "preview_mix": null,
+  "preview_segment_count": 0,
+  "style": "memory-hall+acoustic-fragment+choir-machine",
+  "style_components": [
+    "memory-hall",
+    "acoustic-fragment",
+    "choir-machine"
+  ],
+  "preset_bundle": "chamber_signal",
+  "randomness_preset": "balanced",
+  "style_discovery": {
+    "bundle": "chamber_signal",
+    "bundle_description": "Acoustic chamber memory with distant instrument realism, stacked choir-machine replies, and clear depth staging.",
+    "styles": [
+      "memory-hall",
+      "acoustic-fragment",
+      "choir-machine"
+    ],
+    "randomness_preset": "balanced",
+    "randomness_profile": {
+      "description": "Middle-ground variation with recurring motifs and moderate density.",
+      "pulse_density_scalar": 1.0,
+      "sample_density_scalar": 1.0,
+      "instrument_density_scalar": 1.0,
+      "radio_chop_scalar": 1.0,
+      "voice_chop_scalar": 1.0,
+      "motif_mutation_scalar": 1.0,
+      "motif_recurrence_scalar": 1.0,
+      "motif_bpm_drift_scalar": 1.0
+    },
+    "active_traits": [
+      "stacked multi-voice narration",
+      "micro-looped instrument fragments",
+      "tempo-synced broadcast chops",
+      "long-form arrangement ready"
+    ],
+    "voice_character": {
+      "mode": "whisper",
+      "density": 0.42,
+      "stack_count": 4,
+      "voice_chop": 0.84,
+      "call_response": true
+    },
+    "instrument_character": {
+      "density": 0.713,
+      "insert_mode": "micro-loop",
+      "default_instrument_queries": [
+        "public domain bowed phrase",
+        "public domain piano phrase",
+        "public domain brass swell",
+        "public domain strings phrase",
+        "public domain guitar phrase",
+        "public domain brass phrase",
+        "public domain drum phrase",
+        "public domain drum machine break"
+      ],
+      "woodwind_articulation": "auto",
+      "woodwind_breath_amount": 0.35,
+      "brass_articulation": "auto",
+      "brass_pressure_amount": 0.48,
+      "performance_preset": "grounded",
+      "timing_humanization": 0.247,
+      "dynamic_humanization": 0.227
+    },
+    "rhythm_character": {
+      "groove_template": "staggered",
+      "drum_amount": 0.293,
+      "transient_punch": 0.6,
+      "transient_snap": 0.58
+    },
+    "mix_character": {
+      "density_curve": "lift",
+      "master_bus": "clean-wide",
+      "scene_template": "transmission-arc",
+      "spectral_emphasis": {
+        "low": 1.033,
+        "low_mid": 0.98,
+        "mid": 1.047,
+        "high_mid": 1.0,
+        "air": 0.933
+      },
+      "auto_eq_amount": 0.22
+    },
+    "target_length_seconds": 90.0
+  },
+  "density_curve": "lift",
+  "master_bus": "clean-wide",
+  "scene_template": "triptych",
+  "render_segment_count": 3,
+  "long_render_stability_mode": false,
+  "phrase_categories": [
+    "poetic",
+    "abstract",
+    "ceremonial",
+    "technical"
+  ],
+  "spectral_emphasis": {
+    "low": 1.033,
+    "low_mid": 0.98,
+    "mid": 1.047,
+    "high_mid": 1.0,
+    "air": 0.933
+  },
+  "auto_eq_mode": "auto",
+  "auto_eq_amount": 0.22,
+  "export_stems": true,
+  "final_polish": {
+    "enabled": true,
+    "target_length_seconds": 90.0,
+    "sample_density_multiplier": 0.96,
+    "voice_density_multiplier": 0.94,
+    "instrument_density_multiplier": 0.97,
+    "max_voice_stack_count": 3,
+    "auto_eq_forced": true,
+    "mix_refresh_strategy": "first-final-only"
+  },
+  "groove_template": "staggered",
+  "transient_controls": {
+    "punch": 0.6,
+    "snap": 0.58,
+    "brightness": 0.527
+  },
+  "target_length_seconds": 90.0,
+  "arrangement_sections": [
+    {
+      "name": "intro",
+      "narrative_focus": "emergence",
+      "duration_seconds": 21.6,
+      "ducking_strength": 0.12,
+      "arrangement_profile": {
+        "harmonic_role": "anchor",
+        "harmonic_shift_semitones": 0,
+        "energy_bias": -0.08,
+        "call_response_bias": 0.22,
+        "role_cycle": [
+          "pedal",
+          "support",
+          "counterline"
+        ]
+      },
+      "density_scales": {
+        "pulse": 0.608,
+        "sample": 0.59,
+        "voice": 0.461,
+        "instrument": 0.56,
+        "drum": 0.459
+      }
+    },
+    {
+      "name": "body",
+      "narrative_focus": "pressure",
+      "duration_seconds": 46.8,
+      "ducking_strength": 0.22,
+      "arrangement_profile": {
+        "harmonic_role": "dominant",
+        "harmonic_shift_semitones": 7,
+        "energy_bias": 0.34,
+        "call_response_bias": 0.72,
+        "role_cycle": [
+          "lead",
+          "counterline",
+          "support",
+          "rhythmic-accent"
+        ]
+      },
+      "density_scales": {
+        "pulse": 1.08,
+        "sample": 1.08,
+        "voice": 0.92,
+        "instrument": 1.0,
+        "drum": 1.0
+      }
+    },
+    {
+      "name": "exit",
+      "narrative_focus": "afterglow",
+      "duration_seconds": 21.6,
+      "ducking_strength": 0.1,
+      "arrangement_profile": {
+        "harmonic_role": "release",
+        "harmonic_shift_semitones": -5,
+        "energy_bias": -0.16,
+        "call_response_bias": 0.34,
+        "role_cycle": [
+          "pedal",
+          "support",
+          "counterline"
+        ]
+      },
+      "density_scales": {
+        "pulse": 0.739,
+        "sample": 0.88,
+        "voice": 0.806,
+        "instrument": 0.842,
+        "drum": 0.518
+      }
+    }
+  ],
+  "voice_mode": "whisper",
+  "voice_effect": "none",
+  "voice_variation": "phoneme-shift",
+  "voice_call_response": true,
+  "response_voice_mode": "robotic",
+  "response_voice_effect": "telephone",
+  "voice_rotation": [
+    {
+      "name": "Alex",
+      "weight": 1.0
+    }
+  ],
+  "voice_stack_count": 3,
+  "voice_chop": 0.84,
+  "queries": [
+    "hall ambience",
+    "choir hall",
+    "archive room tone"
+  ],
+  "instrument_queries": [
+    "public domain bowed phrase",
+    "public domain piano phrase",
+    "public domain brass swell"
+  ],
+  "instrument_insert_mode": "micro-loop",
+  "downloaded_asset_count": 0,
+  "instrument_asset_count": 0,
+  "source_quality_overview": {
+    "sample": [],
+    "instrument": []
+  },
+  "download_failures": [],
+  "instrument_download_failures": [],
+  "instrument_tags": [],
+  "style_provenance": [
+    {
+      "style": "memory-hall",
+      "default_queries": [
+        "archive room tone",
+        "hall ambience"
+      ],
+      "instrument_queries": [
+        "public domain bowed phrase",
+        "public domain piano phrase",
+        "public domain brass swell"
+      ],
+      "sample_sources": [],
+      "instrument_sources": [],
+      "phrase_categories": [
+        "poetic",
+        "abstract"
+      ],
+      "voice_mode": "whisper",
+      "contribution_modes": [
+        "synth",
+        "samples",
+        "instruments",
+        "voices"
+      ],
+      "spectral_emphasis": {
+        "low": 1.08,
+        "low_mid": 0.96,
+        "mid": 1.02,
+        "high_mid": 0.92,
+        "air": 0.86
+      }
+    },
+    {
+      "style": "acoustic-fragment",
+      "default_queries": [],
+      "instrument_queries": [
+        "public domain piano phrase"
+      ],
+      "sample_sources": [],
+      "instrument_sources": [],
+      "phrase_categories": [],
+      "voice_mode": "whisper",
+      "contribution_modes": [
+        "synth",
+        "instruments",
+        "voices"
+      ],
+      "spectral_emphasis": {
+        "low": 1.0,
+        "low_mid": 1.0,
+        "mid": 1.0,
+        "high_mid": 1.0,
+        "air": 1.0
+      }
+    },
+    {
+      "style": "choir-machine",
+      "default_queries": [
+        "choir hall"
+      ],
+      "instrument_queries": [
+        "public domain brass swell",
+        "public domain bowed phrase"
+      ],
+      "sample_sources": [],
+      "instrument_sources": [],
+      "phrase_categories": [
+        "ceremonial",
+        "technical"
+      ],
+      "voice_mode": "detuned-choir",
+      "contribution_modes": [
+        "synth",
+        "samples",
+        "instruments",
+        "voices"
+      ],
+      "spectral_emphasis": {
+        "low": 1.02,
+        "low_mid": 0.98,
+        "mid": 1.12,
+        "high_mid": 1.08,
+        "air": 0.94
+      }
+    }
+  ],
+  "quality_notes": [
+    "No major quality issues detected in this render pass."
+  ],
+  "next_experiments": [
+    "Increase instrument coverage with extra --instrument-query phrases or favorite instrument slots.",
+    "Push one spectral band harder to test stronger low-end or air-band emphasis."
+  ],
+  "drum_totals": {
+    "kick_hits": 74,
+    "snare_hits": 32,
+    "hat_hits": 286,
+    "total_hits": 392,
+    "average_density_per_second": 4.263,
+    "groove_template": "staggered"
+  }
+}

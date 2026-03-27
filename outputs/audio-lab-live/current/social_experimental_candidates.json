@@ -1,0 +1,3818 @@
+{
+  "generated_at": "2026-03-27T18:59:05+00:00",
+  "profile_name": "social-experimental-discovery",
+  "editorial_goal": "Find low-attention, self-tagged experimental releases and creator uploads from social and fringe platforms, then score them with the same archive standards as the main catalog.",
+  "task_count": 7,
+  "candidate_count": 78,
+  "source_counts": {
+    "bilibili_public": 40,
+    "bandcamp_tags": 38
+  },
+  "selected_count": 60,
+  "tasks": [
+    {
+      "source_id": "bandcamp_tags",
+      "mode": "primary",
+      "automation_readiness": "high",
+      "queries": [
+        "experimental music",
+        "sound art",
+        "noise music",
+        "ambient experimental",
+        "实验音乐",
+        "原创实验音乐",
+        "实验电子 原创",
+        "声音艺术"
+      ],
+      "signals": [
+        "tags",
+        "genre pages",
+        "artist self-description",
+        "release pages"
+      ],
+      "notes": "Best immediate source for self-tagged experimental and fringe releases."
+    },
+    {
+      "source_id": "soundcloud_tags",
+      "mode": "primary",
+      "automation_readiness": "medium",
+      "queries": [
+        "experimental music",
+        "sound art",
+        "noise music",
+        "ambient experimental",
+        "实验音乐",
+        "原创实验音乐",
+        "实验电子 原创",
+        "声音艺术"
+      ],
+      "signals": [
+        "track tags",
+        "creator descriptions",
+        "play counts",
+        "reposts"
+      ],
+      "notes": "Useful for underground uploads and unfinished or self-released work."
+    },
+    {
+      "source_id": "audius_tags",
+      "mode": "primary",
+      "automation_readiness": "medium",
+      "queries": [
+        "experimental music",
+        "sound art",
+        "noise music",
+        "ambient experimental",
+        "实验音乐",
+        "原创实验音乐",
+        "实验电子 原创",
+        "声音艺术"
+      ],
+      "signals": [
+        "genre labels",
+        "creator profiles",
+        "track metadata"
+      ],
+      "notes": "Strong candidate source for independent electronic uploads."
+    },
+    {
+      "source_id": "bilibili_public",
+      "mode": "secondary",
+      "automation_readiness": "medium",
+      "queries": [
+        "experimental music",
+        "sound art",
+        "noise music",
+        "ambient experimental",
+        "实验音乐",
+        "原创实验音乐",
+        "实验电子 原创",
+        "声音艺术"
+      ],
+      "signals": [
+        "video titles",
+        "descriptions",
+        "creator tags",
+        "series labels",
+        "comments used only as weak context"
+      ],
+      "notes": "Good for Chinese-speaking experimental creators and hybrid audiovisual uploads."
+    },
+    {
+      "source_id": "tiktok_public_seeded",
+      "mode": "seed_only",
+      "automation_readiness": "low",
+      "queries": [
+        "experimental music",
+        "sound art",
+        "noise music",
+        "ambient experimental",
+        "drone music"
+      ],
+      "signals": [
+        "captions",
+        "creator bios",
+        "hashtags",
+        "linked audio"
+      ],
+      "notes": "Use as a seed source or manual candidate feeder rather than the main crawler."
+    },
+    {
+      "source_id": "wechat_channels_manual",
+      "mode": "manual_seeded",
+      "automation_readiness": "low",
+      "queries": [
+        "实验音乐",
+        "原创实验音乐",
+        "实验电子 原创",
+        "声音艺术",
+        "噪音音乐"
+      ],
+      "signals": [
+        "shared links",
+        "captions",
+        "creator names"
+      ],
+      "notes": "Treat as manual or semi-manual ingestion because automated discovery is fragile."
+    },
+    {
+      "source_id": "wechat_official_accounts",
+      "mode": "manual_seeded",
+      "automation_readiness": "low",
+      "queries": [
+        "实验音乐",
+        "原创实验音乐",
+        "实验电子 原创",
+        "声音艺术",
+        "噪音音乐"
+      ],
+      "signals": [
+        "article titles",
+        "embedded players",
+        "artist mentions",
+        "scene labels"
+      ],
+      "notes": "Better for contextual essays and scene discovery than direct catalog crawling."
+    }
+  ],
+  "candidates": [
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "experimental music",
+      "title": "Leo Iwamura Beat Live Set.chill, groove, boombap, experimental _ by MUSIC LOUNGE",
+      "artist": "13_404y",
+      "url": "https://www.bilibili.com/video/BV1ptndzPEqD/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 166,
+      "low_attention_score": 1.0,
+      "published_at": "2025-09-28",
+      "notes": "Bilibili search result. Duration 55:58.",
+      "duration_label": "55:58",
+      "duration_seconds": 3358,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.94,
+      "positive_hits": [
+        "experimental",
+        "live set"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.72,
+      "originality_flags": [
+        "creator-led-upload",
+        "indie-original-likely",
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.856
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "ambient experimental",
+      "title": "[Space-Age, Dark Ambient, Experimental] 深町純 - Quark (1980 Full Album)",
+      "artist": "左滑睡大觉",
+      "url": "https://www.bilibili.com/video/BV11U4y1F7sf/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 459,
+      "low_attention_score": 1.0,
+      "published_at": "2021-10-22",
+      "notes": "Bilibili search result. Duration 42:45.",
+      "duration_label": "42:45",
+      "duration_seconds": 2565,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "dark ambient",
+        "experimental",
+        "full album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "long-form-work",
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.839
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "sound art",
+      "title": "20 Years of Sound Art",
+      "artist": "Larslundehavehansen",
+      "url": "https://larslundehavehansen.bandcamp.com/album/20-years-of-sound-art?from=search&search_item_id=2831588733&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=13&search_sig=1a43a5efcd37f31fcf00cd63772d6f8b",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "sound art"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "A.E.M. Ambient Experimental & Minimalism Complete Series",
+      "artist": "Xiuxiu69",
+      "url": "https://xiuxiu69.bandcamp.com/album/a-e-m-ambient-experimental-minimalism-complete-series?from=search&search_item_id=2269794795&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=6&search_sig=026884d578e3b2086a290bd7efea3096",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Absence",
+      "artist": "Flamingpines",
+      "url": "https://flamingpines.bandcamp.com/album/absence?from=search&search_item_id=1346287621&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=13&search_sig=091198e16c0ee309ad5b1f0497a3a066",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Alternate African Reality – Electronic, electroacoustic and experimental music from Africa and the diaspora",
+      "artist": "Syrphe",
+      "url": "https://syrphe.bandcamp.com/album/alternate-african-reality-electronic-electroacoustic-and-experimental-music-from-africa-and-the-diaspora?from=search&search_item_id=2062834667&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=17&search_sig=d699bd8780b3cee8811bdcb51eeefa52",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "electroacoustic",
+        "electronic",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Ambient, Experimental DJmix",
+      "artist": "Mashpotato Records",
+      "url": "https://mashpotato-records.bandcamp.com/album/ambient-experimental-djmix?from=search&search_item_id=417100227&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=7&search_sig=335cd0f364ce2ec996e25028f22a5054",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Ambient/Experimental (Standalone, 2011)",
+      "artist": "Davidfenn",
+      "url": "https://davidfenn.bandcamp.com/album/ambient-experimental-standalone-2011?from=search&search_item_id=2502006107&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=8&search_sig=33d27c46c4cc91c36deeda65356b5e6a",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Ambient/Experimental 01",
+      "artist": "Keitasasaki",
+      "url": "https://keitasasaki.bandcamp.com/album/ambient-experimental-01?from=search&search_item_id=171559380&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=5&search_sig=fb6b3f3f3887af1b854ce636c2f9f1ad",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Anthology Of Experimental Music From China",
+      "artist": "Unexplainedsoundsgroup",
+      "url": "https://unexplainedsoundsgroup.bandcamp.com/album/anthology-of-experimental-music-from-china?from=search&search_item_id=751212705&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=15&search_sig=704a58e2907df46273dcb11805f83351",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Anthology Of Persian Experimental Music",
+      "artist": "Unexplainedsoundsgroup",
+      "url": "https://unexplainedsoundsgroup.bandcamp.com/album/anthology-of-persian-experimental-music?from=search&search_item_id=3024763542&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=8&search_sig=00e4fa6012b41b6b7157c27a9a65e45d",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Burrow - Ambient/Experimental Sample Pack",
+      "artist": "Burrw",
+      "url": "https://burrw.bandcamp.com/album/burrow-ambient-experimental-sample-pack?from=search&search_item_id=332083295&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=4&search_sig=e109ab5b05db90cec3b40076cd30f604",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [
+        "sample pack"
+      ],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "CARNAL",
+      "artist": "Nothingmore",
+      "url": "https://nothingmore.bandcamp.com/album/carnal?from=search&search_item_id=4057968152&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=11&search_sig=64ca3cb6365eab71f9d0d92cf27dce3f",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "sound art",
+      "title": "COMPILATION SERIES ONE",
+      "artist": "Compilationseries1",
+      "url": "https://compilationseries1.bandcamp.com/album/compilation-series-one?from=search&search_item_id=3736232523&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=5&search_sig=5c5f7225dd57cc251136696841b75d04",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Dark Ambient Experimental",
+      "artist": "Darfan2",
+      "url": "https://darfan2.bandcamp.com/album/dark-ambient-experimental?from=search&search_item_id=2409947280&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=10&search_sig=5d98fcea320102408d488498a0e5bd13",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "dark ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Experimental Music",
+      "artist": "Chainandthegang",
+      "url": "https://chainandthegang.bandcamp.com/album/experimental-music?from=search&search_item_id=2165831447&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=11&search_sig=14edb5c5e404b20b0ea5329820d7416e",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Follow the River (ritual ambient / experimental ambient)",
+      "artist": "Babalith",
+      "url": "https://babalith.bandcamp.com/album/follow-the-river-ritual-ambient-experimental-ambient?from=search&search_item_id=2118712106&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=1&search_sig=c71f2e548bd36532176119bc94a40649",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental",
+        "ritual ambient"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Hardware Tracks: Ambient/Experimental",
+      "artist": "Quasardrifter",
+      "url": "https://quasardrifter.bandcamp.com/album/hardware-tracks-ambient-experimental?from=search&search_item_id=487148965&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=3&search_sig=d45721dd42178ebfc6c82ba98e57b428",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Kaleidoscope",
+      "artist": "Flamingpines",
+      "url": "https://flamingpines.bandcamp.com/album/kaleidoscope?from=search&search_item_id=3470766469&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=7&search_sig=327d9596f7107fff32317cd2a62f9e4d",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "Legends",
+      "artist": "Sabaton",
+      "url": "https://sabaton.bandcamp.com/album/legends?from=search&search_item_id=590065266&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=3&search_sig=43b2e1eda7a6bed176a124e7f1e06245",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Levels",
+      "artist": "Experimentalmusiccatalogue",
+      "url": "https://experimentalmusiccatalogue.bandcamp.com/album/levels?from=search&search_item_id=2207972795&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=10&search_sig=63bf579e726d2ac3376ebb49286b4550",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Liberty",
+      "artist": "Flamingpines",
+      "url": "https://flamingpines.bandcamp.com/album/liberty?from=search&search_item_id=3359589284&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=12&search_sig=c529161d0640e40ed7a6e5a6d7b9a6f4",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "sound art",
+      "title": "New Sound Art",
+      "artist": "Willarvo",
+      "url": "https://willarvo.bandcamp.com/album/new-sound-art?from=search&search_item_id=100068991&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=15&search_sig=1cfd588c2eb4a3d7c4a031bd176239e9",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "sound art"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Noise,Ambient,Experimental works 2020",
+      "artist": "Saginomiya",
+      "url": "https://saginomiya.bandcamp.com/album/noise-ambient-experimental-works-2020?from=search&search_item_id=3024923309&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=9&search_sig=db573eabd08cf34bdb321f1d36f297b3",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental",
+        "noise"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "sound art",
+      "title": "OMMIGOD",
+      "artist": "Soundartphilosophy",
+      "url": "https://soundartphilosophy.bandcamp.com/album/ommigod?from=search&search_item_id=719416651&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=16&search_sig=aa51be1bc60a3d0d7aa9df3d26d67ae3",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "sound art",
+      "title": "Oscar Howe Legacy Sound Art",
+      "artist": "Bazilledx",
+      "url": "https://bazilledx.bandcamp.com/album/oscar-howe-legacy-sound-art?from=search&search_item_id=164204419&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=14&search_sig=95b0894f8d1d4eaa2dce91cc3d01a9d6",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "sound art"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "Phantoms",
+      "artist": null,
+      "url": "https://music.razorrednoise.com/album/phantoms?from=search&search_item_id=502007467&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=15&search_sig=fd1f15a1bfc38f46a7045099ef4fc5d0",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Rotation: A Dark Ambient / Experimental Compilation",
+      "artist": "Uncoiledloops",
+      "url": "https://uncoiledloops.bandcamp.com/album/rotation-a-dark-ambient-experimental-compilation?from=search&search_item_id=3964985068&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=2&search_sig=ae2417e66d07a1379d60dc507c52185c",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "dark ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "Rumble Of Thunder",
+      "artist": "Thehu",
+      "url": "https://thehu.bandcamp.com/album/rumble-of-thunder?from=search&search_item_id=907136678&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=5&search_sig=bae487b82cf9111a7e44d0628b0229a0",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "Rumble of Thunder (Deluxe)",
+      "artist": "Thehu",
+      "url": "https://thehu.bandcamp.com/album/rumble-of-thunder-deluxe?from=search&search_item_id=1484271020&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=7&search_sig=de0a1c89c0cbbfe202ead62425d6a64b",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "sound art",
+      "title": "SOUNDS OF RECOLLECTION",
+      "artist": "Compilationseries1",
+      "url": "https://compilationseries1.bandcamp.com/album/sounds-of-recollection?from=search&search_item_id=2603808952&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=18&search_sig=afa434fa510594e15d34f98ea09ef38c",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "SPIRITS",
+      "artist": "Nothingmore",
+      "url": "https://nothingmore.bandcamp.com/album/spirits?from=search&search_item_id=1052722867&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=9&search_sig=fed4783eb085f98f73d0e0c1732fbae0",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "sound art",
+      "title": "Sound Art Brighton Festival. Edition 1, March 2022",
+      "artist": "Soundartbrighton",
+      "url": "https://soundartbrighton.bandcamp.com/album/sound-art-brighton-festival-edition-1-march-2022?from=search&search_item_id=3028362404&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=17&search_sig=2cfaa2c116de3cb4e3787021bea07275",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "sound art"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "Strega Musica",
+      "artist": "Makenoisemusic",
+      "url": "https://makenoisemusic.bandcamp.com/album/strega-musica?from=search&search_item_id=1460905657&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=13&search_sig=e3a28754174206f614df4f506d88e779",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "noise"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "sound art",
+      "title": "THE WAY",
+      "artist": "Soundartphilosophy",
+      "url": "https://soundartphilosophy.bandcamp.com/album/the-way?from=search&search_item_id=1471600459&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=9&search_sig=5d11abf5c16abe73b6fdecc8241f274d",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "The Gereg",
+      "artist": "Thehu",
+      "url": "https://thehu.bandcamp.com/album/the-gereg?from=search&search_item_id=57392282&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=8&search_sig=0cc6497dd4a5af88277bd8b3b48411d7",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "The Gereg (Deluxe Edition)",
+      "artist": "Thehu",
+      "url": "https://thehu.bandcamp.com/album/the-gereg-deluxe-edition?from=search&search_item_id=2650046432&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=6&search_sig=22d2620ad983df51f075a899e453d00c",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "VA Psychedelic Brainstorming",
+      "artist": "Experimentalmusicproduction",
+      "url": "https://experimentalmusicproduction.bandcamp.com/album/va-psychedelic-brainstorming?from=search&search_item_id=2535467997&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=9&search_sig=016a6e8a5723f8c277bfe23b9ab80ad9",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [
+        "production"
+      ],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "White Noise - Music for Contemporary Dance",
+      "artist": "Ranbagno",
+      "url": "https://ranbagno.bandcamp.com/album/white-noise-music-for-contemporary-dance?from=search&search_item_id=3615917516&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=14&search_sig=1007d6f01b9eb73b45994709da4eab81",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "noise"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Who is experimental music?",
+      "artist": "Lolina",
+      "url": "https://lolina.bandcamp.com/album/who-is-experimental-music?from=search&search_item_id=569070515&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=5&search_sig=7f825a76d956451072ee0e8226464413",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "experimental music",
+      "title": "[Glitch, IDM, Experimental] Vorpal - An Incomplete Guide To Vorpal Music (2005)",
+      "artist": "爱好者崔",
+      "url": "https://www.bilibili.com/video/BV1Tr26B6EN2/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 110,
+      "low_attention_score": 1.0,
+      "published_at": "2025-12-08",
+      "notes": "Bilibili search result. Duration 44:05.",
+      "duration_label": "44:05",
+      "duration_seconds": 2645,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.92,
+      "positive_hits": [
+        "experimental",
+        "glitch",
+        "idm"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.803
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "experimental music",
+      "title": "【Lovemusic/Ambient/Experimental】氛围嘻哈Frozen Morrow Beattape",
+      "artist": "Hstyang",
+      "url": "https://www.bilibili.com/video/BV13DFxz5EBF/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 129,
+      "low_attention_score": 1.0,
+      "published_at": "02-08",
+      "notes": "Bilibili search result. Duration 25:59.",
+      "duration_label": "25:59",
+      "duration_seconds": 1559,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.86,
+      "positive_hits": [
+        "ambient",
+        "beattape",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.776
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "sound art",
+      "title": "具象音乐 声音艺术 装置艺术 实地录音 实验音乐 Anna Schimkat - Water",
+      "artist": "羊肉冬瓜汤饭",
+      "url": "https://www.bilibili.com/video/BV1BBQ6BgE17/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 26,
+      "low_attention_score": 1.0,
+      "published_at": "03-24",
+      "notes": "Bilibili search result. Duration 38:17.",
+      "duration_label": "38:17",
+      "duration_seconds": 2297,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.84,
+      "positive_hits": [
+        "声音艺术",
+        "实验音乐"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.767
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "experimental music",
+      "title": "KW- rest experimental music- album of 2024",
+      "artist": "账号已注销",
+      "url": "https://www.bilibili.com/video/BV1QafMYFEGq/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 963,
+      "low_attention_score": 0.85,
+      "published_at": "2025-04-02",
+      "notes": "Bilibili search result. Duration 22:25.",
+      "duration_label": "22:25",
+      "duration_seconds": 1345,
+      "source_format": "video",
+      "discovery_score": 0.728,
+      "music_likelihood_score": 0.88,
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.751
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "sound art",
+      "title": "装置艺术 声音艺术 Lowercase 电子声学 实验音乐 Arnau Sala Saez - Sounds for Installations Vol. I",
+      "artist": "羊肉冬瓜汤饭",
+      "url": "https://www.bilibili.com/video/BV1Bqw4zfEyT/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 69,
+      "low_attention_score": 1.0,
+      "published_at": "03-14",
+      "notes": "Bilibili search result. Duration 24:06.",
+      "duration_label": "24:06",
+      "duration_seconds": 1446,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.78,
+      "positive_hits": [
+        "声音艺术",
+        "实验音乐"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.74
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "experimental music",
+      "title": "Shoreditch: Experimental Music School 1969",
+      "artist": "账号已注销",
+      "url": "https://www.bilibili.com/video/BV1DJ411g7Vi/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 87,
+      "low_attention_score": 1.0,
+      "published_at": "2019-09-18",
+      "notes": "Bilibili search result. Duration 30:11.",
+      "duration_label": "30:11",
+      "duration_seconds": 1811,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.76,
+      "positive_hits": [
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.731
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "experimental music",
+      "title": "Various Artists, “Anthology Of Experimental Music From China”",
+      "artist": "霾窟",
+      "url": "https://www.bilibili.com/video/BV11V4y1w77R/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 287,
+      "low_attention_score": 1.0,
+      "published_at": "2022-12-12",
+      "notes": "Bilibili search result. Duration 01:18:43.",
+      "duration_label": "01:18:43",
+      "duration_seconds": 4723,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.76,
+      "positive_hits": [
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.731
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "ambient experimental",
+      "title": "[Ambient/Downtempo] Si Matthews - Decoding Signals (2019)",
+      "artist": "爱好者崔",
+      "url": "https://www.bilibili.com/video/BV1uo2rBEEvJ/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 402,
+      "low_attention_score": 1.0,
+      "published_at": "2025-12-08",
+      "notes": "Bilibili search result. Duration 01:09:45.",
+      "duration_label": "01:09:45",
+      "duration_seconds": 4185,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.76,
+      "positive_hits": [
+        "ambient"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.731
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "experimental music",
+      "title": "【M3-41】Experimental Doujin Music Stream #2",
+      "artist": "Elegant_Sister",
+      "url": "https://www.bilibili.com/video/BV1LW411G7x6/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 389,
+      "low_attention_score": 1.0,
+      "published_at": "2018-05-05",
+      "notes": "Bilibili search result. Duration 06:55:09.",
+      "duration_label": "06:55:09",
+      "duration_seconds": 24909,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.76,
+      "positive_hits": [
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.731
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "ambient experimental",
+      "title": "【氛围/实验】Li Yilei （李亦蕾）- Nonage (2024)",
+      "artist": "雨摇摇摇摇",
+      "url": "https://www.bilibili.com/video/BV1Wm411C7K3/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 273,
+      "low_attention_score": 1.0,
+      "published_at": "2024-05-01",
+      "notes": "Bilibili search result. Duration 46:25.",
+      "duration_label": "46:25",
+      "duration_seconds": 2785,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.68,
+      "positive_hits": [],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.695
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "ambient experimental",
+      "title": "【Ambient Trance】Aurasfere - The Greenhouse Effect",
+      "artist": "我有麒麟腿",
+      "url": "https://www.bilibili.com/video/BV1taB9YNETi/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 2533,
+      "low_attention_score": 0.85,
+      "published_at": "2024-11-28",
+      "notes": "Bilibili search result. Duration 27:53.",
+      "duration_label": "27:53",
+      "duration_seconds": 1673,
+      "source_format": "video",
+      "discovery_score": 0.728,
+      "music_likelihood_score": 0.7,
+      "positive_hits": [
+        "ambient"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.67
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "experimental music",
+      "title": "【TED】 Experimental music * 实验音乐现场演奏",
+      "artist": "YourBigToes_",
+      "url": "https://www.bilibili.com/video/BV1eZ4y1g7ng/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 541,
+      "low_attention_score": 0.85,
+      "published_at": "2020-12-14",
+      "notes": "Bilibili search result. Duration 10:49.",
+      "duration_label": "10:49",
+      "duration_seconds": 649,
+      "source_format": "video",
+      "discovery_score": 0.728,
+      "music_likelihood_score": 0.56,
+      "positive_hits": [
+        "experimental",
+        "实验音乐"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.72,
+      "originality_flags": [
+        "creator-led-upload",
+        "indie-original-likely",
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "review",
+      "composite_score": 0.651
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "experimental music",
+      "title": "程序化音乐系列 1. Experimental music from very short C programs",
+      "artist": "拖泥老师有空吗",
+      "url": "https://www.bilibili.com/video/BV1GD4y1t7M7/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 461,
+      "low_attention_score": 1.0,
+      "published_at": "2022-11-05",
+      "notes": "Bilibili search result. Duration 04:11.",
+      "duration_label": "04:11",
+      "duration_seconds": 251,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.58,
+      "positive_hits": [
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "review",
+      "composite_score": 0.65
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "ambient experimental",
+      "title": "45分钟充满乡愁感的 Ambient & Experimental Set | RAMIEL",
+      "artist": "JackGroove",
+      "url": "https://www.bilibili.com/video/BV1JpenzZEc3/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 11000,
+      "low_attention_score": 0.35,
+      "published_at": "2025-08-24",
+      "notes": "Bilibili search result. Duration 44:38.",
+      "duration_label": "44:38",
+      "duration_seconds": 2678,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.84,
+      "positive_hits": [
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.619
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "ambient experimental",
+      "title": "「团购」Oneheart Ambient (Sample Pack)",
+      "artist": "BouncyMusicGroup",
+      "url": "https://www.bilibili.com/video/BV1RsNSeqEmN/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 323,
+      "low_attention_score": 1.0,
+      "published_at": "2025-02-09",
+      "notes": "Bilibili search result. Duration 04:54.",
+      "duration_label": "04:54",
+      "duration_seconds": 294,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.46,
+      "positive_hits": [
+        "ambient"
+      ],
+      "negative_hits": [
+        "sample pack"
+      ],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "review",
+      "composite_score": 0.596
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "noise music",
+      "title": "Pink Noise 粉噪音 实用背景音工具 学习 工作 专注",
+      "artist": "柳澄汁",
+      "url": "https://www.bilibili.com/video/BV1j4411C7gp/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 25000,
+      "low_attention_score": 0.35,
+      "published_at": "2019-09-08",
+      "notes": "Bilibili search result. Duration 01:00:01.",
+      "duration_label": "01:00:01",
+      "duration_seconds": 3601,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.76,
+      "positive_hits": [
+        "noise"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.583
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "noise music",
+      "title": "粉紅噪音(pink noise):德國研究發現，在人們深度睡眠時，播放粉紅噪音，並讓它的頻率與腦電波一樣，記憶力會有明顯的改善。 20hz -20khz。",
+      "artist": "萝卜卜的远方Carol",
+      "url": "https://www.bilibili.com/video/BV1rr4y1y7G8/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 36000,
+      "low_attention_score": 0.35,
+      "published_at": "2021-10-18",
+      "notes": "Bilibili search result. Duration 01:09:27.",
+      "duration_label": "01:09:27",
+      "duration_seconds": 4167,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.76,
+      "positive_hits": [
+        "noise"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.583
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "noise music",
+      "title": "极易引发生理不适，慎入。实验噪音/粗噪音现场 Bastard Noise & Sickness live at Ende Tymes 2014",
+      "artist": "她因掏空五脏六腑而死",
+      "url": "https://www.bilibili.com/video/BV1S84y197ce/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 19000,
+      "low_attention_score": 0.35,
+      "published_at": "2023-10-25",
+      "notes": "Bilibili search result. Duration 16:41.",
+      "duration_label": "16:41",
+      "duration_seconds": 1001,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.64,
+      "positive_hits": [
+        "noise"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.72,
+      "originality_flags": [
+        "creator-led-upload",
+        "indie-original-likely"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.573
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "ambient experimental",
+      "title": "无版权音乐Cinematic Ambient Beat 作者 Alex",
+      "artist": "专注无版权音乐",
+      "url": "https://www.bilibili.com/video/BV1fv411g73D/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 900,
+      "low_attention_score": 0.85,
+      "published_at": "2021-10-14",
+      "notes": "Bilibili search result. Duration 02:03.",
+      "duration_label": "02:03",
+      "duration_seconds": 123,
+      "source_format": "video",
+      "discovery_score": 0.728,
+      "music_likelihood_score": 0.48,
+      "positive_hits": [
+        "ambient"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "review",
+      "composite_score": 0.571
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "sound art",
+      "title": "Art-Sound-Hi-Res-Studio-Audiophile-24-Bi_Media",
+      "artist": "我想要大太阳",
+      "url": "https://www.bilibili.com/video/BV1Nmk7BYEgR/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 1705,
+      "low_attention_score": 0.85,
+      "published_at": "01-20",
+      "notes": "Bilibili search result. Duration 01:38:27.",
+      "duration_label": "01:38:27",
+      "duration_seconds": 5907,
+      "source_format": "video",
+      "discovery_score": 0.728,
+      "music_likelihood_score": 0.44,
+      "positive_hits": [],
+      "negative_hits": [
+        "audiophile",
+        "studio"
+      ],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "review",
+      "composite_score": 0.553
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "sound art",
+      "title": "“nemore”听觉艺术装置 #sound art",
+      "artist": "黃藍盯鞋人",
+      "url": "https://www.bilibili.com/video/BV1zJ411n7Y5/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 377,
+      "low_attention_score": 1.0,
+      "published_at": "2020-01-12",
+      "notes": "Bilibili search result. Duration 01:01.",
+      "duration_label": "01:01",
+      "duration_seconds": 61,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.36,
+      "positive_hits": [
+        "sound art"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "drop",
+      "composite_score": 0.551
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "ambient experimental",
+      "title": "ambient*iayze*experimental*supertrap type beat",
+      "artist": "daz1ivshuwerhere",
+      "url": "https://www.bilibili.com/video/BV1bhEbz8ExD/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 1291,
+      "low_attention_score": 0.85,
+      "published_at": "2025-05-17",
+      "notes": "Bilibili search result. Duration 02:39.",
+      "duration_label": "02:39",
+      "duration_seconds": 159,
+      "source_format": "video",
+      "discovery_score": 0.728,
+      "music_likelihood_score": 0.38,
+      "positive_hits": [
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [
+        "type beat"
+      ],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "drop",
+      "composite_score": 0.526
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "experimental music",
+      "title": "代表爱消灭你。- Experimental music",
+      "artist": "东京第一少爷",
+      "url": "https://www.bilibili.com/video/BV1yRk9BYEdf/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 23000,
+      "low_attention_score": 0.35,
+      "published_at": "2025-11-10",
+      "notes": "Bilibili search result. Duration 03:35.",
+      "duration_label": "03:35",
+      "duration_seconds": 215,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.58,
+      "positive_hits": [
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "review",
+      "composite_score": 0.502
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "sound art",
+      "title": "声音交互艺术展览 LINES - an Interactive Sound Art Exhibition",
+      "artist": "我不知道取名诶",
+      "url": "https://www.bilibili.com/video/BV1C5411t75q/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 17000,
+      "low_attention_score": 0.35,
+      "published_at": "2020-04-21",
+      "notes": "Bilibili search result. Duration 06:10.",
+      "duration_label": "06:10",
+      "duration_seconds": 370,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.58,
+      "positive_hits": [
+        "sound art"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "review",
+      "composite_score": 0.502
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "noise music",
+      "title": "【Study With Me ｜Brown Noise 】一小时棕噪音专注自习室",
+      "artist": "NOTthatREALcola",
+      "url": "https://www.bilibili.com/video/BV1RT411G73C/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 326000,
+      "low_attention_score": 0.1,
+      "published_at": "2022-06-20",
+      "notes": "Bilibili search result. Duration 01:00:01.",
+      "duration_label": "01:00:01",
+      "duration_seconds": 3601,
+      "source_format": "video",
+      "discovery_score": 0.24,
+      "music_likelihood_score": 0.68,
+      "positive_hits": [
+        "noise"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.49
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "noise music",
+      "title": "【棕噪音 】看着远处的森林一起放松 Brown Noise",
+      "artist": "热爱发觉中断",
+      "url": "https://www.bilibili.com/video/BV1Z34y1W7Pg/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 198000,
+      "low_attention_score": 0.1,
+      "published_at": "2022-06-25",
+      "notes": "Bilibili search result. Duration 30:02.",
+      "duration_label": "30:02",
+      "duration_seconds": 1802,
+      "source_format": "video",
+      "discovery_score": 0.24,
+      "music_likelihood_score": 0.68,
+      "positive_hits": [
+        "noise"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.49
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "ambient experimental",
+      "title": "一天认识一种音乐风格 - 实验音乐（Experimental）",
+      "artist": "楊牧俑",
+      "url": "https://www.bilibili.com/video/BV1CU421d7pr/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 80000,
+      "low_attention_score": 0.1,
+      "published_at": "2024-02-04",
+      "notes": "Bilibili search result. Duration 08:11.",
+      "duration_label": "08:11",
+      "duration_seconds": 491,
+      "source_format": "video",
+      "discovery_score": 0.24,
+      "music_likelihood_score": 0.64,
+      "positive_hits": [
+        "experimental",
+        "实验音乐"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.472
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "sound art",
+      "title": "【创意编程】Generative Art using Processing ：Processing art and sound",
+      "artist": "NERD_LAB",
+      "url": "https://www.bilibili.com/video/BV1PF411372B/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 17000,
+      "low_attention_score": 0.35,
+      "published_at": "2022-04-04",
+      "notes": "Bilibili search result. Duration 03:57.",
+      "duration_label": "03:57",
+      "duration_seconds": 237,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.5,
+      "positive_hits": [],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "review",
+      "composite_score": 0.466
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "sound art",
+      "title": "小米小爱音箱Art与华为Sound 音质对比",
+      "artist": "SRe999",
+      "url": "https://www.bilibili.com/video/BV1pb4y1y7UP/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 12000,
+      "low_attention_score": 0.35,
+      "published_at": "2021-09-20",
+      "notes": "Bilibili search result. Duration 07:04.",
+      "duration_label": "07:04",
+      "duration_seconds": 424,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.5,
+      "positive_hits": [],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "review",
+      "composite_score": 0.466
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "noise music",
+      "title": "[白噪声] 纯白噪音：轻松的学习音乐，脑力，集中注意力音乐",
+      "artist": "ahgnunism",
+      "url": "https://www.bilibili.com/video/BV1tt4y1q7EL/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 52000,
+      "low_attention_score": 0.1,
+      "published_at": "2020-09-24",
+      "notes": "Bilibili search result. Duration 01:00:07.",
+      "duration_label": "01:00:07",
+      "duration_seconds": 3607,
+      "source_format": "video",
+      "discovery_score": 0.24,
+      "music_likelihood_score": 0.6,
+      "positive_hits": [],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.454
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "noise music",
+      "title": "「南风之语」世界公认最佳放松轻音乐｜树林自然音乐，白噪音｜睡眠｜学习｜工作｜冥想｜失眠｜催眠",
+      "artist": "苍穹和星辰",
+      "url": "https://www.bilibili.com/video/BV1yt4y1d7Ub/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 86000,
+      "low_attention_score": 0.1,
+      "published_at": "2024-01-08",
+      "notes": "Bilibili search result. Duration 33:30.",
+      "duration_label": "33:30",
+      "duration_seconds": 2010,
+      "source_format": "video",
+      "discovery_score": 0.24,
+      "music_likelihood_score": 0.6,
+      "positive_hits": [],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.454
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "noise music",
+      "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 自然疗愈 午休钢琴纯音乐 助眠 自然音效 无音乐 白噪音 深度放松 冥想音乐 精神放松工作学习陪伴",
+      "artist": "CozyBox",
+      "url": "https://www.bilibili.com/video/BV1pbYazbEGu/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 49000,
+      "low_attention_score": 0.35,
+      "published_at": "2025-08-19",
+      "notes": "Bilibili search result. Duration 44:36.",
+      "duration_label": "44:36",
+      "duration_seconds": 2676,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.4,
+      "positive_hits": [],
+      "negative_hits": [
+        "助眠"
+      ],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "review",
+      "composite_score": 0.421
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "ambient experimental",
+      "title": "（experimental）雪球公式-有款音频越听越来财",
+      "artist": "鲤鱼_Koi",
+      "url": "https://www.bilibili.com/video/BV16FMmzTEau/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 229000,
+      "low_attention_score": 0.1,
+      "published_at": "2025-06-14",
+      "notes": "Bilibili search result. Duration 02:44.",
+      "duration_label": "02:44",
+      "duration_seconds": 164,
+      "source_format": "video",
+      "discovery_score": 0.24,
+      "music_likelihood_score": 0.5,
+      "positive_hits": [
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "review",
+      "composite_score": 0.409
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "sound art",
+      "title": "声音艺术装置 The Wall of Sound by panGenerator",
+      "artist": "花火科技",
+      "url": "https://www.bilibili.com/video/BV1fD4y1v71B/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 17000,
+      "low_attention_score": 0.35,
+      "published_at": "2022-09-20",
+      "notes": "Bilibili search result. Duration 01:32.",
+      "duration_label": "01:32",
+      "duration_seconds": 92,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.36,
+      "positive_hits": [
+        "声音艺术"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "drop",
+      "composite_score": 0.403
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "sound art",
+      "title": "［Art of sound助眠］无人声 双人掏耳",
+      "artist": "邻座的怪同学_",
+      "url": "https://www.bilibili.com/video/BV1u7411t7ex/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 12000,
+      "low_attention_score": 0.35,
+      "published_at": "2020-02-10",
+      "notes": "Bilibili search result. Duration 15:21.",
+      "duration_label": "15:21",
+      "duration_seconds": 921,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.28,
+      "positive_hits": [],
+      "negative_hits": [
+        "助眠"
+      ],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "drop",
+      "composite_score": 0.367
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "noise music",
+      "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭‌歌单🎧️ • 咖啡奏鸣曲｜舒缓 放松｜看书 学习 画画｜助眠 纯音乐｜白噪音",
+      "artist": "IXN-",
+      "url": "https://www.bilibili.com/video/BV1TRtkz9Egh/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 34000,
+      "low_attention_score": 0.35,
+      "published_at": "2025-08-08",
+      "notes": "Bilibili search result. Duration 31:34.",
+      "duration_label": "31:34",
+      "duration_seconds": 1894,
+      "source_format": "video",
+      "discovery_score": 0.402,
+      "music_likelihood_score": 0.28,
+      "positive_hits": [],
+      "negative_hits": [
+        "助眠",
+        "歌单"
+      ],
+      "originality_score": 0.24,
+      "originality_flags": [],
+      "originality_negatives": [
+        "repost-risk"
+      ],
+      "indie_creator_likely": false,
+      "editorial_precheck": "drop",
+      "composite_score": 0.315
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "sound art",
+      "title": "【Art of sound助眠视频】——多种工具掏耳朵",
+      "artist": "骑猫回海的鱼",
+      "url": "https://www.bilibili.com/video/BV164411d7mP/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 151000,
+      "low_attention_score": 0.1,
+      "published_at": "2019-08-21",
+      "notes": "Bilibili search result. Duration 21:45.",
+      "duration_label": "21:45",
+      "duration_seconds": 1305,
+      "source_format": "video",
+      "discovery_score": 0.24,
+      "music_likelihood_score": 0.26,
+      "positive_hits": [],
+      "negative_hits": [
+        "助眠"
+      ],
+      "originality_score": 0.5,
+      "originality_flags": [],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "drop",
+      "composite_score": 0.301
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "noise music",
+      "title": "【Playlist】“绿窗藏翠 帘卷清风”丨纯音乐丨雨声丨工作 放松 学习丨图书馆 自习室丨自律 耳机丨歌单 轻音乐丨白噪音",
+      "artist": "芙月枝",
+      "url": "https://www.bilibili.com/video/BV1bnmQB2EX1/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 103000,
+      "low_attention_score": 0.1,
+      "published_at": "2025-12-13",
+      "notes": "Bilibili search result. Duration 01:07:06.",
+      "duration_label": "01:07:06",
+      "duration_seconds": 4026,
+      "source_format": "video",
+      "discovery_score": 0.24,
+      "music_likelihood_score": 0.2,
+      "positive_hits": [],
+      "negative_hits": [
+        "playlist",
+        "歌单"
+      ],
+      "originality_score": 0.24,
+      "originality_flags": [],
+      "originality_negatives": [
+        "repost-risk"
+      ],
+      "indie_creator_likely": false,
+      "editorial_precheck": "drop",
+      "composite_score": 0.222
+    }
+  ],
+  "selected_candidates": [
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "experimental music",
+      "title": "Leo Iwamura Beat Live Set.chill, groove, boombap, experimental _ by MUSIC LOUNGE",
+      "artist": "13_404y",
+      "url": "https://www.bilibili.com/video/BV1ptndzPEqD/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 166,
+      "low_attention_score": 1.0,
+      "published_at": "2025-09-28",
+      "notes": "Bilibili search result. Duration 55:58.",
+      "duration_label": "55:58",
+      "duration_seconds": 3358,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 0.94,
+      "positive_hits": [
+        "experimental",
+        "live set"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.72,
+      "originality_flags": [
+        "creator-led-upload",
+        "indie-original-likely",
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.856
+    },
+    {
+      "source_id": "bilibili_public",
+      "platform_kind": "social_video",
+      "seed_query": "ambient experimental",
+      "title": "[Space-Age, Dark Ambient, Experimental] 深町純 - Quark (1980 Full Album)",
+      "artist": "左滑睡大觉",
+      "url": "https://www.bilibili.com/video/BV11U4y1F7sf/",
+      "cover_url": null,
+      "tags": [
+        "bilibili",
+        "video"
+      ],
+      "attention_value": 459,
+      "low_attention_score": 1.0,
+      "published_at": "2021-10-22",
+      "notes": "Bilibili search result. Duration 42:45.",
+      "duration_label": "42:45",
+      "duration_seconds": 2565,
+      "source_format": "video",
+      "discovery_score": 0.825,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "dark ambient",
+        "experimental",
+        "full album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.5,
+      "originality_flags": [
+        "long-form-work",
+        "low-attention"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": false,
+      "editorial_precheck": "keep",
+      "composite_score": 0.839
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "sound art",
+      "title": "20 Years of Sound Art",
+      "artist": "Larslundehavehansen",
+      "url": "https://larslundehavehansen.bandcamp.com/album/20-years-of-sound-art?from=search&search_item_id=2831588733&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=13&search_sig=1a43a5efcd37f31fcf00cd63772d6f8b",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "sound art"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "A.E.M. Ambient Experimental & Minimalism Complete Series",
+      "artist": "Xiuxiu69",
+      "url": "https://xiuxiu69.bandcamp.com/album/a-e-m-ambient-experimental-minimalism-complete-series?from=search&search_item_id=2269794795&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=6&search_sig=026884d578e3b2086a290bd7efea3096",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Absence",
+      "artist": "Flamingpines",
+      "url": "https://flamingpines.bandcamp.com/album/absence?from=search&search_item_id=1346287621&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=13&search_sig=091198e16c0ee309ad5b1f0497a3a066",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Alternate African Reality – Electronic, electroacoustic and experimental music from Africa and the diaspora",
+      "artist": "Syrphe",
+      "url": "https://syrphe.bandcamp.com/album/alternate-african-reality-electronic-electroacoustic-and-experimental-music-from-africa-and-the-diaspora?from=search&search_item_id=2062834667&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=17&search_sig=d699bd8780b3cee8811bdcb51eeefa52",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "electroacoustic",
+        "electronic",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Ambient, Experimental DJmix",
+      "artist": "Mashpotato Records",
+      "url": "https://mashpotato-records.bandcamp.com/album/ambient-experimental-djmix?from=search&search_item_id=417100227&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=7&search_sig=335cd0f364ce2ec996e25028f22a5054",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Ambient/Experimental (Standalone, 2011)",
+      "artist": "Davidfenn",
+      "url": "https://davidfenn.bandcamp.com/album/ambient-experimental-standalone-2011?from=search&search_item_id=2502006107&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=8&search_sig=33d27c46c4cc91c36deeda65356b5e6a",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Ambient/Experimental 01",
+      "artist": "Keitasasaki",
+      "url": "https://keitasasaki.bandcamp.com/album/ambient-experimental-01?from=search&search_item_id=171559380&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=5&search_sig=fb6b3f3f3887af1b854ce636c2f9f1ad",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Anthology Of Experimental Music From China",
+      "artist": "Unexplainedsoundsgroup",
+      "url": "https://unexplainedsoundsgroup.bandcamp.com/album/anthology-of-experimental-music-from-china?from=search&search_item_id=751212705&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=15&search_sig=704a58e2907df46273dcb11805f83351",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Anthology Of Persian Experimental Music",
+      "artist": "Unexplainedsoundsgroup",
+      "url": "https://unexplainedsoundsgroup.bandcamp.com/album/anthology-of-persian-experimental-music?from=search&search_item_id=3024763542&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=8&search_sig=00e4fa6012b41b6b7157c27a9a65e45d",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Burrow - Ambient/Experimental Sample Pack",
+      "artist": "Burrw",
+      "url": "https://burrw.bandcamp.com/album/burrow-ambient-experimental-sample-pack?from=search&search_item_id=332083295&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=4&search_sig=e109ab5b05db90cec3b40076cd30f604",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [
+        "sample pack"
+      ],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "CARNAL",
+      "artist": "Nothingmore",
+      "url": "https://nothingmore.bandcamp.com/album/carnal?from=search&search_item_id=4057968152&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=11&search_sig=64ca3cb6365eab71f9d0d92cf27dce3f",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "sound art",
+      "title": "COMPILATION SERIES ONE",
+      "artist": "Compilationseries1",
+      "url": "https://compilationseries1.bandcamp.com/album/compilation-series-one?from=search&search_item_id=3736232523&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=5&search_sig=5c5f7225dd57cc251136696841b75d04",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Dark Ambient Experimental",
+      "artist": "Darfan2",
+      "url": "https://darfan2.bandcamp.com/album/dark-ambient-experimental?from=search&search_item_id=2409947280&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=10&search_sig=5d98fcea320102408d488498a0e5bd13",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "dark ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Experimental Music",
+      "artist": "Chainandthegang",
+      "url": "https://chainandthegang.bandcamp.com/album/experimental-music?from=search&search_item_id=2165831447&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=11&search_sig=14edb5c5e404b20b0ea5329820d7416e",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Follow the River (ritual ambient / experimental ambient)",
+      "artist": "Babalith",
+      "url": "https://babalith.bandcamp.com/album/follow-the-river-ritual-ambient-experimental-ambient?from=search&search_item_id=2118712106&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=1&search_sig=c71f2e548bd36532176119bc94a40649",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental",
+        "ritual ambient"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Hardware Tracks: Ambient/Experimental",
+      "artist": "Quasardrifter",
+      "url": "https://quasardrifter.bandcamp.com/album/hardware-tracks-ambient-experimental?from=search&search_item_id=487148965&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=3&search_sig=d45721dd42178ebfc6c82ba98e57b428",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Kaleidoscope",
+      "artist": "Flamingpines",
+      "url": "https://flamingpines.bandcamp.com/album/kaleidoscope?from=search&search_item_id=3470766469&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=7&search_sig=327d9596f7107fff32317cd2a62f9e4d",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "noise music",
+      "title": "Legends",
+      "artist": "Sabaton",
+      "url": "https://sabaton.bandcamp.com/album/legends?from=search&search_item_id=590065266&search_item_type=a&search_match_part=%3F&search_page_id=5268144614&search_page_no=1&search_rank=3&search_sig=43b2e1eda7a6bed176a124e7f1e06245",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Levels",
+      "artist": "Experimentalmusiccatalogue",
+      "url": "https://experimentalmusiccatalogue.bandcamp.com/album/levels?from=search&search_item_id=2207972795&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=10&search_sig=63bf579e726d2ac3376ebb49286b4550",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "experimental music",
+      "title": "Liberty",
+      "artist": "Flamingpines",
+      "url": "https://flamingpines.bandcamp.com/album/liberty?from=search&search_item_id=3359589284&search_item_type=a&search_match_part=%3F&search_page_id=5268144364&search_page_no=1&search_rank=12&search_sig=c529161d0640e40ed7a6e5a6d7b9a6f4",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "sound art",
+      "title": "New Sound Art",
+      "artist": "Willarvo",
+      "url": "https://willarvo.bandcamp.com/album/new-sound-art?from=search&search_item_id=100068991&search_item_type=a&search_match_part=%3F&search_page_id=5268144502&search_page_no=1&search_rank=15&search_sig=1cfd588c2eb4a3d7c4a031bd176239e9",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "sound art"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    },
+    {
+      "source_id": "bandcamp_tags",
+      "platform_kind": "platform",
+      "seed_query": "ambient experimental",
+      "title": "Noise,Ambient,Experimental works 2020",
+      "artist": "Saginomiya",
+      "url": "https://saginomiya.bandcamp.com/album/noise-ambient-experimental-works-2020?from=search&search_item_id=3024923309&search_item_type=a&search_match_part=%3F&search_page_id=5268144749&search_page_no=1&search_rank=9&search_sig=db573eabd08cf34bdb321f1d36f297b3",
+      "cover_url": null,
+      "tags": [
+        "bandcamp",
+        "album"
+      ],
+      "attention_value": null,
+      "low_attention_score": 0.75,
+      "published_at": null,
+      "notes": "Bandcamp album result discovered from search.",
+      "duration_label": null,
+      "duration_seconds": null,
+      "source_format": "album",
+      "discovery_score": 0.663,
+      "music_likelihood_score": 1.0,
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental",
+        "noise"
+      ],
+      "negative_hits": [],
+      "originality_score": 0.68,
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": [],
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "composite_score": 0.818
+    }
+  ]
+}
