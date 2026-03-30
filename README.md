@@ -30,3 +30,14 @@ Then open:
 This repo includes a `render.yaml` blueprint for Render.
 
 The public site runs in read-only mode with `--no-autostart`, so it serves the current catalog snapshot without trying to generate new media jobs on the host.
+
+## Aliyun ECS
+
+For a stable full public link on an Aliyun server, use the deployment files in:
+
+- `deploy/aliyun/README.md`
+- `deploy/aliyun/audio-lab-public.service`
+- `deploy/aliyun/audio-lab-public.nginx.conf`
+- `deploy/aliyun/bootstrap_audio_lab_public.sh`
+
+The service script now supports `AUDIO_LAB_ROOT`, so the repo can run outside the original local macOS path.

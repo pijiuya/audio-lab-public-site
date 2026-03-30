@@ -20,7 +20,7 @@ from urllib.parse import quote, parse_qs, urlparse
 from urllib.request import Request, urlopen
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(os.environ.get("AUDIO_LAB_ROOT", Path(__file__).resolve().parents[1])).resolve()
 GENERATOR = ROOT / "scripts" / "generate_multiband_audio_lab.py"
 DEFAULT_OUTPUT_ROOT = ROOT / "outputs" / "audio-lab-live"
 CURATED_BUNDLES = ("ruin_epic", "night_broadcast", "artifact_dance", "chamber_signal")
