@@ -100,11 +100,12 @@
           fetch("./outputs/audio-lab-live/current/catalog_entries.json", { cache: "no-store" }).then((r) => r.json()),
           fetch("./outputs/audio-lab-live/current/catalog_rollup_status.json", { cache: "no-store" }).then((r) => r.json()).catch(() => ({})),
         ]);
+        const rollupSummary = rollup.summary || {};
         const entries = (entriesPayload.entries || []).slice(0, 18);
         const stats = [
           ["Entries", entriesPayload.built_count || (entriesPayload.entries || []).length || 0],
-          ["Candidates", rollup.candidate_count || "-"],
-          ["Seeds", rollup.seed_count || "-"],
+          ["Candidates", rollupSummary.candidate_count || "-"],
+          ["Seeds", rollupSummary.seed_count || "-"],
           ["Social", ((entriesPayload.entries || []).filter((entry) => (entry.seed_sources || []).includes("social-experimental-discovery")).length)],
         ];
         document.getElementById("stats").innerHTML = stats.map(([label, value]) => `<div class="stat"><strong>${value}</strong><span>${label}</span></div>`).join("");

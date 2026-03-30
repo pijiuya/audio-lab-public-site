@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-03-27T19:35:38+00:00",
-  "source_candidate_count": 8234,
+  "generated_at": "2026-03-30T11:31:39+00:00",
+  "source_candidate_count": 17,
   "social_source_seed_count": 24,
-  "selected_count": 32,
+  "selected_count": 8,
   "limit": 40,
   "selection_rules": [
     "prefer releases seen across multiple sources",
@@ -14,508 +14,326 @@
   ],
   "seeds": [
     {
-      "artist": "William Basinski",
-      "album": "The Disintegration Loops",
+      "artist": "Babalith",
+      "album": "Follow the River (ritual ambient / experimental ambient)",
       "year": null,
       "sources": [
-        "lastfm"
+        "bandcamp_tags",
+        "social-experimental-discovery"
       ],
       "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
+      ],
+      "scene_tags": [
         "ambient",
-        "drone",
-        "tape music"
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://babalith.bandcamp.com/album/follow-the-river-ritual-ambient-experimental-ambient?from=search&search_item_id=2118712106&search_item_type=a&search_match_part=%3F&search_page_id=5273862274&search_page_no=1&search_rank=1&search_sig=d1e9fde3cc24e621fceb3a345f478026",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental",
+        "ritual ambient"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Burrw",
+      "album": "Burrow - Ambient/Experimental Sample Pack",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "ambient experimental",
+        "social-experimental"
       ],
       "scene_tags": [
         "ambient",
-        "drone"
+        "experimental-electronic"
       ],
-      "selection_score": 10.25
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://burrw.bandcamp.com/album/burrow-ambient-experimental-sample-pack?from=search&search_item_id=332083295&search_item_type=a&search_match_part=%3F&search_page_id=5273862274&search_page_no=1&search_rank=4&search_sig=0f38f1922dc47c727d3a5b6a22371158",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [
+        "sample pack"
+      ],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
     },
     {
-      "artist": "Lingua Ignota",
-      "album": "CALIGULA",
+      "artist": "Chainandthegang",
+      "album": "Experimental Music",
       "year": null,
       "sources": [
-        "lastfm"
+        "bandcamp_tags",
+        "social-experimental-discovery"
       ],
       "tag_seeds": [
-        "industrial",
-        "noise"
+        "experimental music",
+        "social-experimental"
       ],
       "scene_tags": [
-        "industrial",
-        "noise"
+        "experimental-electronic"
       ],
-      "selection_score": 10.25
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://chainandthegang.bandcamp.com/album/experimental-music?from=search&search_item_id=2165831447&search_item_type=a&search_match_part=%3F&search_page_id=5273861986&search_page_no=1&search_rank=11&search_sig=2861d987e20848c2ba0a83734825115f",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
     },
     {
-      "artist": "We Are Not Brothers",
-      "album": "No som germans",
-      "year": 2013,
-      "sources": [
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "post-industrial"
-      ],
-      "scene_tags": [
-        "post-industrial"
-      ],
-      "era_tag": "2010s",
-      "selection_score": 5.75
-    },
-    {
-      "artist": "Highersense",
-      "album": "Half Way Between",
-      "year": 2017,
-      "sources": [
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "synth"
-      ],
-      "scene_tags": [],
-      "era_tag": "2010s",
-      "selection_score": 3.25
-    },
-    {
-      "artist": "Hate & Merda / Loia",
-      "album": "Live And Destroy!",
-      "year": 2015,
-      "sources": [
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "noise"
-      ],
-      "scene_tags": [
-        "noise"
-      ],
-      "era_tag": "2010s",
-      "selection_score": 5.75
-    },
-    {
-      "artist": "Boris",
-      "album": "Boris at Last -Feedbacker-",
+      "artist": "Compilationseries1",
+      "album": "COMPILATION SERIES ONE",
       "year": null,
       "sources": [
-        "lastfm"
+        "bandcamp_tags",
+        "social-experimental-discovery"
       ],
       "tag_seeds": [
-        "drone",
-        "drone metal",
-        "noise"
+        "sound art",
+        "social-experimental"
       ],
       "scene_tags": [
-        "drone",
-        "noise"
-      ],
-      "selection_score": 8.25
-    },
-    {
-      "artist": "Tim Coster",
-      "album": "Landscape I : \"The Forest\"",
-      "year": null,
-      "sources": [
-        "lastfm"
-      ],
-      "tag_seeds": [
-        "electroacoustic",
-        "sound art"
-      ],
-      "scene_tags": [
-        "electroacoustic",
         "sound-art"
       ],
-      "selection_score": 8.25
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://compilationseries1.bandcamp.com/album/compilation-series-one?from=search&search_item_id=3736232523&search_item_type=a&search_match_part=%3F&search_page_id=5273862077&search_page_no=1&search_rank=6&search_sig=55f3e22206064665b87b6f633598a59f",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
     },
     {
-      "artist": "Frank Bretschneider",
-      "album": "Rand",
-      "year": 1999,
-      "sources": [
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "glitch"
-      ],
-      "scene_tags": [],
-      "era_tag": "1990s",
-      "selection_score": 4.75
-    },
-    {
-      "artist": "Enter Shikari",
-      "album": "A Kiss for the Whole World",
-      "year": 2023,
-      "sources": [
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "electronicore"
-      ],
-      "scene_tags": [
-        "electronicore"
-      ],
-      "era_tag": "2020s",
-      "selection_score": 4.75
-    },
-    {
-      "artist": "Christoph De Babalon",
-      "album": "If You're Into It, I'm Out Of It",
+      "artist": "Darfan2",
+      "album": "Dark Ambient Experimental",
       "year": null,
       "sources": [
-        "lastfm"
+        "bandcamp_tags",
+        "social-experimental-discovery"
       ],
       "tag_seeds": [
-        "breakcore",
-        "illbient"
-      ],
-      "scene_tags": [
-        "breakcore"
-      ],
-      "selection_score": 6.75
-    },
-    {
-      "artist": "Robert Crouch",
-      "album": "A Gradual Accumulation of Ideas Becomes Truth",
-      "year": 2016,
-      "sources": [
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "microsound"
-      ],
-      "scene_tags": [],
-      "era_tag": "2010s",
-      "selection_score": 3.25
-    },
-    {
-      "artist": "Flesh Field",
-      "album": "Voice of Reason",
-      "year": 2024,
-      "sources": [
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "electro-industrial",
-        "industrial"
-      ],
-      "scene_tags": [
-        "industrial"
-      ],
-      "era_tag": "2020s",
-      "selection_score": 8.75
-    },
-    {
-      "artist": "Buzz Kull",
-      "album": "Fascination",
-      "year": null,
-      "sources": [
-        "lastfm"
-      ],
-      "tag_seeds": [
-        "coldwave",
-        "electro-industrial"
-      ],
-      "scene_tags": [],
-      "selection_score": 5.25
-    },
-    {
-      "artist": "Hype Williams",
-      "album": "10 / 10",
-      "year": 2016,
-      "sources": [
-        "lastfm",
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "illbient"
-      ],
-      "scene_tags": [],
-      "era_tag": "2010s",
-      "selection_score": 6.0
-    },
-    {
-      "artist": "Yasuyuki Uesugi",
-      "album": "I Don't Notice That I'm Losing My Place",
-      "year": 2020,
-      "sources": [
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "lowercase",
-        "microsound"
-      ],
-      "scene_tags": [],
-      "era_tag": "2020s",
-      "selection_score": 5.25
-    },
-    {
-      "artist": "Tactical Sekt",
-      "album": "Burn Process",
-      "year": 2003,
-      "sources": [
-        "lastfm",
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "EBM",
-        "electro-industrial"
-      ],
-      "scene_tags": [],
-      "era_tag": "2000s",
-      "selection_score": 7.0
-    },
-    {
-      "artist": "The Future Sound of London",
-      "album": "Dead Cities",
-      "year": null,
-      "sources": [
-        "lastfm"
-      ],
-      "tag_seeds": [
-        "IDM",
-        "ambient"
+        "ambient experimental",
+        "social-experimental"
       ],
       "scene_tags": [
         "ambient",
-        "idm"
+        "experimental-electronic"
       ],
-      "selection_score": 8.25
-    },
-    {
-      "artist": "Attack Attack!",
-      "album": "Attack Attack! (Deluxe Reissue)",
-      "year": null,
-      "sources": [
-        "lastfm_artist_expansion"
-      ],
-      "tag_seeds": [
-        "artist-network"
-      ],
-      "scene_tags": [],
-      "selection_score": 1.25
-    },
-    {
-      "artist": "Deathprod",
-      "album": "Morals and Dogma",
-      "year": null,
-      "sources": [
-        "lastfm"
-      ],
-      "tag_seeds": [
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://darfan2.bandcamp.com/album/dark-ambient-experimental?from=search&search_item_id=2409947280&search_item_type=a&search_match_part=%3F&search_page_id=5273862274&search_page_no=1&search_rank=10&search_sig=289b5df659fd1febf640e030aa415351",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
         "dark ambient",
-        "drone"
+        "experimental"
       ],
-      "scene_tags": [
-        "drone"
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
       ],
-      "selection_score": 4.75
+      "originality_negatives": []
     },
     {
-      "artist": "Sophie",
-      "album": "L.O.V.E.",
+      "artist": "Davidfenn",
+      "album": "Ambient/Experimental (Standalone, 2011)",
       "year": null,
       "sources": [
-        "lastfm"
+        "bandcamp_tags",
+        "social-experimental-discovery"
       ],
       "tag_seeds": [
-        "deconstructed club",
-        "noise"
+        "ambient experimental",
+        "social-experimental"
       ],
       "scene_tags": [
-        "noise"
-      ],
-      "selection_score": 4.75
-    },
-    {
-      "artist": "Nadja",
-      "album": "Thaumogenesis",
-      "year": 2007,
-      "sources": [
-        "lastfm",
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "drone metal"
-      ],
-      "scene_tags": [],
-      "era_tag": "2000s",
-      "selection_score": 5.0
-    },
-    {
-      "artist": "Luke Hess",
-      "album": "Light in the Dark",
-      "year": 2009,
-      "sources": [
-        "lastfm",
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "dub techno"
-      ],
-      "scene_tags": [
-        "dub-techno"
-      ],
-      "era_tag": "2000s",
-      "selection_score": 6.5
-    },
-    {
-      "artist": "Puscifer",
-      "album": "Conditions of My Parole",
-      "year": null,
-      "sources": [
-        "lastfm"
-      ],
-      "tag_seeds": [
-        "electronic rock",
-        "industrial",
-        "post-industrial"
-      ],
-      "scene_tags": [
-        "electronic-rock",
-        "industrial",
-        "post-industrial"
-      ],
-      "selection_score": 11.75
-    },
-    {
-      "artist": "Byetone",
-      "album": "Death of a Typographer",
-      "year": null,
-      "sources": [
-        "lastfm"
-      ],
-      "tag_seeds": [
-        "experimental electronic",
-        "glitch"
-      ],
-      "scene_tags": [],
-      "selection_score": 3.25
-    },
-    {
-      "artist": "Hiroko Komiya / Chris H. Lynn",
-      "album": "A Quiet Garden",
-      "year": null,
-      "sources": [
-        "lastfm"
-      ],
-      "tag_seeds": [
-        "field recording",
-        "sound art"
-      ],
-      "scene_tags": [
-        "sound-art"
-      ],
-      "selection_score": 4.75
-    },
-    {
-      "artist": "str4kys",
-      "album": "transición",
-      "year": null,
-      "sources": [
-        "lastfm"
-      ],
-      "tag_seeds": [
-        "minimal wave",
-        "post-industrial"
-      ],
-      "scene_tags": [
-        "minimal-wave",
-        "post-industrial"
-      ],
-      "selection_score": 6.25
-    },
-    {
-      "artist": "Strawberry Glass",
-      "album": "For The Dreamers...",
-      "year": 2011,
-      "sources": [
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "outsider house"
-      ],
-      "scene_tags": [],
-      "era_tag": "2010s",
-      "selection_score": 2.25
-    },
-    {
-      "artist": "The Moon Lay Hidden Beneath a Cloud",
-      "album": "Amara Tanta Tyri",
-      "year": 1994,
-      "sources": [
-        "lastfm",
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "ritual ambient"
-      ],
-      "scene_tags": [],
-      "era_tag": "1990s",
-      "selection_score": 5.5
-    },
-    {
-      "artist": "Eartheater",
-      "album": "Trinity",
-      "year": null,
-      "sources": [
-        "lastfm_similar_artist_expansion"
-      ],
-      "tag_seeds": [
-        "similar-artist-network"
-      ],
-      "scene_tags": [],
-      "selection_score": 1.25
-    },
-    {
-      "artist": "Conure",
-      "album": "49 Minutes (Until Release)",
-      "year": 2005,
-      "sources": [
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "sound art"
-      ],
-      "scene_tags": [
-        "sound-art"
-      ],
-      "era_tag": "2000s",
-      "selection_score": 5.75
-    },
-    {
-      "artist": "Joshua Chuquimia Crampton",
-      "album": "4",
-      "year": 2021,
-      "sources": [
-        "lastfm",
-        "musicbrainz"
-      ],
-      "tag_seeds": [
-        "tape music"
-      ],
-      "scene_tags": [],
-      "era_tag": "2020s",
-      "selection_score": 4.0
-    },
-    {
-      "artist": "Paleowolf",
-      "album": "Prehistoric Meditations",
-      "year": 2017,
-      "sources": [
-        "lastfm",
-        "musicbrainz"
-      ],
-      "tag_seeds": [
         "ambient",
-        "ritual ambient"
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://davidfenn.bandcamp.com/album/ambient-experimental-standalone-2011?from=search&search_item_id=2502006107&search_item_type=a&search_match_part=%3F&search_page_id=5273862274&search_page_no=1&search_rank=8&search_sig=4c3c86aa8d032bf1f1b32fa4af08417d",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "ambient",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Experimentalmusiccatalogue",
+      "album": "Levels",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "experimental music",
+        "social-experimental"
       ],
       "scene_tags": [
-        "ambient"
+        "experimental-electronic"
       ],
-      "era_tag": "2010s",
-      "selection_score": 9.5
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://experimentalmusiccatalogue.bandcamp.com/album/levels?from=search&search_item_id=2207972795&search_item_type=a&search_match_part=%3F&search_page_id=5273861986&search_page_no=1&search_rank=10&search_sig=5e979a8056aa8eae73421f32247276bb",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album",
+        "experimental"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
+    },
+    {
+      "artist": "Flamingpines",
+      "album": "Absence",
+      "year": null,
+      "sources": [
+        "bandcamp_tags",
+        "social-experimental-discovery"
+      ],
+      "tag_seeds": [
+        "experimental music",
+        "social-experimental"
+      ],
+      "scene_tags": [
+        "experimental-electronic"
+      ],
+      "era_tag": null,
+      "selection_score": 8.18,
+      "candidate_url": "https://flamingpines.bandcamp.com/album/absence?from=search&search_item_id=1346287621&search_item_type=a&search_match_part=%3F&search_page_id=5273861986&search_page_no=1&search_rank=13&search_sig=ce4e59b788f173889b472e1eb0bd0cab",
+      "candidate_cover_url": null,
+      "candidate_platform_kind": "platform",
+      "candidate_source_format": "album",
+      "candidate_attention_value": null,
+      "candidate_duration_seconds": null,
+      "music_likelihood_score": 1.0,
+      "originality_score": 0.68,
+      "indie_creator_likely": true,
+      "editorial_precheck": "keep",
+      "positive_hits": [
+        "album"
+      ],
+      "negative_hits": [],
+      "originality_flags": [
+        "album-format",
+        "direct-release-link",
+        "self-published-platform"
+      ],
+      "originality_negatives": []
     }
   ]
 }

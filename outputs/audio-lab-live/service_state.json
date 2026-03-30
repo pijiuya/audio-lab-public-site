@@ -1,12 +1,12 @@
 {
   "service": {
-    "started_at": "2026-03-28T03:36:39+08:00",
-    "output_root": "/Users/macstudio/Documents/Playground/audio-lab-public-site/outputs/audio-lab-live",
-    "current_dir": "/Users/macstudio/Documents/Playground/audio-lab-public-site/outputs/audio-lab-live/current",
-    "auto_loop_enabled": false,
-    "render_active": false,
+    "started_at": "2026-03-30T19:30:39+08:00",
+    "output_root": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live",
+    "current_dir": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current",
+    "auto_loop_enabled": true,
+    "render_active": true,
     "queued_manual_requests": 0,
-    "completed_runs": 0,
+    "completed_runs": 5,
     "manual_runs": 0,
     "failed_runs": 0,
     "max_runs": null,
@@ -25,10 +25,10 @@
       "chamber_signal"
     ],
     "next_auto_request": {
-      "preset_bundle": "chamber_signal",
+      "preset_bundle": "ruin_epic",
       "style": [],
       "randomness_preset": "balanced",
-      "duration": 14.0,
+      "duration": 12.0,
       "target_length": null,
       "sample_rate": 16000,
       "seed": 71,
@@ -43,16 +43,16 @@
       "density_curve": null,
       "groove_template": null,
       "master_bus": null,
-      "export_stems": true,
+      "export_stems": false,
       "with_downloads": false,
       "no_voice": false,
       "ignore_bundle_target_length": false,
       "client_name": null,
-      "request_label": "Chamber realism pass",
+      "request_label": "Ruin long-tail pass",
       "note": null,
       "request_id": "next-auto-preview",
       "request_kind": "auto",
-      "queued_at": "2026-03-28T03:36:39+08:00",
+      "queued_at": "2026-03-30T19:34:43+08:00",
       "rotation_note": "No bundle or style was pinned, so the live service used runtime profile 'realism-cycle'."
     },
     "default_request": {
@@ -113,32 +113,172 @@
       "stop": "/api/audio-lab/control/stop"
     }
   },
-  "active_request": null,
-  "active_process_id": null,
+  "active_request": {
+    "preset_bundle": "ruin_epic",
+    "style": [],
+    "randomness_preset": "balanced",
+    "duration": 12.0,
+    "target_length": null,
+    "sample_rate": 16000,
+    "seed": 71,
+    "download_count": 0,
+    "instrument_download_count": 0,
+    "query": [],
+    "instrument_query": [],
+    "spoken_text": [],
+    "voice_name": [],
+    "voice_mode": null,
+    "voice_effect": null,
+    "density_curve": null,
+    "groove_template": null,
+    "master_bus": null,
+    "export_stems": false,
+    "with_downloads": false,
+    "no_voice": false,
+    "ignore_bundle_target_length": false,
+    "client_name": null,
+    "request_label": "Ruin long-tail pass",
+    "note": null,
+    "request_id": "auto-1774870483295",
+    "request_kind": "auto",
+    "queued_at": "2026-03-30T19:34:43+08:00",
+    "rotation_note": "No bundle or style was pinned, so the live service used runtime profile 'realism-cycle'."
+  },
+  "active_process_id": 92023,
   "queue_preview": [],
   "recent_events": [
     {
-      "time": "2026-03-28T03:36:39+08:00",
+      "time": "2026-03-30T19:34:43+08:00",
+      "event": "render-started",
+      "details": {
+        "request_id": "auto-1774870483295",
+        "request_kind": "auto",
+        "preset_bundle": "ruin_epic",
+        "client_name": null
+      }
+    },
+    {
+      "time": "2026-03-30T19:34:42+08:00",
+      "event": "render-completed",
+      "details": {
+        "run_id": "run-0005-20260330-193349",
+        "preset_bundle": "chamber_signal",
+        "style": "memory-hall+acoustic-fragment+choir-machine",
+        "request_kind": "auto"
+      }
+    },
+    {
+      "time": "2026-03-30T19:33:49+08:00",
+      "event": "render-started",
+      "details": {
+        "request_id": "auto-1774870429357",
+        "request_kind": "auto",
+        "preset_bundle": "chamber_signal",
+        "client_name": null
+      }
+    },
+    {
+      "time": "2026-03-30T19:33:48+08:00",
+      "event": "render-completed",
+      "details": {
+        "run_id": "run-0004-20260330-193326",
+        "preset_bundle": "artifact_dance",
+        "style": "neon-arcade+junkyard-funk+machine-lullaby",
+        "request_kind": "auto"
+      }
+    },
+    {
+      "time": "2026-03-30T19:33:26+08:00",
+      "event": "render-started",
+      "details": {
+        "request_id": "auto-1774870406682",
+        "request_kind": "auto",
+        "preset_bundle": "artifact_dance",
+        "client_name": null
+      }
+    },
+    {
+      "time": "2026-03-30T19:33:25+08:00",
+      "event": "render-completed",
+      "details": {
+        "run_id": "run-0003-20260330-193219",
+        "preset_bundle": "night_broadcast",
+        "style": "broadcast-emergency+blackout-club+oracle-station",
+        "request_kind": "auto"
+      }
+    },
+    {
+      "time": "2026-03-30T19:32:19+08:00",
+      "event": "render-started",
+      "details": {
+        "request_id": "auto-1774870339041",
+        "request_kind": "auto",
+        "preset_bundle": "night_broadcast",
+        "client_name": null
+      }
+    },
+    {
+      "time": "2026-03-30T19:32:18+08:00",
+      "event": "render-completed",
+      "details": {
+        "run_id": "run-0002-20260330-193128",
+        "preset_bundle": "ruin_epic",
+        "style": "ruins-noise+ash-ritual+slow-collapse",
+        "request_kind": "auto"
+      }
+    },
+    {
+      "time": "2026-03-30T19:31:28+08:00",
+      "event": "render-started",
+      "details": {
+        "request_id": "auto-1774870288113",
+        "request_kind": "auto",
+        "preset_bundle": "ruin_epic",
+        "client_name": null
+      }
+    },
+    {
+      "time": "2026-03-30T19:31:27+08:00",
+      "event": "render-completed",
+      "details": {
+        "run_id": "run-0001-20260330-193039",
+        "preset_bundle": "chamber_signal",
+        "style": "memory-hall+acoustic-fragment+choir-machine",
+        "request_kind": "auto"
+      }
+    },
+    {
+      "time": "2026-03-30T19:30:39+08:00",
+      "event": "render-started",
+      "details": {
+        "request_id": "auto-1774870239275",
+        "request_kind": "auto",
+        "preset_bundle": "chamber_signal",
+        "client_name": null
+      }
+    },
+    {
+      "time": "2026-03-30T19:30:39+08:00",
       "event": "service-started",
       "details": {
         "runtime_profile": "realism-cycle",
-        "autostart": false
+        "autostart": true
       }
     }
   ],
   "latest_run": {
-    "run_id": "run-0013-20260328-033437",
-    "request_id": "auto-1774640077681",
+    "run_id": "run-0005-20260330-193349",
+    "request_id": "auto-1774870429357",
     "request_kind": "auto",
-    "completed_at": "2026-03-28T03:35:34+08:00",
-    "session_dir": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437",
-    "session_dir_relative": "outputs/audio-lab-live/runs/run-0013-20260328-033437",
-    "request_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/request.json",
-    "log_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/run.log",
-    "summary_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/summary.json",
-    "manifest_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/session_manifest.json",
-    "style_discovery_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/style_discovery.json",
-    "latest_mix_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/latest_mix.wav",
+    "completed_at": "2026-03-30T19:34:42+08:00",
+    "session_dir": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349",
+    "session_dir_relative": "outputs/audio-lab-live/runs/run-0005-20260330-193349",
+    "request_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/request.json",
+    "log_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/run.log",
+    "summary_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/summary.json",
+    "manifest_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/session_manifest.json",
+    "style_discovery_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/style_discovery.json",
+    "latest_mix_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/latest_mix.wav",
     "published_current_dir": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current",
     "api_paths": {
       "latest": "/api/audio-lab/latest",
@@ -171,7 +311,7 @@
       "style": "memory-hall+acoustic-fragment+choir-machine",
       "preset_bundle": "chamber_signal",
       "segment_count": 3,
-      "latest_mix": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/latest_mix.wav",
+      "latest_mix": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/latest_mix.wav",
       "voice_mode": "whisper",
       "master_bus": "clean-wide"
     },
@@ -204,9 +344,9 @@
       "client_name": null,
       "request_label": "Chamber realism pass",
       "note": null,
-      "request_id": "auto-1774640077681",
+      "request_id": "auto-1774870429357",
       "request_kind": "auto",
-      "queued_at": "2026-03-28T03:34:37+08:00",
+      "queued_at": "2026-03-30T19:33:49+08:00",
       "rotation_note": "No bundle or style was pinned, so the live service used runtime profile 'realism-cycle'."
     }
   },

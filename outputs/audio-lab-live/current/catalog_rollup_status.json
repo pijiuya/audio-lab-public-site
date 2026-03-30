@@ -1,14 +1,38 @@
 {
-  "generated_at": "2026-03-27T19:11:10+00:00",
+  "generated_at": "2026-03-30T11:31:48+00:00",
   "ok": true,
   "summary": {
-    "candidate_count": 8234,
-    "seed_count": 32,
-    "entry_count": 837,
-    "library_count": 837,
+    "candidate_count": 17,
+    "seed_count": 8,
+    "entry_count": 1361,
+    "library_count": 1361,
     "failed_entry_count": 0,
     "failed_collection_count": 0,
-    "professional_digest_sources": 5
+    "latest_collection_failure_count": 0,
+    "social_candidate_count": 113,
+    "social_seed_count": 24,
+    "latest_social_failure_count": 0,
+    "professional_digest_sources": 5,
+    "legacy_collection_failure_count": 60
+  },
+  "pipelines": {
+    "catalog_collection": {
+      "candidate_count": 17,
+      "seed_count": 8,
+      "preserved_previous_candidates": false,
+      "latest_failure_count": 0,
+      "legacy_failure_count": 60
+    },
+    "social_discovery": {
+      "candidate_count": 113,
+      "seed_count": 24,
+      "preserved_previous_candidates": true,
+      "latest_failure_count": 0
+    },
+    "archive_build": {
+      "entry_count": 1361,
+      "failed_entry_count": 0
+    }
   },
   "artifacts": {
     "candidates": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current/catalog_candidates.json",
@@ -51,12 +75,12 @@
     {
       "step": "credibility_backfill",
       "ok": true,
-      "detail": "{\"retried\": 48, \"touched\": 39, \"restored_scores\": 39, \"remaining_missing\": 493, \"failures\": [{\"entry_id\": \"saginomiya--noise-ambient-experimental-works-2020--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"darfan2--dark-ambient-experimental--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"davidfenn--ambient-experimental-standalone-2011--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"keitasasaki--ambient-experimental-01--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"mashpotato-records--ambient-experimental-djmix--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"quasardrifter--hardware-tracks-ambient-experimental--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"13-404y--leo-iwamura-beat-live-set-chill-groove-boombap-experimental-by-music-lounge--2025\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"hi-ziyi--mahakali-ziyi-ambient-experimental-live-set--unknown-year\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}, {\"entry_id\": \"capricon2014--experimental-music-of-japan-1957-1967-full-album-japan-1968--2021\", \"reason\": \"Failed to build credibility snapshot: HTTPError: HTTP Error 404: Not Found\"}]}"
+      "detail": "{\"retried\": 48, \"touched\": 31, \"restored_scores\": 31, \"remaining_missing\": 780, \"failures\": [{\"entry_id\": \"wumpscut--bunkertor-7--unknown-year\", \"reason\": \"Failed to build credibility snapshot: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>\"}, {\"entry_id\": \"bedwetter--vol-1-flick-your-tongue-against-your-teeth-and-describe-the-present--unknown-year\", \"reason\": \"Failed to build credibility snapshot: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>\"}, {\"entry_id\": \"death-grips--bottomless-pit--unknown-year\", \"reason\": \"Failed to build credibility snapshot: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>\"}, {\"entry_id\": \"fire-toolz--skinless-x-1--unknown-year\", \"reason\": \"Failed to build credibility snapshot: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>\"}, {\"entry_id\": \"front-line-assembly--improvised-electronic-device-deluxe--unknown-year\", \"reason\": \"Failed to build credibility snapshot: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>\"}, {\"entry_id\": \"godflesh--slavestate--unknown-year\", \"reason\": \"Failed to build credibility snapshot: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>\"}, {\"entry_id\": \"health--vol-4-slaves-of-fear--unknown-year\", \"reason\": \"Failed to build credibility snapshot: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>\"}, {\"entry_id\": \"monty-adkins--fragile-flicker-fragment--unknown-year\", \"reason\": \"Failed to build credibility snapshot: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>\"}, {\"entry_id\": \"noisia--devil-may-cry-original-game-soundtrack--unknown-year\", \"reason\": \"Failed to build credibility snapshot: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>\"}, {\"entry_id\": \"preemptive-strike-0-1--through-the-astral-cold--2017\", \"reason\": \"Failed to build credibility snapshot: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>\"}]}"
     },
     {
       "step": "metadata_backfill",
       "ok": true,
-      "detail": "{\"processed\": 48, \"touched\": 5, \"cover_filled\": 5, \"bio_filled\": 5, \"image_filled\": 5}"
+      "detail": "{\"processed\": 24, \"touched\": 0, \"cover_filled\": 0, \"bio_filled\": 0, \"image_filled\": 0}"
     },
     {
       "step": "professional_digest",

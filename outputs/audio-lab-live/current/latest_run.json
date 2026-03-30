@@ -1,16 +1,16 @@
 {
-  "run_id": "run-0013-20260328-033437",
-  "request_id": "auto-1774640077681",
+  "run_id": "run-0005-20260330-193349",
+  "request_id": "auto-1774870429357",
   "request_kind": "auto",
-  "completed_at": "2026-03-28T03:35:34+08:00",
-  "session_dir": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437",
-  "session_dir_relative": "outputs/audio-lab-live/runs/run-0013-20260328-033437",
-  "request_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/request.json",
-  "log_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/run.log",
-  "summary_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/summary.json",
-  "manifest_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/session_manifest.json",
-  "style_discovery_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/style_discovery.json",
-  "latest_mix_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/latest_mix.wav",
+  "completed_at": "2026-03-30T19:34:42+08:00",
+  "session_dir": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349",
+  "session_dir_relative": "outputs/audio-lab-live/runs/run-0005-20260330-193349",
+  "request_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/request.json",
+  "log_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/run.log",
+  "summary_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/summary.json",
+  "manifest_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/session_manifest.json",
+  "style_discovery_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/style_discovery.json",
+  "latest_mix_path": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/latest_mix.wav",
   "published_current_dir": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/current",
   "api_paths": {
     "latest": "/api/audio-lab/latest",
@@ -43,7 +43,7 @@
     "style": "memory-hall+acoustic-fragment+choir-machine",
     "preset_bundle": "chamber_signal",
     "segment_count": 3,
-    "latest_mix": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0013-20260328-033437/latest_mix.wav",
+    "latest_mix": "/Users/macstudio/Documents/Playground/outputs/audio-lab-live/runs/run-0005-20260330-193349/latest_mix.wav",
     "voice_mode": "whisper",
     "master_bus": "clean-wide"
   },
@@ -76,9 +76,9 @@
     "client_name": null,
     "request_label": "Chamber realism pass",
     "note": null,
-    "request_id": "auto-1774640077681",
+    "request_id": "auto-1774870429357",
     "request_kind": "auto",
-    "queued_at": "2026-03-28T03:34:37+08:00",
+    "queued_at": "2026-03-30T19:33:49+08:00",
     "rotation_note": "No bundle or style was pinned, so the live service used runtime profile 'realism-cycle'."
   }
 }
